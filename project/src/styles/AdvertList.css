@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.general-div {
+  display: flex;
+  flex-direction: row;
+}
+.filter-div {
+  width: 20%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  gap: 2em;
+  height: 30em;
+  margin: 0 1em 0 0;
+  padding: 2em 1em;
+  border-radius: 0.6em;
+  background-color: white;
+}
+.btn-advert {
+  float: none;
+  color: white;
+  background-color: black;
+  width: 100%;
+}
+
+.filter-div h4 {
+  font-size: 1.3em;
+}
+
+.filter-div p:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.input-div {
+  margin-bottom: 2em;
+  width: 25%;
+  display: inline-block;
+
+  margin-bottom: 2em;
+}
+.input-div input {
+  border: 1px solid lightgray;
+  font-size: 1.1em;
+  border-radius: 0.5em;
+  font-weight: lighter;
+}
+.input-div input:focus {
+  outline: none;
+}
+.advert-div {
+  width: 70%;
+  border-radius: 0.5em !important;
+  display: flex;
+  flex-direction: column;
+}
+.div-input-create {
+  display: flex;
+  justify-content: space-between;
+}
+.create-advert {
+  width: 35%;
+}
+.create-advert button {
+  padding: 0.5em 2em;
+  border-radius: 0.7em;
+  margin-left: 2em;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+.create-advert button:hover {
+  transform: scale(1.1);
+}
+.list-image {
+  width: 10%;
+  object-fit: cover;
+}
+.list-desc {
+  width: 70%;
+  display: inline;
+}
+.advert-list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0;
+  border-bottom: 1px solid lightgrey;
+  background-color: white;
+}
+.border-advert {
+  border: 1px solid lightgray;
+}
+.advert-list-item .list-image,
+.list-desc,
+.list-price,
+.list-address {
+  margin: 1em 1em;
+}
+.advert-list-item:hover {
+  cursor: pointer;
+  background-color: aliceblue;
+}
+.pagination {
+  display: flex;
+  justify-content: right;
+  margin-top: 1em;
+}
+.advert-top {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(77, 65, 65);
+  color: white;
+  border-radius: 0.5em 0.5em 0 0;
+}
+
+@media screen and (max-width: 900px) {
+  .filter-div {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  .advert-div {
+    width: 100%;
+  }
+  .general-div {
+    display: block;
+  }
+}

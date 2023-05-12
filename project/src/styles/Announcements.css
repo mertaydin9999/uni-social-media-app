@@ -1,0 +1,21 @@
+.announcements-div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  margin-top: 4em;
+}
+.announcement {
+  border: 1px solid black;
+  padding: 2em;
+}
+h3 {
+  text-align: center;
+}
+button {
+  width: 30%;
+  float: right;
+}

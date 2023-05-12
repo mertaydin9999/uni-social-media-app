@@ -1,0 +1,71 @@
+.edit-profile {
+  border: 1px solid lightgray;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5em;
+}
+.edit-profile * {
+  margin: 0.6em 0;
+  border-radius: 0.3em;
+}
+button {
+  background-color: white;
+  color: black;
+  border: 0.2px solid black;
+  border-radius: 0.3em;
+  padding: 0.5em 2em;
+}
+.buttons-div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+button:hover {
+  background-color: black;
+  color: white;
+}
+input,
+textarea {
+  width: 50%;
+  padding: 1.1em;
+  text-align: start;
+}
+label {
+  font-size: 1.3em;
+  font-weight: 200;
+}
+.profile-title {
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  margin-top: -1em;
+}
+.profile-title h3 {
+  font-weight: 300;
+}
+.inputs div input:focus {
+  outline: 1px solid rgb(113, 41, 195);
+}
+textarea:focus {
+  outline: 1px solid rgb(113, 41, 195);
+}
+.profile-pic {
+  border-radius: 50%;
+  width: 50%;
+  height: 10em;
+  margin-top: 2em;
+}
+.btn-edit-photo {
+  background-color: white;
+  color: black;
+  border: 0.2px solid black;
+  border-radius: 0.3em;
+  padding: 0.5em 2em;
+  margin-top: 2em;
+}
+.photo-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 13em;
+}

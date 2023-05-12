@@ -1,0 +1,16 @@
+.main-box {
+  display: flex;
+}
+.left-box {
+  width: 20%;
+}
+.mid-box {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.left-box {
+  width: 20%;
+}

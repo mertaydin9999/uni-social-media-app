@@ -1,0 +1,39 @@
+footer {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  padding: 5em;
+  display: flex;
+}
+
+.logo-div {
+  display: flex;
+  flex-direction: row;
+}
+.footer-divider {
+  display: flex;
+  flex-direction: column;
+}
+.about-us {
+  margin-top: 3em;
+}
+.sosyal-footer {
+  text-align: center;
+}
+.sosyal-footer h2 {
+  margin-bottom: 1em;
+}
+p a {
+  text-decoration: none;
+  color: black;
+}
+.sosyalmedya-footer {
+  margin-bottom: 1em;
+  text-align: center;
+}
+.sosyalmedya-footer h2 {
+  margin-bottom: 1em;
+}
+.social-icons {
+  color: black;
+}

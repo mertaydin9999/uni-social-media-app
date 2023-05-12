@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.general-div {
+  background-color: white;
+  padding: 4em;
+}
+.advert-div {
+  display: flex;
+}
+.images-div {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2em 2em;
+}
+img {
+  width: 20%;
+  object-fit: cover;
+}
+.price,
+.buttons,
+.address,
+.description {
+  margin-top: 2em;
+}
+.upload-file {
+  display: flex;
+  flex-direction: column;
+  padding: 2em 0;
+}
+input[type="file"] {
+  border: none;
+  height: auto;
+}
+textarea {
+  width: 80%;
+  border-radius: 0.5em;
+}
+input {
+  border-radius: 0.5em;
+  margin: 3em;
+}
+input:focus {
+  outline: none;
+}
+.buttons {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+.buttons button {
+  border-radius: 0.5em;
+}

@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+.about-us-image {
+  object-fit: cover;
+  width: 100%;
+}
+.who-we-are {
+  margin: 5em;
+}
+h2 {
+  text-align: center;
+}

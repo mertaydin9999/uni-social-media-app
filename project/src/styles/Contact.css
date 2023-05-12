@@ -1,0 +1,54 @@
+.contact-div {
+  display: flex;
+  flex-direction: row;
+}
+.contact-right {
+  width: 50%;
+  height: 500px;
+  background-color: white;
+  border: 1px solid black;
+}
+.contact-left {
+  width: 50%;
+  height: 500px;
+  background-color: black;
+  padding: 3em;
+  color: white;
+}
+.title {
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4em;
+  gap: 1.4em 0;
+}
+input,
+textarea,
+button {
+  width: 100%;
+  border-radius: 0;
+}
+button {
+  background-color: black;
+  color: white;
+}
+button:hover {
+  background-color: rgb(32, 208, 35);
+}
+
+@media screen and (max-width: 768px) {
+  .contact-div {
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-right {
+    width: 100%;
+  }
+  .contact-left {
+    width: 100%;
+  }
+}
