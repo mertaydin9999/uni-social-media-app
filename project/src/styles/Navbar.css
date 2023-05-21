@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+.navbar {
+  top: 0;
+  width: 100%;
+  display: flex;
+  position: fixed !important;
+  justify-content: center !important;
+  gap: 0em 10em;
+  z-index: 1;
+  opacity: 0.8;
+
+  background-color: var(--stratos);
+}
+ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  margin: 0 !important;
+
+  gap: 0 2em;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--botticelli);
+}
+a {
+  font-size: 1.3em;
+}
+a:hover {
+  color: rgb(224, 224, 97) !important;
+}
+.logo {
+  font-size: 2em;
+}

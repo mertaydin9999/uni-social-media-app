@@ -56,6 +56,14 @@ function Advert() {
           <div>
             <button
               className="btn-advert"
+              onClick={() => setSearchParams({ filter: "" })}
+            >
+              Tum Ilanlari
+            </button>
+          </div>
+          <div>
+            <button
+              className="btn-advert"
               onClick={() => setSearchParams({ filter: "work" })}
             >
               Is Ilanlari

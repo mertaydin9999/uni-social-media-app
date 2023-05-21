@@ -1,0 +1,53 @@
+.jumbotron {
+  height: 600px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: relative;
+}
+.jumbotron::before {
+  content: "";
+  background-image: url("../assets/jumbotron/jumbotron-img.jpg") !important;
+  object-fit: cover !important ;
+  background-size: cover;
+  position: absolute;
+  background-position: 20%;
+  top: 0;
+
+  bottom: 0;
+  right: 0;
+  left: 0;
+  filter: opacity(0.6) drop-shadow(0 0 0 var(--stratos));
+}
+.jumbotron-text {
+  position: relative;
+  right: 20%;
+  font-weight: bold;
+  font-size: 3em;
+  color: white;
+}
+.jumbotron-text a {
+  padding: 0.5em 1em;
+  border: 0.1em solid var(--botticelli);
+  text-decoration: none;
+  font-size: 0.4em;
+  color: var(--botticelli);
+  background-color: var(--stratos);
+  opacity: 0.7;
+  font-weight: 300;
+}
+.jumbotron-text a:hover {
+  background-color: var(--botticelli);
+  color: var(--stratos) !important;
+  border: 0.1em solid var(--stratos);
+}
+.campus-connect {
+  text-align: center;
+  background-color: var(--botticelli);
+  opacity: 0.9;
+  color: var(--stratos);
+}
+.kampusler {
+  font-weight: 300;
+}

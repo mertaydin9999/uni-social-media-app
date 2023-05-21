@@ -1,12 +1,17 @@
+:root {
+  --stratos: #001b48;
+  --regal-blue: #02457a;
+  --bondi-blue: #018abe;
+  --morning-glory: #97cadb;
+  --botticelli: #d6e8ee;
+  --none: none;
+  --button-padding: 2em 1em;
+
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
-  background: white;
+  background-color: var(--morning-glory) !important;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5em;
-}

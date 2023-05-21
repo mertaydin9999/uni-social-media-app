@@ -1,3 +1,7 @@
+.container {
+  width: 80% !important;
+}
+
 .home-card {
   border: 0px solid black;
   border-radius: 1em;
@@ -28,9 +32,8 @@ img {
   text-align: center;
   border: 1px solid purple;
   border-radius: 1em;
-  
 }
-.baslik-div{
+.baslik-div {
   background-color: aqua;
   width: 100%;
   border-radius: 1em 1em 0 0;

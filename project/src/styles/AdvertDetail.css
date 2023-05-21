@@ -1,0 +1,82 @@
+.general-div {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #2296f3;
+  gap: 1em 0;
+  padding: 0;
+}
+
+.general-div div div {
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 10px 8px 2px rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 2em;
+  margin: 1em;
+}
+.general-div div[class="bottom-advert-desc"],
+div[class="bottom-similar-advert"] {
+  padding: 2em;
+  background-color: white;
+  box-shadow: 0 10px 8px 2px rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.left-div {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.big-image-div img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+}
+.big-image-div {
+  box-shadow: none !important;
+}
+.photos-div {
+  display: flex;
+
+  padding: 0 !important;
+}
+.left-photo-div {
+  width: 20%;
+  gap: 1em 0;
+  box-shadow: none !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+img {
+  border-radius: 0;
+}
+.right-div {
+  width: 30%;
+}
+.small-photo {
+  width: 100%;
+}
+.right-price-div {
+  background-color: white;
+  box-shadow: 0 10px 8px 2px rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.right-owner-div {
+  background-color: aqua;
+}
+.right-loc-div {
+  background-color: blanchedalmond;
+}
+.bottom-advert-desc {
+  width: 100%;
+  background-color: red;
+}
+.bottom-similar-advert {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: green;
+}

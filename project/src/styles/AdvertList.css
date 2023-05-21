@@ -2,10 +2,14 @@
   box-sizing: border-box;
   margin: 0;
 }
+.root {
+  margin-top: 10em;
+}
 
 .general-div {
   display: flex;
   flex-direction: row;
+  background-color: white;
 }
 .filter-div {
   width: 20%;
