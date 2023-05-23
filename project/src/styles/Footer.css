@@ -1,9 +1,10 @@
 footer {
   height: 100%;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--stratos);
   padding: 5em;
   display: flex;
+  color: var(--botticelli);
 }
 
 .logo-div {
@@ -23,9 +24,9 @@ footer {
 .sosyal-footer h2 {
   margin-bottom: 1em;
 }
-p a {
-  text-decoration: none;
-  color: black;
+a {
+  text-decoration: none !important;
+  color: var(--botticelli) !important;
 }
 .sosyalmedya-footer {
   margin-bottom: 1em;
@@ -35,5 +36,5 @@ p a {
   margin-bottom: 1em;
 }
 .social-icons {
-  color: black;
+  color: var(--botticelli);
 }

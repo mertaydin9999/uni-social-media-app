@@ -1,8 +1,83 @@
 .container {
   width: 80% !important;
 }
+.options {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 0 auto 5em auto;
+  gap: 0 1em;
+}
 
-.home-card {
+.options .links {
+  font-size: 2em;
+  width: 100%;
+  justify-content: center;
+  border-left: 1px solid var(--stratos);
+  height: 200px;
+  display: flex;
+  align-items: end;
+  position: relative;
+  filter: opacity(0.6) drop-shadow(0 0 0 var(--stratos));
+}
+.options .links:hover {
+  filter: opacity(1) drop-shadow(0 0 0 black);
+}
+.links::before {
+  content: "";
+  background-image: url("../assets/homepage/advert-img.jpeg") !important;
+
+  object-fit: cover !important ;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.links-text {
+  position: relative;
+  color: white !important;
+  background: none !important;
+}
+
+.infos-div {
+  margin: 0em auto;
+
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+
+  background-color: var(--regal-blue);
+  color: var(--botticelli);
+}
+.infos {
+  font-size: 1.5em;
+}
+.info {
+  font-size: 1.2em;
+  gap: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 33%;
+  background-color: var(--stratos);
+  padding: 2em 2em;
+}
+.info p {
+  text-align: justify;
+}
+.info-student {
+  background-color: var(--stratos);
+}
+.info-home {
+  background-color: var(--regal-blue);
+}
+.info-company {
+  background-color: var(--bondi-blue);
+}
+/* .home-card {
   border: 0px solid black;
   border-radius: 1em;
   padding: 2.3em 4em;
@@ -37,4 +112,4 @@ img {
   background-color: aqua;
   width: 100%;
   border-radius: 1em 1em 0 0;
-}
+} */

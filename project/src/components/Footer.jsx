@@ -14,14 +14,6 @@ function Footer() {
         <Grid container spacing={2}>
           <Grid item xs={12} lg={4} md={6}>
             <div className="logo-div">
-              <AdbIcon
-                sx={{
-                  display: { xs: "flex", md: "flex" },
-                  fontSize: 30,
-                  mr: 1,
-                  color: "black",
-                }}
-              />
               <Typography
                 variant="h6"
                 noWrap
@@ -67,34 +59,22 @@ function Footer() {
             <div className="sosyal-footer">
               <h2>Sosyal</h2>
               <Link to="/events">
-                <p>
-                  <a href="">ETKINLIKLER</a>
-                </p>
+                <p>ETKINLIKLER</p>
               </Link>
               <Link>
-                <p>
-                  <a href="">KONSERLER</a>
-                </p>
+                <p>KONSERLER</p>
               </Link>
               <Link to="/advert">
-                <p>
-                  <a href="">ILANLAR</a>
-                </p>
+                <p>ILANLAR</p>
               </Link>
               <Link to="/solidatiry">
-                <p>
-                  <a href="">YARDIMLASMA</a>
-                </p>
+                <p>YARDIMLASMA</p>
               </Link>
               <Link to="/announcements">
-                <p>
-                  <a href="">DUYURULAR</a>
-                </p>
+                <p>DUYURULAR</p>
               </Link>
               <Link>
-                <p>
-                  <a href="">ITIRAFLAR</a>
-                </p>
+                <p>ITIRAFLAR</p>
               </Link>
             </div>
           </Grid>

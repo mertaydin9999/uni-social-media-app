@@ -6,12 +6,10 @@
   --botticelli: #d6e8ee;
   --none: none;
   --button-padding: 2em 1em;
-
 }
 
 body {
   box-sizing: border-box;
   margin: 0;
-  background-color: var(--morning-glory) !important;
+  background-color: white !important;
 }
-

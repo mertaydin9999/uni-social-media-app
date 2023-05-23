@@ -10,7 +10,6 @@
   justify-content: center !important;
   gap: 0em 10em;
   z-index: 1;
-  opacity: 0.8;
 
   background-color: var(--stratos);
 }
@@ -34,5 +33,5 @@ a:hover {
   color: rgb(224, 224, 97) !important;
 }
 .logo {
-  font-size: 2em;
+  font-size: 1.3em;
 }

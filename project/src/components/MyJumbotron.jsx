@@ -1,5 +1,5 @@
 import React from "react";
-import BackgroundImage from "../assets/jumbotron/jumbotron-img.jpg";
+
 import "../styles/Jumbotron.css";
 import { Link } from "react-router-dom";
 const MyJumbotron = () => {
