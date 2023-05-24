@@ -44,19 +44,56 @@ function Home() {
           </p>
         </div>
       </div>
+      <p className="title-links">Ne Yapmak Istersin ?</p>
       <div className="options">
         <Link className="links">
-          <p className="links-text">Ilanlar</p>
+          <FormatListNumberedIcon sx={{ fontSize: 50 }} />
+          <p className="links-text"> Ilanlar</p>
         </Link>
         <Link className="links">
+          <GroupAddIcon sx={{ fontSize: 50 }} />
           <p className="links-text">Etkinlikler</p>
         </Link>
         <Link className="links">
+          <CampaignIcon sx={{ fontSize: 50 }} />
           <p className="links-text">Duyurular</p>
         </Link>
         <Link className="links">
+          <HandshakeIcon sx={{ fontSize: 50 }} />
           <p className="links-text">Yardim</p>
         </Link>
+      </div>
+      <div className="last-news-announce-events">
+        <div className="title-div">
+          <h4 className="title">Duyurular</h4>
+
+          <div className="news-div inner-div">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil
+            consequuntur vero aliquid nisi dolores, et hic dolor similique
+            officiis error sed iste a earum ipsa beatae laudantium, nam quaerat
+            atque.
+          </div>
+        </div>
+        <div className=" title-div">
+          <h4 className="title">Etkinlikler</h4>
+
+          <div className="announce-div inner-div">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, vel
+            qui velit quasi alias quos ex, repudiandae doloremque aspernatur
+            adipisci perferendis eveniet impedit cupiditate consequuntur iste
+            obcaecati? Quae, aut a!
+          </div>
+        </div>
+        <div className="title-div">
+          <h4 className="title">Haberler</h4>
+
+          <div className="events-div inner-div">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
+            aperiam esse, vel error enim id porro in. Dignissimos, explicabo
+            numquam. Fugit quasi repellat aut ad accusamus quam, cupiditate in
+            aliquam.
+          </div>
+        </div>
       </div>
     </div>
   );

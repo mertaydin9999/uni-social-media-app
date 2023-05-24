@@ -7,7 +7,8 @@
   width: 100%;
   display: flex;
   position: fixed !important;
-  justify-content: center !important;
+  justify-content: space-between !important;
+  padding: 1em 2em !important;
   gap: 0em 10em;
   z-index: 1;
 
