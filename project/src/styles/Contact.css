@@ -1,4 +1,5 @@
 .contact-div {
+  margin: 9em 7em;
   display: flex;
   flex-direction: row;
 }
@@ -6,18 +7,20 @@
   width: 50%;
   height: 500px;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid var(--stratos);
 }
 .contact-left {
   width: 50%;
   height: 500px;
-  background-color: black;
-  padding: 3em;
+  background-color: var(--stratos);
+  padding: 5em;
   color: white;
 }
+
 .title {
   font-size: 3em;
   margin-bottom: 1em;
+  color: var(--botticelli) !important;
 }
 .contact-form {
   display: flex;
@@ -33,11 +36,13 @@ button {
   border-radius: 0;
 }
 button {
-  background-color: black;
-  color: white;
+  border: none !important;
+  background-color: var(--stratos);
+  color: var(--botticelli);
 }
 button:hover {
-  background-color: rgb(32, 208, 35);
+  background-color: var(--bondi-blue);
+  color: var(--botticelli);
 }
 
 @media screen and (max-width: 768px) {

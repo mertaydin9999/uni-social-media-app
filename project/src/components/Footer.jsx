@@ -7,96 +7,48 @@ import Grid from "@mui/material/Grid";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Link } from "react-router-dom";
+import RedditIcon from "@mui/icons-material/Reddit";
 function Footer() {
   return (
     <footer>
-      <Box>
-        <Grid container spacing={2}>
-          <Grid item xs={12} lg={4} md={6}>
-            <div className="logo-div">
-              <Typography
-                variant="h6"
-                noWrap
-                style={{ flex: 5 }}
-                component="a"
-                href="/"
-                sx={{
-                  mr: 2,
-                  display: { xs: "flex", md: "flex" },
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  fontSize: 20,
-                  letterSpacing: ".1rem",
-                  color: "black",
-                  textDecoration: "none",
-                }}
-              >
-                <Link to="/">CampusConnect</Link>
-              </Typography>
-            </div>
-            <div className="about-us">
-              <h2>Biz Kimiz</h2>
-              <p>
-                Biz CampusConnect olarak, ogrencilerin ulke genelinde bağlantı
-                kurmasını, iletişim kurmasını,paylaşmasını ve aradiklari
-                bilgilere daha hizli ve tek bir platform uzerinden ulasmalari
-                için tasarlandık.
-              </p>
-              <p>
-                <Link to="/contact">BIZE ULASIN</Link>
-              </p>
-              <div>
-                <a className="social-icons" href="">
-                  <TwitterIcon style={{ fontSize: "3em" }} />
-                </a>
-                <a className="social-icons" href="">
-                  <InstagramIcon style={{ fontSize: "3em" }} />
-                </a>
-              </div>
-            </div>
-          </Grid>
-          <Grid item xs={12} lg={4} md={6}>
-            <div className="sosyal-footer">
-              <h2>Sosyal</h2>
-              <Link to="/events">
-                <p>ETKINLIKLER</p>
-              </Link>
-              <Link>
-                <p>KONSERLER</p>
-              </Link>
-              <Link to="/advert">
-                <p>ILANLAR</p>
-              </Link>
-              <Link to="/solidatiry">
-                <p>YARDIMLASMA</p>
-              </Link>
-              <Link to="/announcements">
-                <p>DUYURULAR</p>
-              </Link>
-              <Link>
-                <p>ITIRAFLAR</p>
-              </Link>
-            </div>
-          </Grid>
-          <Grid item xs={12} lg={4} md={6}>
-            <div className="sosyal-footer">
-              <h2>Universitem</h2>
-              <p>
-                <a href="">OKUL</a>
-              </p>
-              <p>
-                <a href="">KAMPUS</a>
-              </p>
-              <p>
-                <a href="">DUYURULAR</a>
-              </p>
-              <p>
-                <a href="">YARDIMLASMA</a>
-              </p>
-            </div>
-          </Grid>
-        </Grid>
-      </Box>
+      <div className="footer-div">
+        <Link className="brand" to="/">
+          CampusConnect
+        </Link>
+        <Link to="about-us">Hakkimizda</Link>
+        <Link to="contact">Iletisim</Link>
+      </div>
+
+      <div className="footer-div">
+        <h5 className="">Sosyal</h5>
+        <Link to="/events">
+          <p>Etkinlikler</p>
+        </Link>
+
+        <Link to="/advert">
+          <p>Ilanlar</p>
+        </Link>
+        <Link to="/solidatiry">
+          <p>Yardimlasma</p>
+        </Link>
+        <Link to="/announcements">
+          <p>Duyurular</p>
+        </Link>
+      </div>
+      <div className="footer-div ">
+        <h5>Bizi Takip Edin!</h5>
+        <div className="social">
+          <Link>
+            <InstagramIcon sx={{ fontSize: 50 }} />
+          </Link>
+          <Link>
+            <TwitterIcon sx={{ fontSize: 50 }} />
+          </Link>
+          <Link>
+            <RedditIcon sx={{ fontSize: 50 }} />
+          </Link>
+        </div>
+      </div>
     </footer>
   );
 }

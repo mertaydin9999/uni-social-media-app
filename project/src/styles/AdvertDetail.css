@@ -1,82 +1,47 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 .general-div {
-  margin: 0 auto;
+  margin: 5em auto 5em auto !important;
+  width: 80%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: #2296f3;
-  gap: 1em 0;
-  padding: 0;
-}
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center;
+  border: 1px solid var(--stratos);
 
-.general-div div div {
-  text-align: center;
-  background-color: white;
-  box-shadow: 0 10px 8px 2px rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 2em;
-  margin: 1em;
+  background-color: var(--botticelli);
 }
-.general-div div[class="bottom-advert-desc"],
-div[class="bottom-similar-advert"] {
-  padding: 2em;
-  background-color: white;
-  box-shadow: 0 10px 8px 2px rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.top-side {
+  display: flex;
 }
 .left-div {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-}
-
-.big-image-div img {
-  height: 100%;
-  width: auto;
-  object-fit: cover;
+  width: 60%;
 }
 .big-image-div {
-  box-shadow: none !important;
+  width: 100%;
+  border: 5px solid white;
 }
-.photos-div {
+.big-image-div img {
+  width: 100%;
+  object-fit: cover;
+}
+.small-images-div {
   display: flex;
-
-  padding: 0 !important;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+  border: 3px solid white;
+  gap: 0.1em 0.33em;
+  background-color: white;
 }
-.left-photo-div {
-  width: 20%;
-  gap: 1em 0;
-  box-shadow: none !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-img {
-  border-radius: 0;
+.small-image {
+  margin: 0.1em;
+  height: 4em;
+  width: 6.05em;
+  object-fit: cover;
 }
 .right-div {
   width: 30%;
-}
-.small-photo {
-  width: 100%;
-}
-.right-price-div {
-  background-color: white;
-  box-shadow: 0 10px 8px 2px rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.right-owner-div {
-  background-color: aqua;
-}
-.right-loc-div {
-  background-color: blanchedalmond;
-}
-.bottom-advert-desc {
-  width: 100%;
-  background-color: red;
-}
-.bottom-similar-advert {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: green;
 }

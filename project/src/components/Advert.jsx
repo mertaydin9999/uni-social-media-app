@@ -4,7 +4,7 @@ import { useFetchAdvertsQuery } from "../store";
 import { useSearchParams } from "react-router-dom";
 import Skeleton from "@mui/material/Skeleton";
 import AdvertListItem from "./AdvertListItem";
-import "../styles/AdvertList.css";
+import "../styles/Advert.css";
 function Advert() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { data, isError, isFetching } = useFetchAdvertsQuery();
@@ -34,21 +34,17 @@ function Advert() {
 
   return (
     <div className="root">
-      <div className="div-input-create">
+      <div className="search-div">
         <div className="input-div">
           <input type="text" placeholder="Ara" />
         </div>
-        <div className="create-advert">
-          <Link to="/create-advert">
-            <button>Ilan Olustur </button>
-          </Link>
-          <Link to="/my-adverts">
-            <button>Ilanlarim</button>
-          </Link>
+        <div className="search-buttons-div">
+          <Link to="/create-advert">Ilan Olustur</Link>
+          <Link to="/my-adverts">Ilanlarim</Link>
         </div>
       </div>
 
-      <div className="general-div">
+      <div className="adverts-div">
         <div className="filter-div">
           <div>
             <h4>KATEGORILER</h4>
@@ -86,8 +82,8 @@ function Advert() {
             </button>
           </div>
         </div>
-        <div className="advert-div">
-          <div className="border-advert">{advert}</div>
+        <div className="advert-list-div">
+          <div className="advert-list-inner-div">{advert}</div>
         </div>
       </div>
     </div>

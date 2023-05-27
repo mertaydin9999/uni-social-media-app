@@ -2,13 +2,42 @@
   box-sizing: border-box;
   margin: 0;
 }
+
+.about-us-img-div {
+}
+.about-us-and-image {
+  display: flex;
+  gap: 0 10em;
+
+  padding: 5em;
+  align-items: center;
+  background-color: var(--regal-blue);
+  margin: 4.5em 7em 0em 7em;
+}
 .about-us-image {
   object-fit: cover;
   width: 100%;
 }
+.about-us-div {
+  width: 100%;
+}
 .who-we-are {
-  margin: 5em;
+  background-color: var(--bondi-blue);
+  padding: 5em 5em;
+  margin: 3em 7em;
 }
 h2 {
   text-align: center;
+  color: var(--botticelli);
+}
+.top-div {
+  padding: 5em;
+  background-color: white;
+}
+.about-us-div p {
+  line-height: 2em;
+  color: var(--botticelli);
+}
+.who-we-are p {
+  color: white;
 }

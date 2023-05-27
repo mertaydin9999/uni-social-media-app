@@ -1,0 +1,21 @@
+.advert-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0em 1em;
+  padding: 1em;
+  margin: 0em;
+  background-color: var(--botticelli);
+  border: 1px solid var(--bondi-blue);
+  color: var(--stratos);
+}
+.product {
+  background-color: white !important;
+}
+.list-image {
+  border: 1px solid var(--bondi-blue);
+}
+.list-title {
+  font-weight: 600;
+}

@@ -18,6 +18,7 @@
     {
       "id": 1,
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
+      "title": "Burasi title",
       "advertDesc": "WORK  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
       "address": "Merkez Celaliye",
       "price": "70TL",
@@ -26,6 +27,7 @@
     {
       "id": 2,
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
+      "title": "Burasi title",
       "advertDesc": "HOME Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
       "address": "Merkez Celaliye",
       "price": "70TL",
@@ -35,6 +37,7 @@
       "id": 3,
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
       "advertDesc": " HELP Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
+      "title": "Burasi title",
       "address": "Merkez Celaliye",
       "price": "70TL",
       "category": "help"
@@ -43,6 +46,7 @@
       "id": 4,
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
       "advertDesc": " WORK Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
+      "title": "Burasi title",
       "address": "Merkez Celaliye",
       "price": "70TL",
       "category": "work"
@@ -51,6 +55,7 @@
       "id": 5,
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
       "advertDesc": "HELP Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
+      "title": "Burasi title",
       "address": "Merkez Celaliye",
       "price": "70TL",
       "category": "help"

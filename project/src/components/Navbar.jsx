@@ -20,24 +20,32 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="logo">
-        <Link className="link">CampusConnect</Link>
+        <Link to="/" className="link">
+          CampusConnect
+        </Link>
       </div>
 
       <ul>
         <li>
-          <Link className="link">Hakkimizda</Link>
+          <Link to="/aboutus">Hakkimizda</Link>
         </li>
         <li>
-          <Link className="link">Iletisim</Link>
+          <Link to="/contact" className="link">
+            Iletisim
+          </Link>
         </li>
         <li>
-          <Link className="link">Ilanlar</Link>
+          <Link to="/advert" className="link">
+            Ilanlar
+          </Link>
         </li>
         <li>
-          <Link className="link">Duyurular</Link>
+          <Link to="/announcements" className="link">
+            Duyurular
+          </Link>
         </li>
         <li>
-          <Link className="link">Etkinlik</Link>
+          <Link to="/events" className="link">Etkinlik</Link>
         </li>
         <li>
           <Link className="link">
@@ -135,7 +143,7 @@ export default Navbar;
 //           onClick={handleCloseNavMenu}
 //           sx={{ my: 2, color: "black", display: "block", mx: 5 }}
 //         >
-//           <Link to="/aboutus">Hakkimizda</Link>
+//
 //         </Button>
 //         <Button
 //           onClick={handleCloseNavMenu}

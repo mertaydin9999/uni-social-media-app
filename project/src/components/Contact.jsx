@@ -4,7 +4,11 @@ function Contact() {
   return (
     <div className="contact-div">
       <div className="contact-left">
-        <h3 className="title">Size Nasil Yardimci Olabilirz?</h3>
+        <h3 className="title">Size Nasil Yardimci Olabiliriz?</h3>
+        <p>
+          Oneri, istek ve sikayetlerinizi bizimle paylasabilirsin. Ucuncu
+          kisilerle asla paylasilmaz
+        </p>
         <p>
           CampusConnect'e ilginiz icin tesekkur ederiz.En yakin zamanda sizinle
           iletisime gececegiz.
@@ -22,7 +26,9 @@ function Contact() {
             rows="3"
             placeholder="Mesajinizi yaziniz"
           ></textarea>
-          <button>Gonder</button>
+          <div>
+            <button>Gonder</button>
+          </div>
         </form>
       </div>
     </div>

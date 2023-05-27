@@ -46,19 +46,19 @@ function Home() {
       </div>
       <p className="title-links">Ne Yapmak Istersin ?</p>
       <div className="options">
-        <Link className="links">
+        <Link to="advert" className="links">
           <FormatListNumberedIcon sx={{ fontSize: 50 }} />
           <p className="links-text"> Ilanlar</p>
         </Link>
-        <Link className="links">
+        <Link to="/events" className="links">
           <GroupAddIcon sx={{ fontSize: 50 }} />
           <p className="links-text">Etkinlikler</p>
         </Link>
-        <Link className="links">
+        <Link to="/announcements" className="links">
           <CampaignIcon sx={{ fontSize: 50 }} />
           <p className="links-text">Duyurular</p>
         </Link>
-        <Link className="links">
+        <Link to="solidatiry" className="links">
           <HandshakeIcon sx={{ fontSize: 50 }} />
           <p className="links-text">Yardim</p>
         </Link>
@@ -71,7 +71,10 @@ function Home() {
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil
             consequuntur vero aliquid nisi dolores, et hic dolor similique
             officiis error sed iste a earum ipsa beatae laudantium, nam quaerat
-            atque.
+            atque. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Laudantium adipisci nesciunt repellendus, odit optio dignissimos
+            voluptatum inventore veniam quo expedita eum eaque soluta quos enim,
+            quidem quasi harum rerum temporibus?
           </div>
         </div>
         <div className=" title-div">
@@ -81,7 +84,10 @@ function Home() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, vel
             qui velit quasi alias quos ex, repudiandae doloremque aspernatur
             adipisci perferendis eveniet impedit cupiditate consequuntur iste
-            obcaecati? Quae, aut a!
+            obcaecati? Quae, aut a! Lorem, ipsum dolor sit amet consectetur
+            adipisicing elit. Nostrum soluta magnam illo nihil nulla veniam
+            dolores voluptates ea, ad et facere quibusdam aperiam excepturi
+            provident quisquam corporis, accusantium voluptate obcaecati?
           </div>
         </div>
         <div className="title-div">
@@ -91,7 +97,10 @@ function Home() {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
             aperiam esse, vel error enim id porro in. Dignissimos, explicabo
             numquam. Fugit quasi repellat aut ad accusamus quam, cupiditate in
-            aliquam.
+            aliquam. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Iusto et consectetur ut nam hic. Eveniet dignissimos perspiciatis
+            ratione nulla, aliquam, aspernatur deleniti reiciendis ut molestias
+            laboriosam, consequuntur vitae mollitia impedit.
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@
   font-size: 2em;
   width: 100%;
   justify-content: center;
-  background-color: var(--bondi-blue);
+  background-color: var(--stratos);
   height: 200px;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,6 @@
 }
 .options .links:hover {
   transform: scale(1.05);
-  color: var(--regal-blue) !important;
 }
 
 .title-links {
@@ -76,10 +75,10 @@
   background-color: var(--bondi-blue);
 }
 .last-news-announce-events {
-  padding: 5em 7em;
+  padding: 5em 7em 10em 7em;
   display: flex;
 
-  background-color: var(--morning-glory);
+  background-color: white;
 
   gap: 0 3em;
 }
@@ -96,7 +95,7 @@
 .title-div {
   text-align: center;
 }
-.title {
+.title-div .title {
   font-size: 2em !important;
   color: var(--stratos) !important;
 }
