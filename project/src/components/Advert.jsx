@@ -33,7 +33,8 @@ function Advert() {
   }
 
   return (
-    <div className="root">
+    <section className="root">
+      <h3>Ilanlar</h3>
       <div className="search-div">
         <div className="input-div">
           <input type="text" placeholder="Ara" />
@@ -86,7 +87,7 @@ function Advert() {
           <div className="advert-list-inner-div">{advert}</div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

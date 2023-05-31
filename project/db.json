@@ -68,21 +68,24 @@
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
       "advertDesc": " 1111Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
       "title": "Merkez Celaliye",
-      "date": "12.01.2011"
+      "date": "12.01.2011",
+      "category": "work"
     },
     {
       "id": 2,
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
       "advertDesc": " 222222Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
       "title": "Merkez Celaliye",
-      "date": "12.01.2011"
+      "date": "12.01.2011",
+      "category": "help"
     },
     {
       "id": 3,
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
       "advertDesc": " 333Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
       "title": "Merkez Celaliye",
-      "date": "12.01.2011"
+      "date": "12.01.2011",
+      "category": "home"
     }
   ],
   "events": [

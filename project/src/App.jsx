@@ -48,20 +48,6 @@ function App() {
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/solidatiry" element={<Solidatiry />} />
         <Route path="/edit-my-advert" element={<EditMyAdvert />} />
-        {/* <Contact /> */}
-        {/* <Events/> */}
-        {/* {<News />} */}
-        {/* <EditMyAdvert /> */}
-        {/* <MyAdverts /> */}
-        {/* <Profile /> */}
-        {/* <CreateAdvert /> */}
-        {/* <Advert /> */}
-        {/* <AboutUs /> */}
-        {/* <AnnouncementDetail /> */}
-        {/* <LoginForm /> */}
-        {/* <Announcements /> */}
-        {/* <SignupForm /> */}
-        {/* <Solidatiry /> */}
       </Routes>
 
       <Footer />

@@ -65,9 +65,7 @@ button:hover {
   background-color: var(--stratos) !important;
   color: white !important;
 }
-.btn-advert {
-  border: 0.1em solid var(--stratos) !important;
-}
+
 .advert-list-inner-div {
   display: flex;
   flex-direction: column;
@@ -77,4 +75,7 @@ button:hover {
 }
 .filter-div div h4 {
   font-size: 2em !important;
+}
+.btn-advert {
+  border: 0.1em solid var(--stratos) !important;
 }
