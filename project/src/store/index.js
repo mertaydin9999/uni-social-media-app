@@ -2,7 +2,7 @@ import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { usersApi } from "./apis/usersApi";
 import { advertsApi } from "./apis/advertsApi";
-
+import { newsApi } from "./apis/newsApi";
 import { announcementsApi } from "./apis/announcementsApi";
 import { eventsApi } from "./apis/eventsApi";
 
@@ -12,12 +12,14 @@ export const store = configureStore({
     [advertsApi.reducerPath]: advertsApi.reducer,
     [announcementsApi.reducerPath]: announcementsApi.reducer,
     [eventsApi.reducerPath]: eventsApi.reducer,
+    [newsApi.reducerPath]: newsApi.reducer,
   },
   middleware: getDefaultMiddleware()
     .concat(usersApi.middleware)
     .concat(advertsApi.middleware)
     .concat(announcementsApi.middleware)
-    .concat(eventsApi.middleware),
+    .concat(eventsApi.middleware)
+    .concat(newsApi.middleware),
 });
 
 setupListeners(store.dispatch);
@@ -44,3 +46,8 @@ export {
   useAddEventsMutation,
   useRemoveEventMutation,
 } from "./apis/eventsApi";
+export {
+  useFetchNewsQuery,
+  useAddNewsMutation,
+  useRemoveNewsMutation,
+} from "./apis/newsApi";

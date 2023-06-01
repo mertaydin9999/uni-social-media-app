@@ -2,29 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import "../styles/AnnouncementDetail.css";
-import { useFetchAnnouncementsQuery } from "../store";
+import { useFetchEventsQuery } from "../store";
 
-function AnnouncementDetail() {
+function EventDetail() {
   const { id } = useParams();
-  const { data, isError, isFetching } = useFetchAnnouncementsQuery();
-  let announcement;
+  const { data, isError, isFetching } = useFetchEventsQuery();
+  let event;
   if (isFetching) {
-    announcement = <div>yukleniyor</div>;
+    event = <div>yukleniyor</div>;
   } else if (isError) {
-    announcement = <div>Hata Var</div>;
+    event = <div>Hata Var</div>;
   } else {
-    announcement = data
-      ?.filter((announcement) => announcement.id == id)
-      .map((announcement) => {
+    event = data
+      ?.filter((event) => event.id == id)
+      .map((event) => {
         return (
-          <div className="announce-detail-div" key={announcement.id}>
-            <h3>{announcement.title}</h3>
+          <div className="announce-detail-div" key={event.id}>
+            <h3>{event.title}</h3>
             <div className="announce-date">
-              <p>{announcement.date}</p>
+              <p>{event.date}</p>
             </div>
             <div>
               <p className="announce-detail-desc">
-                {announcement.advertDesc}
+                {event.eventDesc}
                 <br />
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
                 debitis repudiandae blanditiis tenetur laborum. Corrupti modi
@@ -37,7 +37,7 @@ function AnnouncementDetail() {
               </p>
             </div>
             <div className="announce-detail-img-div">
-              <img src={announcement.imageUrl} alt="" />
+              <img src={event.imageUrl} alt="" />
             </div>
           </div>
         );
@@ -52,9 +52,9 @@ function AnnouncementDetail() {
         <Link to="/">Anasayfaya Don</Link>
         <Link to="/announcements">Duyurulara'a Don</Link>
       </div>
-      <div className="right-announce-list">{announcement}</div>
+      <div className="right-announce-list">{event}</div>
     </div>
   );
 }
 
-export default AnnouncementDetail;
+export default EventDetail;

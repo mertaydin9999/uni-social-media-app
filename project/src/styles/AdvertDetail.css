@@ -90,11 +90,9 @@ button {
   color: white !important;
   border-radius: 0em !important;
   text-align: center !important;
-  border: 1px solid var(--stratos) !important;
 }
 button:hover {
   background-color: var(--regal-blue) !important;
-  border: 1px solid var(--stratos) !important;
 }
 .advert-detail-header {
   font-size: 3em !important;
@@ -127,7 +125,7 @@ button:hover {
 .left-root a {
   border: 1px solid var(--stratos);
   background-color: var(--stratos) !important;
-  background-color: white;
+
   padding: 0.5em 1em;
   text-align: center;
 }

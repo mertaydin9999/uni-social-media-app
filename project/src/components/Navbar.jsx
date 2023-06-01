@@ -45,7 +45,14 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/events" className="link">Etkinlik</Link>
+          <Link to="/events" className="link">
+            Etkinlik
+          </Link>
+        </li>
+        <li>
+          <Link to="/news" className="link">
+            Haberler
+          </Link>
         </li>
         <li>
           <Link className="link">

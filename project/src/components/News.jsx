@@ -1,25 +1,78 @@
 import React from "react";
-
+import "../styles/Announcements.css";
+import { useSearchParams } from "react-router-dom";
+import Skeleton from "@mui/material/Skeleton";
+import { useFetchNewsQuery } from "../store";
+import NewsListItem from "./NewsListItem";
 function News() {
+  const { data, isError, isFetching } = useFetchNewsQuery();
+  const [searchParams, setSearchParams] = useSearchParams();
+  let params = searchParams.get("filter");
+  let news;
+  const filteredNews = (params) => {
+    news = data
+      .filter((news) => news.category == params)
+      .map((news) => {
+        return <NewsListItem key={news.id} news={news} />;
+      });
+  };
+  if (isFetching) {
+    news = <Skeleton variant="rectangular" sx={{ width: "100%" }} />;
+  } else if (isError) {
+    news = <div>Hata Var</div>;
+  } else {
+    if (params) {
+      filteredNews(params);
+    } else {
+      news = data.map((news) => {
+        return <NewsListItem key={news.id} news={news} />;
+      });
+    }
+  }
   return (
-    <div>
-      <div>
+    <div className="root">
+      <header>
         <h3>Haberler</h3>
-        <div>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz86WkB3GhlJaFAfYpRAogTerlrxHMWivNWQ&usqp=CAU" alt="" />
+      </header>
+      <div className="contents">
+        <div className="filter-div">
           <div>
-            <h4>Haber Basligi</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-              neque voluptatum recusandae facere esse. Assumenda ipsa beatae aut
-              magnam dignissimos excepturi quia consequuntur error voluptatem.
-              Repellat culpa eos esse eveniet.
-            </p>
-            <p>12.01.2011</p> 
+            <h4>KATEGORILER</h4>
+          </div>
+          <div>
+            <button
+              className="btn-advert"
+              onClick={() => setSearchParams({ filter: "" })}
+            >
+              Tum Duyurular
+            </button>
+          </div>
+          <div>
+            <button
+              className="btn-advert"
+              onClick={() => setSearchParams({ filter: "work" })}
+            >
+              Okul Duyurulari
+            </button>
+          </div>
+          <div>
+            <button
+              className="btn-advert"
+              onClick={() => setSearchParams({ filter: "help" })}
+            >
+              Yardim Duyurulari
+            </button>
+          </div>
+          <div>
+            <button
+              className="btn-advert"
+              onClick={() => setSearchParams({ filter: "home" })}
+            >
+              Kulup Duyurulari
+            </button>
           </div>
         </div>
-        <div></div>
-        <div></div>
+        <div className="announcements-div">{news}</div>
       </div>
     </div>
   );

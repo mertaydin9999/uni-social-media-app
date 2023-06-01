@@ -139,5 +139,55 @@
       "date": "12.01.2011",
       "category": "concert"
     }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
+      "description": " 222222Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
+      "title": "Merkez Celaliye",
+      "date": "12.01.2011",
+      "category": "help"
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
+      "description": " 333Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
+      "title": "Merkez Celaliye",
+      "date": "12.01.2011",
+      "category": "home"
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
+      "description": " 222222Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
+      "title": "Merkez Celaliye",
+      "date": "12.01.2011",
+      "category": "help"
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
+      "description": " 333Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
+      "title": "Merkez Celaliye",
+      "date": "12.01.2011",
+      "category": "home"
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
+      "description": " 222222Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
+      "title": "Merkez Celaliye",
+      "date": "12.01.2011",
+      "category": "help"
+    },
+    {
+      "id": 6,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
+      "description": " 333Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ",
+      "title": "Merkez Celaliye",
+      "date": "12.01.2011",
+      "category": "home"
+    }
   ]
 }

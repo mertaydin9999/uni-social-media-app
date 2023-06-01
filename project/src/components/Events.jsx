@@ -6,7 +6,6 @@ import { Skeleton } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import EventListItem from "./EventListItem";
 
-
 function Events() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { data, isError, isFetching } = useFetchEventsQuery();
@@ -20,6 +19,7 @@ function Events() {
         return <EventListItem key={event.id} event={event} />;
       });
   };
+  
 
   if (isFetching) {
     event = <Skeleton variant="rectangular" sx={{ width: "100%" }} />;
@@ -56,7 +56,10 @@ function Events() {
         </button>
       </div>
 
-      <div className="events">{event}</div>
+      <div className="events">
+        <h3 className="event-header-title">Etkinlikler</h3>
+        {event}
+      </div>
     </div>
   );
 }

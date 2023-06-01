@@ -1,15 +1,18 @@
 import React from "react";
-
+import "../styles/EventListItem.css";
+import { Link } from "react-router-dom";
 function EventListItem({ event }) {
   return (
-    <div className="event">
-      <img src={event.imageUrl} alt="" />
-      <div>
-        <h4>{event.title}</h4>
-        <p>{event.eventDesc}</p>
-        <p>{event.date}</p>
+    <Link className="events-link" to={`/events/detail/${event.id}`}>
+      <div className="event-list-item">
+        <img className="list-image" src={event.imageUrl} alt="" />
+        <div>
+          <h4 className="list-title">{event.title} </h4>
+          <p>{event.eventDesc}</p>
+          <span className="events-date">{event.date}</span>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

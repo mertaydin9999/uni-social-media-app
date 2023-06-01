@@ -1,0 +1,36 @@
+.event-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0em 1em;
+  padding: 1em;
+  margin: 0em;
+  background-color: white;
+  border: 1px solid var(--bondi-blue);
+  color: var(--stratos);
+}
+.event-list-item:hover {
+  background-color: var(--botticelli);
+}
+
+.event-list-item p {
+  font-weight: 200;
+}
+.product {
+  background-color: white !important;
+}
+.list-image {
+  border: 1px solid var(--bondi-blue);
+}
+.list-title {
+  font-weight: 400;
+}
+.events-date {
+  font-size: 1.2em;
+  padding: 0.3em 0.6em;
+  background-color: var(--morning-glory);
+}
+.events-link {
+  padding: 0em !important;
+}
