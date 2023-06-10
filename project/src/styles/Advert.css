@@ -11,29 +11,49 @@
   align-items: center !important;
   justify-content: center !important;
 }
+.input-div input[type="search"] {
+  padding: 0.6em;
+  border-radius: 0.5em;
+  border: 1px solid var(--stratos);
+}
+.input-div {
+  width: 50%;
+}
+.input-div input[type="search"]:focus {
+  outline: none !important;
+}
 .search-div {
   width: 100%;
   flex-direction: row !important;
   display: flex;
-  flex-direction: column !important;
-  margin-bottom: 5em;
-  gap: 1em !important;
-  justify-content: center !important;
+  margin-top: 3em;
+  margin-bottom: 3em;
+
+  justify-content: space-between !important;
 }
 .search-buttons-div {
   display: flex;
   flex-direction: row;
   justify-content: end;
+
   gap: 0 1em;
+  width: 40%;
 }
-a {
+.search-buttons-div a {
   padding: 0.5em 1em !important;
   background-color: var(--stratos);
+  color: white !important;
+  border-radius: 0.3em;
+}
+.search-buttons-div a:hover {
+  background-color: var(--regal-blue) !important;
+  color: white !important;
 }
 .adverts-div {
   width: 100%;
   display: flex;
   flex-direction: row;
+
   gap: 0em 2em;
 }
 .filter-div {
@@ -71,11 +91,14 @@ button:hover {
   flex-direction: column;
   width: 100%;
   background-color: white !important;
-  gap: 0.1em 0em;
+  gap: 1em 0em;
 }
 .filter-div div h4 {
   font-size: 2em !important;
 }
 .btn-advert {
   border: 0.1em solid var(--stratos) !important;
+}
+.adverts-div .filter-div div button {
+  border-radius: 0.3em !important;
 }

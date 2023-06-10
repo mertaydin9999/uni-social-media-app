@@ -1,18 +1,5 @@
 import React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import PersonIcon from "@mui/icons-material/Person";
@@ -54,13 +41,21 @@ function Navbar() {
             Haberler
           </Link>
         </li>
-        <li>
-          <Link className="link">
+
+        <li className="dropdown">
+          <Link to="/profile" className="link dropbtn">
             <PersonIcon
               sx={{
                 fontSize: 30,
               }}
             />
+            <div className="dropdown-content" style={{ right: 0 }}>
+              <Link to="/login"> Uye Girisi </Link>
+              <Link to="/signup">Kayit Ol</Link>
+              <Link to="/profile">Profil</Link>
+              <Link to="/my-adverts">Ilanlarim</Link>
+              <Link>ilanlarim</Link>
+            </div>
           </Link>
         </li>
       </ul>

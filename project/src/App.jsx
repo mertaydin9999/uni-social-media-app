@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
-import Container from "@mui/material/Container";
 
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
@@ -23,6 +22,7 @@ import Solidatiry from "./components/Solidatiry";
 import AdvertDetail from "./components/AdvertDetail";
 import EventDetail from "./components/EventDetail";
 import NewsDetail from "./components/NewsDetail";
+import EditMyProfile from "./components/EditMyProfile";
 function App() {
   return (
     <>
@@ -55,6 +55,8 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
 
         <Route path="/profile" element={<Profile />} />
+        <Route path="/edit-my-profile" element={<EditMyProfile />} />
+
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/solidatiry" element={<Solidatiry />} />
       </Routes>

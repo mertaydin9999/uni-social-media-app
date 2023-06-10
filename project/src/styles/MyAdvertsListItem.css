@@ -1,0 +1,81 @@
+.my-advert-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0em 1em;
+  padding: 1em 1em;
+  height: 9em;
+  background-color: var(--botticelli);
+  border: 1px solid var(--bondi-blue);
+  color: var(--stratos);
+  border-radius: 0.3em !important;
+}
+.link-root {
+  background-color: white !important;
+}
+.list-image {
+  border: 1px solid var(--bondi-blue);
+}
+
+.list-title {
+  font-weight: 600 !important;
+}
+.update-link {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8em;
+  padding: 0.3em 0.8em;
+  background-color: var(--bondi-blue);
+  color: white !important;
+  border-radius: 0.3em;
+}
+.update-link:hover {
+  color: white !important;
+  background-color: #00dfa2;
+}
+.delete-my-advert-button {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.9em !important;
+  padding: 0.3em 0.8em !important;
+  width: 100% !important;
+  background-color: #ff6d60 !important;
+  border-radius: 0.3em !important ;
+}
+.delete-my-advert-button:hover {
+  background-color: #f45050 !important;
+}
+.detail-my-adverts {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.details {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 0em 2em;
+}
+.details p {
+  font-size: 0.8em !important;
+  margin: 0em 0em;
+}
+.price-and-address {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between !important;
+  margin-top: 1em;
+}
+.price-label {
+  font-size: 0.8em;
+}
+.label-and-price {
+  display: flex;
+  flex-direction: row;
+}
+.update-and-delete {
+  display: flex;
+  flex-direction: row;
+  gap: 0em 1em;
+}

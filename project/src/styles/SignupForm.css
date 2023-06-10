@@ -2,68 +2,73 @@
   box-sizing: border-box;
   margin: 0;
 }
-.page {
-  margin-top: -10em;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.9;
-}
-.cover {
-  background-color: white;
-  width: 30em;
-  height: 40em;
-  position: relative;
-  border-radius: 1em;
-  box-shadow: 0 0.188em 1.55em rgb(156, 156, 156);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-input {
-  border: 1px solid black;
-  background-color: 229, 226, 226;
+.signup-form .form-div div input {
+  padding: 1.2em;
   height: 2em;
+  border: 1px solid black;
+  margin: 0.4em 0em;
   width: 100%;
-  border-radius: 0.25em;
-  text-align: center;
-  padding: 1em;
 }
-input:focus {
-  outline-color: rgb(32, 177, 255);
+.signup-form .form-div div input:focus {
+  outline: none !important;
+}
+.signup-form {
+  margin: 8em auto;
+  width: 500px;
 }
 .signup-btn {
-  width: 40%;
-  height: 3em;
-  background: black;
-
+  margin-top: 1em !important;
+  border-radius: 0.3em !important;
+  width: 80% !important;
+  padding: 0.5em 2em !important;
+  background-color: var(--regal-blue);
+  color: white !important;
   display: flex;
   justify-content: center;
-  align-items: center;
-  transition: 0.5%;
-  border-radius: 0.25em;
-  cursor: pointer;
-  color: white;
-
-  margin-top: 1em;
 }
-.inputDiv {
+a[class="signup-btn"]:hover {
+  background-color: var(--bondi-blue) !important;
+  color: white !important;
+}
+
+.form-div {
+  box-shadow: 0 45px 65px rgba(0, 0, 0, 0.5), 0 35px 22px rgba(0, 0, 0, 0.16);
+  border-radius: 1em;
+  padding: 2em 4em;
   display: flex;
   flex-direction: column;
-  width: 70%;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
 }
-.signup-btn:hover {
-  transform: scale(1.1);
-  border: solid 1px black;
+.form-div input {
+  padding: 1em;
+  height: 3em;
+  border-radius: 0.2em;
 }
-label {
-  font-size: 0.8em;
+a[class="to-login"] {
+  text-decoration: underline !important;
+  background-color: white !important;
+  color: black !important;
+  font-size: 0.9em;
 }
-.kayitOl-btn {
-  background: black;
-  border: none;
-  color: white;
+a[class="to-login"]:hover {
+  color: rgb(138, 136, 136) !important;
+}
+.input-error {
+  border-color: #fc8181 !important;
+}
+.error {
+  color: #fc8181;
+  font-size: 12px;
+  text-align: left;
+}
+.white-p {
+  color: white !important;
+}
+.input-divs {
+  max-height: 3em;
+  padding: 0em;
+  width: 80%;
+  margin-bottom: 0.5em;
 }

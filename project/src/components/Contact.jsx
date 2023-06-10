@@ -27,7 +27,7 @@ function Contact() {
             placeholder="Mesajinizi yaziniz"
           ></textarea>
           <div>
-            <button>Gonder</button>
+            <button className="contact-send">Gonder</button>
           </div>
         </form>
       </div>

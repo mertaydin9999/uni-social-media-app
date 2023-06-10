@@ -9,6 +9,7 @@
   background-color: white;
   border: 1px solid var(--bondi-blue);
   color: var(--stratos);
+  border-radius: 0.3em !important;
 }
 .event-list-item:hover {
   background-color: var(--botticelli);
@@ -22,6 +23,7 @@
 }
 .list-image {
   border: 1px solid var(--bondi-blue);
+  border-radius: 0.3em !important;
 }
 .list-title {
   font-weight: 400;
@@ -30,6 +32,7 @@
   font-size: 1.2em;
   padding: 0.3em 0.6em;
   background-color: var(--morning-glory);
+  border-radius: 0.3em !important;
 }
 .events-link {
   padding: 0em !important;

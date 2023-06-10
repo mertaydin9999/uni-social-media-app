@@ -1,3 +1,115 @@
-.profile-pic {
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+.root-create-advert {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 10em auto;
+  gap: 0em 5em;
+}
+.left-div-advert-create {
+  margin-top: 5em;
+  width: 20% !important;
+  background-color: var(--botticelli);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em 0em;
+  border-radius: 1em;
+  position: sticky;
+  top: 10em;
+  height: 500px;
+  border: 1px solid var(--regal-blue);
+}
+.middle-div-advert-create {
+  width: 50%;
+}
+.right-div-advert-create {
+  width: 15% !important;
+  display: flex;
+  flex-direction: column !important;
+  margin-top: 5em;
+  gap: 2em 0em;
+  text-align: center;
+
+  padding: 2em;
+  border-radius: 1em;
+  position: sticky;
+  top: 10em;
+  height: 500px;
+}
+.right-div-advert-create a {
+  border-radius: 0.6em !important;
+  color: white !important;
+  background-color: var(--stratos) !important;
+  padding: 0.5em 1em;
+}
+.right-div-advert-create a:hover {
+  background-color: var(--bondi-blue) !important;
+  color: white !important;
+}
+.advert-create-image {
+  width: 50%;
   border-radius: 50%;
+  height: auto;
+  min-height: 8em;
+  object-fit: cover;
+  margin-top: -4em;
+  border: 3px solid white;
+}
+.create-advert-links-div {
+  display: flex;
+  flex-direction: column;
+  gap: 1em 0em;
+  margin-top: 11em;
+}
+.create-advert-links-div a {
+  width: 100% !important;
+  display: block;
+  border-radius: 1em !important;
+}
+.create-advert-title {
+  text-align: center !important;
+  font-weight: 200;
+}
+.advert-title-label {
+  font-weight: 300;
+  font-size: 0.8em;
+}
+.advert-title-and-label {
+  display: flex;
+  flex-direction: row;
+  gap: 0em 1em;
+  align-items: center;
+}
+
+.price-input {
+  width: 20%;
+}
+.create-advert-button-div {
+  display: flex;
+  flex-direction: row;
+  gap: 0em 4em;
+}
+.create-advert-button-div button {
+  border-radius: 0.3em !important;
+  border: none !important;
+}
+.advert-title-and-label input {
+  padding: 0.8em !important;
+  border-radius: 0.3em;
+  border: 1px solid var(--stratos);
+}
+
+.inputs-form div div input,
+textarea {
+  border: 1px solid var(--stratos);
+  padding: 0.8em !important;
+  border-radius: 0.3em !important;
+}
+.inputs-form div div input,
+textarea:focus {
+  outline: none !important;
 }

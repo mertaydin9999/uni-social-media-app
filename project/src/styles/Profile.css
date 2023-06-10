@@ -1,35 +1,61 @@
-.edit-profile {
-  border: 1px solid lightgray;
-  padding: 2em;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 5em;
-}
-.edit-profile * {
-  margin: 0.6em 0;
-  border-radius: 0.3em;
-}
-button {
-  background-color: white;
-  color: black;
-  border: 0.2px solid black;
-  border-radius: 0.3em;
-  padding: 0.5em 2em;
-}
-.buttons-div {
+.profile-root {
   width: 100%;
+  margin: 7em auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 0em 5em;
 }
-button:hover {
-  background-color: black;
-  color: white;
+.profile-left {
+  width: 20% !important;
+  margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 2em 0em;
+  border-right: 1px solid lightgray;
+}
+.photo-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1em 0em;
+}
+.profile-pic-div {
+  width: 50%;
+  display: flex;
+  padding: 1em;
+}
+
+.profile-pic {
+  border-radius: 0.1em;
+  width: 100%;
+  height: auto;
+
+  min-height: 7em;
+  object-fit: cover;
+  margin: 1em auto;
+}
+
+.profile-right {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: start;
+  align-items: start;
+  gap: 1em 0em !important;
+}
+.inputs-form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 3em;
 }
 input,
 textarea {
-  width: 50%;
-  padding: 1.1em;
+  width: 100%;
+  padding: 1.3em;
   text-align: start;
 }
 label {
@@ -37,35 +63,47 @@ label {
   font-weight: 200;
 }
 .profile-title {
-  border-bottom: 1px solid lightgray;
   width: 100%;
-  margin-top: -1em;
+  text-align: start;
+  float: left;
+}
+hr {
+  width: 100%;
 }
 .profile-title h3 {
   font-weight: 300;
+  float: left;
 }
 .inputs div input:focus {
-  outline: 1px solid rgb(113, 41, 195);
+  outline: 1px solid var(--stratos);
 }
 textarea:focus {
-  outline: 1px solid rgb(113, 41, 195);
+  outline: 1px solid var(--stratos);
 }
-.profile-pic {
-  border-radius: 50%;
-  width: 50%;
-  height: 10em;
-  margin-top: 2em;
-}
-.btn-edit-photo {
-  background-color: white;
-  color: black;
-  border: 0.2px solid black;
-  border-radius: 0.3em;
-  padding: 0.5em 2em;
-  margin-top: 2em;
-}
+
 .photo-buttons {
   display: flex;
   flex-direction: column;
-  width: 13em;
+  width: 80%;
+}
+.basic-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em 0em;
+}
+.contact-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 1em 0em;
+}
+.input-phone {
+  width: 100% !important;
+}
+.inputs {
+  width: 60%;
+}
+.buttons-div {
+  display: flex;
+  flex-direction: row;
+  gap: 0em 1em;
 }

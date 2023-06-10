@@ -37,10 +37,10 @@ function Advert() {
       <h3>Ilanlar</h3>
       <div className="search-div">
         <div className="input-div">
-          <input type="text" placeholder="Ara" />
+          <input type="search" placeholder="Ara" />
         </div>
         <div className="search-buttons-div">
-          <Link to="/create-advert">Ilan Olustur</Link>
+          <Link  to="/create-advert">Ilan Olustur</Link>
           <Link to="/my-adverts">Ilanlarim</Link>
         </div>
       </div>
