@@ -7,14 +7,16 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="logo">
-        <Link to="/" className="link">
+        <Link to="/" className="link link-brand">
           CampusConnect
         </Link>
       </div>
 
       <ul>
         <li>
-          <Link to="/aboutus">Hakkimizda</Link>
+          <Link className="link" to="/aboutus">
+            Hakkimizda
+          </Link>
         </li>
         <li>
           <Link to="/contact" className="link">
@@ -54,7 +56,7 @@ function Navbar() {
               <Link to="/signup">Kayit Ol</Link>
               <Link to="/profile">Profil</Link>
               <Link to="/my-adverts">Ilanlarim</Link>
-              <Link>ilanlarim</Link>
+              <Link>Cikis Yap</Link>
             </div>
           </Link>
         </li>

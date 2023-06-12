@@ -80,9 +80,8 @@
 }
 .advert-title-and-label {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 0em 1em;
-  align-items: center;
 }
 
 .price-input {
@@ -112,4 +111,16 @@ textarea {
 .inputs-form div div input,
 textarea:focus {
   outline: none !important;
+}
+.basic-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em 0em;
+  margin-top: 2em;
+}
+.basic-info-price {
+  margin-bottom: 2em;
+}
+.basic-price-advert {
+  margin-bottom: 2em;
 }

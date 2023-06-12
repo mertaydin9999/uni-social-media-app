@@ -25,6 +25,7 @@
 }
 .options .links:hover {
   transform: scale(1.05);
+  color: white !important;
 }
 
 .title-links {

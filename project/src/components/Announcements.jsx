@@ -51,7 +51,7 @@ function Announcements() {
           </div>
           <div>
             <button
-              className="btn-advert"
+              className="category-btn-advert"
               onClick={() => setSearchParams({ filter: "" })}
             >
               Tum Duyurular
@@ -59,7 +59,7 @@ function Announcements() {
           </div>
           <div>
             <button
-              className="btn-advert"
+              className="category-btn-advert"
               onClick={() => setSearchParams({ filter: "work" })}
             >
               Okul Duyurulari
@@ -67,7 +67,7 @@ function Announcements() {
           </div>
           <div>
             <button
-              className="btn-advert"
+              className="category-btn-advert"
               onClick={() => setSearchParams({ filter: "help" })}
             >
               Yardim Duyurulari
@@ -75,7 +75,7 @@ function Announcements() {
           </div>
           <div>
             <button
-              className="btn-advert"
+              className="category-btn-advert"
               onClick={() => setSearchParams({ filter: "home" })}
             >
               Kulup Duyurulari

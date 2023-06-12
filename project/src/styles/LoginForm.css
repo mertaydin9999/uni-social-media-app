@@ -14,8 +14,9 @@
   align-items: center;
 }
 .root-login-form {
-  margin: 8em auto;
+  margin: 13em auto;
   width: 500px;
+  height: 50vh;
 }
 .login-inner-div div input {
   padding: 1.2em;

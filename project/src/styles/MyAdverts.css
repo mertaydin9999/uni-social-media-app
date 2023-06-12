@@ -1,7 +1,14 @@
+.photo-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2em 0em;
+}
 .photo-buttons a {
   text-align: center;
   background-color: var(--bondi-blue);
   font-size: 1.1em;
+  display: flex;
+  flex-direction: column;
   padding: 0.5em 1em !important;
   color: white !important;
   border-radius: 0.3em;
@@ -11,9 +18,7 @@
 
   color: white !important;
 }
-.profile-pic {
-  border-radius: 50%;
-}
+
 .my-advert-root {
   display: flex;
   flex-direction: row;
@@ -24,4 +29,20 @@
 }
 .delete-my-advert-button {
   border: none !important;
+}
+.profile-pic-my-advert-div {
+  display: flex;
+  justify-content: center;
+}
+.profile-pic-my-adverts {
+  width: 40%;
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 2/2;
+}
+.profile-left-my-adverts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
 }

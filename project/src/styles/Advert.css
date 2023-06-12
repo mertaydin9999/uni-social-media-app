@@ -17,7 +17,7 @@
   border: 1px solid var(--stratos);
 }
 .input-div {
-  width: 50%;
+  width: 100%;
 }
 .input-div input[type="search"]:focus {
   outline: none !important;
@@ -30,6 +30,9 @@
   margin-bottom: 3em;
 
   justify-content: space-between !important;
+}
+.advert-searchbar {
+  width: 80%;
 }
 .search-buttons-div {
   display: flex;
@@ -96,7 +99,7 @@ button:hover {
 .filter-div div h4 {
   font-size: 2em !important;
 }
-.btn-advert {
+.advert-category-button {
   border: 0.1em solid var(--stratos) !important;
 }
 .adverts-div .filter-div div button {

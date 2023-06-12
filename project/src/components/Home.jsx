@@ -1,17 +1,14 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+
 import "../styles/Home.css";
 import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
 import HandshakeIcon from "@mui/icons-material/Handshake";
 import CampaignIcon from "@mui/icons-material/Campaign";
 
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
-
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import MyJumbotron from "./MyJumbotron";
-import AdvertImage from "../assets/homepage/advert-img.jpeg";
+
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 function Home() {
   return (

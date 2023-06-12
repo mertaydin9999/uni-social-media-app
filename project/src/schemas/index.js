@@ -46,3 +46,21 @@ export const createAdvertSchema = yup.object().shape({
 
   date: yup.date(),
 });
+
+export const updateAdvertSchema = yup.object().shape({
+  title: yup
+    .string()
+    .required("Ilan basligi zorunludur.")
+    .min(8, "Ilan basligi en az 8 karakterden olusmalidir."),
+  description: yup.string(),
+  images: yup.mixed(),
+  address: yup.string(),
+  price: yup
+    .number("Yalnizca Sayi giriniz")
+    .typeError("Fiyat bir sayı olmalıdır")
+    .required("Fiyat gereklidir")
+    .positive("Fiyat pozitif olmalıdır")
+    .min(0, "Fiyat en az 0 olmalıdır"),
+
+  date: yup.date(),
+});

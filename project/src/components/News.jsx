@@ -41,7 +41,7 @@ function News() {
           </div>
           <div>
             <button
-              className="btn-advert"
+              className="category-btn-advert "
               onClick={() => setSearchParams({ filter: "" })}
             >
               Tum Duyurular
@@ -49,7 +49,7 @@ function News() {
           </div>
           <div>
             <button
-              className="btn-advert"
+              className="category-btn-advert "
               onClick={() => setSearchParams({ filter: "work" })}
             >
               Okul Duyurulari
@@ -57,7 +57,7 @@ function News() {
           </div>
           <div>
             <button
-              className="btn-advert"
+              className="category-btn-advert "
               onClick={() => setSearchParams({ filter: "help" })}
             >
               Yardim Duyurulari
@@ -65,7 +65,7 @@ function News() {
           </div>
           <div>
             <button
-              className="btn-advert"
+              className="category-btn-advert "
               onClick={() => setSearchParams({ filter: "home" })}
             >
               Kulup Duyurulari

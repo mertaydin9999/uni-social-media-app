@@ -35,10 +35,10 @@ function MyAdverts() {
   }
   return (
     <div className="my-advert-root">
-      <div className="profile-left">
-        <div className="profile-pic-div">
+      <div className="profile-left-my-adverts">
+        <div className="profile-pic-my-advert-div">
           <img
-            className="profile-pic"
+            className="profile-pic-my-adverts"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz86WkB3GhlJaFAfYpRAogTerlrxHMWivNWQ&usqp=CAU"
           />
         </div>

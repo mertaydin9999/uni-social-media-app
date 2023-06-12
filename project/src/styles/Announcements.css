@@ -45,6 +45,8 @@ h3 {
   height: 300px;
   position: sticky;
 }
-.btn-advert {
+.category-btn-advert {
   border-radius: 0.3em !important;
+  border: none !important;
+  width: 100%;
 }

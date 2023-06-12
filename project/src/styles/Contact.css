@@ -8,6 +8,7 @@
   height: 500px;
   background-color: white;
   border: 1px solid var(--stratos);
+  border-radius: 0em 0.5em 0.5em 0em !important;
 }
 .contact-left {
   width: 50%;
@@ -18,12 +19,13 @@
   display: flex;
   flex-direction: column;
   gap: 2em 0em;
+  border-radius: 0.5em 0em 0em 0.5em !important;
 }
 
 .title {
   font-size: 3em;
   margin-bottom: 1em;
-  color: var(--botticelli) !important;
+  color: white !important;
 }
 .contact-form {
   display: flex;

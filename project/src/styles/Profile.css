@@ -1,109 +1,114 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 .profile-root {
-  width: 100%;
-  margin: 7em auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  gap: 0em 5em;
-}
-.profile-left {
-  width: 20% !important;
-  margin: 1em auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  gap: 2em 0em;
-  border-right: 1px solid lightgray;
-}
-.photo-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1em 0em;
-}
-.profile-pic-div {
-  width: 50%;
-  display: flex;
-  padding: 1em;
-}
-
-.profile-pic {
-  border-radius: 0.1em;
-  width: 100%;
-  height: auto;
-
-  min-height: 7em;
-  object-fit: cover;
-  margin: 1em auto;
-}
-
-.profile-right {
-  width: 75%;
-  display: flex;
-  flex-direction: column;
-
-  justify-content: start;
-  align-items: start;
-  gap: 1em 0em !important;
-}
-.inputs-form {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  gap: 3em;
-}
-input,
-textarea {
-  width: 100%;
-  padding: 1.3em;
-  text-align: start;
-}
-label {
-  font-size: 1.3em;
-  font-weight: 200;
-}
-.profile-title {
-  width: 100%;
-  text-align: start;
-  float: left;
-}
-hr {
-  width: 100%;
-}
-.profile-title h3 {
-  font-weight: 300;
-  float: left;
-}
-.inputs div input:focus {
-  outline: 1px solid var(--stratos);
-}
-textarea:focus {
-  outline: 1px solid var(--stratos);
-}
-
-.photo-buttons {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-}
-.basic-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1em 0em;
-}
-.contact-infos {
-  display: flex;
-  flex-direction: column;
-  gap: 1em 0em;
-}
-.input-phone {
-  width: 100% !important;
-}
-.inputs {
   width: 60%;
+  margin: 7em auto;
+  align-items: center;
 }
-.buttons-div {
+.profile-main-div {
+  box-shadow: 0 45px 65px rgba(0, 0, 0, 0.5), 0 35px 22px rgba(0, 0, 0, 0.16);
+  border-radius: 1em;
+  padding: 5em 5em;
+}
+.middle-side-profile {
   display: flex;
   flex-direction: row;
+
+  width: 100%;
+  border-radius: 1em;
+
+  padding: 2em;
+}
+.middle-side-profile-img {
+  width: 50%;
+  border-radius: 50%;
+  object-fit: cover;
+  border-color: white;
+  aspect-ratio: 2/2;
+  border: 2px solid var(--stratos);
+}
+.go-to-edit-profile {
+  background-color: var(--stratos);
+  padding: 0.5em 0.1em !important;
+  border-radius: 0.5em;
+  color: white !important;
+  width: 50% !important;
+  text-align: center;
+}
+.go-to-edit-profile:hover {
+  background-color: var(--regal-blue) !important;
+  color: white !important;
+}
+.profile-header {
+  color: black !important;
+  font-size: 4em !important;
+}
+.profile-customer-name {
+  font-size: 3em !important;
+  font-weight: 300;
+}
+.profile-customer-name-div {
+  text-align: right;
+}
+.left-side-profile-div {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: start;
+  gap: 2em 0em;
+}
+
+.profile-p {
+  font-size: 1.3em;
+}
+.middle-profile-advert-area {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: row;
+}
+.proflle-advert-titles {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row !important;
+  gap: 1em 5em;
+}
+.profile-advert-button {
+  border: none !important;
+  width: 40% !important;
+  border-radius: 0.3em !important;
+}
+.event-i-will-go-title {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 1em;
+}
+.profile-events {
+  color: black !important;
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 0em 1em;
+}
+.profile-events:hover {
+  color: black !important;
+}
+.cancel-profile-span {
+  background-color: var(--stratos) !important;
+  color: white;
+  border-radius: 0.3em !important;
+  font-size: 0.9em !important;
+  border: none;
+  width: 20% !important;
+  padding: 0em !important;
+}
+.profile-events-div {
+  display: flex;
+  flex-direction: column;
+  gap: 1em 0em;
+}
+.profile-events-join {
+  margin-bottom: 5em;
 }

@@ -37,7 +37,7 @@ function Advert() {
       <h3>Ilanlar</h3>
       <div className="search-div">
         <div className="input-div">
-          <input type="search" placeholder="Ara" />
+          <input className="advert-searchbar" type="search" placeholder="Ara" />
         </div>
         <div className="search-buttons-div">
           <Link  to="/create-advert">Ilan Olustur</Link>
@@ -52,7 +52,7 @@ function Advert() {
           </div>
           <div>
             <button
-              className="btn-advert"
+              className="advert-category-button"
               onClick={() => setSearchParams({ filter: "" })}
             >
               Tum Ilanlari
@@ -60,7 +60,7 @@ function Advert() {
           </div>
           <div>
             <button
-              className="btn-advert"
+              className="advert-category-button"
               onClick={() => setSearchParams({ filter: "work" })}
             >
               Is Ilanlari
@@ -68,7 +68,7 @@ function Advert() {
           </div>
           <div>
             <button
-              className="btn-advert"
+              className="advert-category-button"
               onClick={() => setSearchParams({ filter: "help" })}
             >
               Yardim Isteyenler
@@ -76,7 +76,7 @@ function Advert() {
           </div>
           <div>
             <button
-              className="btn-advert"
+              className="advert-category-button"
               onClick={() => setSearchParams({ filter: "home" })}
             >
               Esya,Ev

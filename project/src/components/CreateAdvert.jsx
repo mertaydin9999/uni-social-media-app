@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { createAdvertSchema } from "../schemas";
 import { TailSpin } from "react-loader-spinner";
+const onSubmit = async (values, actions) => {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 1000);
+  });
+  actions.resetForm();
+};
 function CreateAdvert() {
-  const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
-    actions.resetForm();
-  };
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
@@ -64,12 +64,12 @@ function CreateAdvert() {
                   onChange={handleChange}
                   className={errors.title ? "input-error" : ""}
                 />
+                {errors.title && <p className="error">{errors.title}</p>}
+                <label className="advert-title-label">
+                  Basliginizi kisa ve net olmasi daha dikkat cekici olmasini
+                  saglar.
+                </label>
               </div>
-              {errors.title && <p className="error">{errors.title}</p>}
-              <label className="advert-title-label">
-                Basliginizi kisa ve net olmasi daha dikkat cekici olmasini
-                saglar.
-              </label>
             </div>
             <div className="basic-info">
               <label>Ilan Aciklamasi</label>
@@ -125,7 +125,7 @@ function CreateAdvert() {
                 Yalnizca acik bir adres vermeniz yeterli olacaktir.
               </label>
             </div>
-            <div className="basic-info">
+            <div className="basic-info basic-info-price ">
               <label>Fiyat</label>
               <div className="advert-title-and-label">
                 <input
