@@ -1,13 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const usersApi = createApi({
-  reducerPath: "users",
+  reducerPath: "usersApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3000",
   }),
   endpoints(builder) {
     return {
       fetchUsers: builder.query({
+        providesTags: ["User"],
         query: () => {
           return {
             url: "/users",
@@ -16,17 +17,26 @@ const usersApi = createApi({
         },
       }),
       addUser: builder.mutation({
-        query: () => {
+        invalidatesTags: () => {
+          return [{ type: "User" }];
+        },
+        query: (user) => {
           return {
             url: "/users",
             method: "POST",
             body: {
-              name: "Can",
+              name: user.firstName,
+              surname: user.lastName,
+              email: user.email,
+              password: user.password,
             },
           };
         },
       }),
       removeUser: builder.mutation({
+        invalidatesTags: () => {
+          return [{ type: "User" }];
+        },
         query: (user) => {
           return {
             url: `/users/${user.id}`,

@@ -4,14 +4,19 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { signupSchema } from "../schemas";
 import { TailSpin } from "react-loader-spinner";
-const onSubmit = async (values, actions) => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
-  });
-  actions.resetForm();
-};
+import { useAddUserMutation } from "../store";
 
 function SignupForm() {
+  const onSubmit = async (values, actions) => {
+    addUser(values);
+    await new Promise((resolve) => {
+      setTimeout(resolve, 1000);
+    });
+    actions.resetForm();
+  };
+
+  const [addUser, results] = useAddUserMutation();
+
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({
       initialValues: {

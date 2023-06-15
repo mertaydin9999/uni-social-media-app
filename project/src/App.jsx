@@ -23,6 +23,7 @@ import AdvertDetail from "./components/AdvertDetail";
 import EventDetail from "./components/EventDetail";
 import NewsDetail from "./components/NewsDetail";
 import EditMyProfile from "./components/EditMyProfile";
+import UsersTest from "./components/UsersTest";
 function App() {
   return (
     <>
@@ -62,6 +63,7 @@ function App() {
       </Routes>
 
       <Footer />
+      <UsersTest />
     </>
   );
 }

@@ -9,11 +9,13 @@
       "name": "mehjmet"
     },
     {
-      "id": 3,
-      "name": "onur"
+      "name": "mert",
+      "surname": "aydin",
+      "email": "mhmtydn9999@gmail.com",
+      "password": "Alamonof7",
+      "id": 3
     }
   ],
-
   "adverts": [
     {
       "id": 1,
@@ -61,7 +63,6 @@
       "category": "help"
     }
   ],
-
   "announcements": [
     {
       "id": 1,
@@ -113,7 +114,6 @@
       "date": "12.01.2011",
       "category": "places"
     },
-
     {
       "id": 4,
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",
@@ -130,7 +130,6 @@
       "date": "12.01.2011",
       "category": "community"
     },
-
     {
       "id": 6,
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgbhoPzhSGlHth9jG-UnNQm3TKFFmGVvrXg&usqp=CAU",

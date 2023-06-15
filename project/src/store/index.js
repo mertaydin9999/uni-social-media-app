@@ -6,8 +6,10 @@ import { newsApi } from "./apis/newsApi";
 import { announcementsApi } from "./apis/announcementsApi";
 import { eventsApi } from "./apis/eventsApi";
 
+
 export const store = configureStore({
   reducer: {
+    
     [usersApi.reducerPath]: usersApi.reducer,
     [advertsApi.reducerPath]: advertsApi.reducer,
     [announcementsApi.reducerPath]: announcementsApi.reducer,
