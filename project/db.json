@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "mert"
-    },
-    {
-      "id": 2,
-      "name": "mehjmet"
-    },
-    {
       "name": "mert",
       "surname": "aydin",
       "email": "mhmtydn9999@gmail.com",

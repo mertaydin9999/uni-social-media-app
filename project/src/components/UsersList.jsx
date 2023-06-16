@@ -1,7 +1,7 @@
 import React from "react";
 import { useFetchUsersQuery } from "../store";
 import Skeleton from "@mui/material/Skeleton";
-import UserListItem from "./userListItem";
+import UserListItem from "./UserListItem";
 function usersList() {
   const { data, isError, isFetching } = useFetchUsersQuery();
 

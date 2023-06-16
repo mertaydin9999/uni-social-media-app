@@ -4,14 +4,27 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { loginSchema } from "../schemas";
 import { TailSpin } from "react-loader-spinner";
-const onSubmit = async (values, actions) => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
-  });
-  actions.resetForm();
-};
+import { useFetchUsersQuery } from "../store";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
+  const { data: users } = useFetchUsersQuery();
+  let navigate = useNavigate();
+
+  const onSubmit = (values, actions) => {
+    const { email, password } = values;
+    const user = users.find(
+      (user) => user.email === email && user.password === password
+    );
+    if (user) {
+      navigate("/");
+      console.log("Success");
+    } else {
+      console.log("User not found");
+    }
+    actions.resetForm();
+  };
+
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
@@ -49,7 +62,22 @@ function LoginForm() {
         </div>
         <Link className="lost-password">Sifremi unuttum</Link>
 
-        <Link className="login-btn">Giris Yap</Link>
+        <button disabled={isSubmitting} type="submit" className="login-btn">
+          {isSubmitting ? (
+            <TailSpin
+              height="30"
+              width="30"
+              color="#white"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          ) : (
+            "Giris Yap"
+          )}
+        </button>
         <div className="is-member-div">
           <label className="is-member">
             Uye degil misiniz?

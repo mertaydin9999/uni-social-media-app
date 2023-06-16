@@ -23,7 +23,7 @@ import AdvertDetail from "./components/AdvertDetail";
 import EventDetail from "./components/EventDetail";
 import NewsDetail from "./components/NewsDetail";
 import EditMyProfile from "./components/EditMyProfile";
-import UsersTest from "./components/UsersTest";
+import UsersList from "./components/UsersList";
 function App() {
   return (
     <>
@@ -63,7 +63,7 @@ function App() {
       </Routes>
 
       <Footer />
-      <UsersTest />
+      <UsersList/>
     </>
   );
 }

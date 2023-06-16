@@ -4,13 +4,35 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { createAdvertSchema } from "../schemas";
 import { TailSpin } from "react-loader-spinner";
+import { useState } from "react";
+import MyImageGallery from "./MyImageGallery";
+
 const onSubmit = async (values, actions) => {
   await new Promise((resolve) => {
     setTimeout(resolve, 1000);
   });
   actions.resetForm();
 };
+
 function CreateAdvert() {
+  const handleImageChange = (event) => {
+    const files = Array.from(event.target.files);
+    const imagePromises = files.map((file) => {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          resolve(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+
+    Promise.all(imagePromises).then((imageUrls) => {
+      setImages((prevImages) => [...prevImages, ...imageUrls]);
+    });
+  };
+  const [images, setImages] = useState([]);
+
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
@@ -97,12 +119,28 @@ function CreateAdvert() {
               <label>Fotograflar</label>
               <div className="advert-title-and-label">
                 <input
+                  multiple
                   type="file"
-                  name=""
+                  name="images"
                   id="images"
                   value={values.images}
-                  onChange={handleChange}
+                  onChange={handleImageChange}
                 />
+                <div style={{ display: "flex", flexWrap: "wrap" }}>
+                  {images.map((imageUrl, index) => (
+                    <img
+                      key={index}
+                      src={imageUrl}
+                      alt={`Image ${index + 1}`}
+                      style={{
+                        width: "100px",
+                        objectFit: "cover",
+                        margin: "10px",
+                        aspectRatio: 2 / 2,
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
               <label className="advert-title-label">
                 Ilaniniza dair fotograflari yukleyiniz
