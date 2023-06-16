@@ -5,14 +5,7 @@ import { useFormik } from "formik";
 import { createAdvertSchema } from "../schemas";
 import { TailSpin } from "react-loader-spinner";
 import { useState } from "react";
-import MyImageGallery from "./MyImageGallery";
-
-const onSubmit = async (values, actions) => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
-  });
-  actions.resetForm();
-};
+import { useAddAdvertsMutation } from "../store";
 
 function CreateAdvert() {
   const handleImageChange = (event) => {
@@ -28,24 +21,39 @@ function CreateAdvert() {
     });
 
     Promise.all(imagePromises).then((imageUrls) => {
-      setImages((prevImages) => [...prevImages, ...imageUrls]);
+      const newImages = [...images, ...imageUrls];
+      setFieldValue("images", newImages);
+      setImages(newImages);
     });
   };
   const [images, setImages] = useState([]);
-
-  const { values, errors, isSubmitting, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: {
-        title: "",
-        description: "",
-        images: "",
-        address: "",
-        price: "",
-        date: "",
-      },
-      validationSchema: createAdvertSchema,
-      onSubmit,
-    });
+  const [addAdvert, results] = useAddAdvertsMutation();
+  const {
+    values,
+    errors,
+    isSubmitting,
+    handleChange,
+    handleSubmit,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      title: "",
+      description: "",
+      images: [],
+      address: "",
+      price: "",
+      date: "",
+    },
+    validationSchema: createAdvertSchema,
+    onSubmit: async (values, actions) => {
+      await addAdvert(values);
+      console.log(values);
+      await new Promise((resolve) => {
+        setTimeout(resolve, 1000);
+      });
+      actions.resetForm();
+    },
+  });
 
   return (
     <div className="root-create-advert">
@@ -123,7 +131,6 @@ function CreateAdvert() {
                   type="file"
                   name="images"
                   id="images"
-                  value={values.images}
                   onChange={handleImageChange}
                 />
                 <div style={{ display: "flex", flexWrap: "wrap" }}>

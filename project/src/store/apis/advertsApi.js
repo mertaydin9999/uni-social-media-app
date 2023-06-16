@@ -16,12 +16,16 @@ const advertsApi = createApi({
         },
       }),
       addAdverts: builder.mutation({
-        query: () => {
+        query: (advert) => {
           return {
             url: "/adverts",
             method: "POST",
             body: {
-              name: "Can",
+              title: advert.title,
+              advertDesc: advert.description,
+              imgUrl: advert.images,
+              price: advert.price,
+              address: advert.address,
             },
           };
         },
