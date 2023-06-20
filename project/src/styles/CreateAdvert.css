@@ -124,3 +124,23 @@ textarea:focus {
 .basic-price-advert {
   margin-bottom: 2em;
 }
+.file-input::after {
+  content: "";
+}
+.file-input::file-selector-button,
+.file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.file-input::before {
+  content: "Fotograf Ekle";
+  display: inline-block;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+.advert-title-and-label select {
+  padding: 0.5em;
+  border-radius: 0.3em;
+  color: #8e8c8c;
+}

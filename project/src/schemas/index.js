@@ -45,6 +45,7 @@ export const createAdvertSchema = yup.object().shape({
     .min(0, "Fiyat en az 0 olmalıdır"),
 
   date: yup.date(),
+  category: yup.string().required("Kategori alanı zorunludur."),
 });
 
 export const updateAdvertSchema = yup.object().shape({

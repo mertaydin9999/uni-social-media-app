@@ -9,10 +9,23 @@ function AdvertListItem({ advert }) {
       style={{ textDecoration: "none", color: "black" }}
     >
       <div className="advert-list-item">
-        <img className="list-image" src={advert.imageUrl} alt="" />
-        <p className="list-title">{advert.title}</p>
-        <p className="list-address">{advert.address}</p>
-        <p className="list-price">{advert.price}</p>
+        <div className="list-advert-img-div">
+          {advert.imgUrl && (
+            <img
+              className="advert-list-img"
+              src={advert.imgUrl[0]}
+              alt="Advert"
+            />
+          )}
+        </div>
+
+        <div className="list-advert-other-div">
+          <span className="list-title-span">{advert.title}</span>
+          <span className="advert-list-price">{advert.price} TL</span>
+          <span className="list-advert-description-span">
+            {advert.advertDesc}
+          </span>
+        </div>
       </div>
     </Link>
   );

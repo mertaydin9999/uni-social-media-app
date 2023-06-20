@@ -5,13 +5,17 @@ import { useFormik } from "formik";
 import { signupSchema } from "../schemas";
 import { TailSpin } from "react-loader-spinner";
 import { useAddUserMutation } from "../store";
+import { useNavigate } from "react-router-dom";
 
 function SignupForm() {
+  const navigate = useNavigate();
   const onSubmit = async (values, actions) => {
-    addUser(values);
     await new Promise((resolve) => {
       setTimeout(resolve, 1000);
     });
+    addUser(values);
+    navigate("/login");
+
     actions.resetForm();
   };
 

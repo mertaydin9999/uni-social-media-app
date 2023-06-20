@@ -24,6 +24,7 @@ import EventDetail from "./components/EventDetail";
 import NewsDetail from "./components/NewsDetail";
 import EditMyProfile from "./components/EditMyProfile";
 import UsersList from "./components/UsersList";
+import UserProfile from "./components/UserProfile";
 function App() {
   return (
     <>
@@ -56,6 +57,7 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
 
         <Route path="/profile" element={<Profile />} />
+        <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/edit-my-profile" element={<EditMyProfile />} />
 
         <Route path="/signup" element={<SignupForm />} />
@@ -63,7 +65,6 @@ function App() {
       </Routes>
 
       <Footer />
-      <UsersList/>
     </>
   );
 }

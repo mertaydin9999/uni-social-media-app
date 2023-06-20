@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/CreateAdvert.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { createAdvertSchema } from "../schemas";
 import { TailSpin } from "react-loader-spinner";
@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useAddAdvertsMutation } from "../store";
 
 function CreateAdvert() {
+  let navigate = useNavigate();
   const handleImageChange = (event) => {
     const files = Array.from(event.target.files);
     const imagePromises = files.map((file) => {
@@ -43,15 +44,21 @@ function CreateAdvert() {
       address: "",
       price: "",
       date: "",
+      category: "",
     },
     validationSchema: createAdvertSchema,
     onSubmit: async (values, actions) => {
+      const currentDate = new Date();
+      const formattedDate = currentDate.toISOString();
+      values.date = formattedDate;
+
       await addAdvert(values);
       console.log(values);
       await new Promise((resolve) => {
         setTimeout(resolve, 1000);
       });
       actions.resetForm();
+      navigate("/my-adverts");
     },
   });
 
@@ -102,6 +109,28 @@ function CreateAdvert() {
               </div>
             </div>
             <div className="basic-info">
+              <label htmlFor="category">Kategori</label>
+              <div className="advert-title-and-label">
+                <select
+                  id="category"
+                  name="category"
+                  value={values.category}
+                  onChange={handleChange}
+                  className={errors.category ? "input-error" : ""}
+                >
+                  <option value="">Kategori Seçin</option>
+                  <option value="house">Ev</option>
+                  <option value="house-staff">Ev Eşyaları</option>
+                  <option value="clothes">Giyim</option>
+                  <option value="other">Diger</option>
+                </select>
+              </div>
+              {errors.category && <p className="error">{errors.category}</p>}
+              <label className="advert-title-label">
+                İlanınızın kategorisini seçiniz.
+              </label>
+            </div>
+            <div className="basic-info">
               <label>Ilan Aciklamasi</label>
               <div className="advert-title-and-label">
                 <textarea
@@ -127,13 +156,24 @@ function CreateAdvert() {
               <label>Fotograflar</label>
               <div className="advert-title-and-label">
                 <input
+                  accept="image/*"
                   multiple
                   type="file"
                   name="images"
                   id="images"
                   onChange={handleImageChange}
+                  className="file-input"
                 />
-                <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    backgroundColor: "var(--botticelli)",
+                    borderRadius: ".3em",
+                    padding: ".5em",
+                    marginTop: "1em",
+                  }}
+                >
                   {images.map((imageUrl, index) => (
                     <img
                       key={index}

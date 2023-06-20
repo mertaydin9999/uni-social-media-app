@@ -4,8 +4,17 @@ import { useParams } from "react-router-dom";
 import { useFetchAdvertsQuery } from "../store";
 import "../styles/AdvertDetail.css";
 import EmailIcon from "@mui/icons-material/Email";
+import { useState } from "react";
+
 function AdvertDetail() {
   const { id } = useParams();
+
+  const [selectedImage, setSelectedImage] = useState("");
+
+  const handleSmallImageClick = (image) => {
+    setSelectedImage(image);
+  };
+
   const { data, isError, isFetching } = useFetchAdvertsQuery();
   let advertDetail;
   if (isFetching) {
@@ -17,59 +26,50 @@ function AdvertDetail() {
       ?.filter((advertDetail) => advertDetail.id == id)
       .map((advertDetail) => {
         return (
-          <div>
-            <div className="general-div" key={advertDetail.id}>
+          <div key={advertDetail.id}>
+            <div className="general-div">
               <div className="left-root">
                 <Link to="/advert">Ilanlar'a git</Link>
                 <Link to="/my-adverts">Ilanlarim</Link>
                 <Link to="/create-advert">Ilan Olustur</Link>
               </div>
               <div className="right-root">
-                <div>
-                  <h3 className="advert-detail-header">Ilan Detaylari</h3>
+                <div className="advert-detail-title-div">
+                  {advertDetail.title}
                 </div>
                 <div className="top-side">
                   <div className="left-div">
                     <div className="photos-div">
                       <div className="left-photo-div">
                         <div className="big-image-div">
-                          <img src={advertDetail.imageUrl} alt="" />
+                          <img
+                            className="advert-detail-big-img"
+                            src={selectedImage || advertDetail.imgUrl[0]}
+                            alt=""
+                          />
                         </div>
                         <div className="small-images-div">
-                          <img
-                            className="small-image"
-                            src={advertDetail.imageUrl}
-                            alt=""
-                          />
-                          <img
-                            className="small-image"
-                            src={advertDetail.imageUrl}
-                            alt=""
-                          />
-                          <img
-                            className="small-image"
-                            src={advertDetail.imageUrl}
-                            alt=""
-                          />
-                          <img
-                            className="small-image"
-                            src={advertDetail.imageUrl}
-                            alt=""
-                          />
-                          <img
-                            className="small-image"
-                            src={advertDetail.imageUrl}
-                            alt=""
-                          />
+                          {advertDetail.imgUrl.map((image, index) => (
+                            <img
+                              key={index}
+                              className={`small-image ${
+                                selectedImage === image ? "active" : ""
+                              }`}
+                              src={image}
+                              alt=""
+                              onClick={() => handleSmallImageClick(image)}
+                            />
+                          ))}
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="right-div">
-                    <div className="left-title-div">{advertDetail.title}</div>
                     <div>
-                      <label className="price-label">Fiyat</label>
-                      <span className="price">{advertDetail.price}</span>
+                      <label>Fiyat</label>
+                      <span className="price">
+                        {advertDetail.price} {"  TL"}
+                      </span>
                     </div>
                     <div>
                       <label className="customer-label">Ilan Sahibi</label>
@@ -92,31 +92,22 @@ function AdvertDetail() {
                     <div>
                       <h4 className="details">Detayli Aciklama</h4>
                     </div>
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Sequi amet deleniti exercitationem. Ipsum, possimus
-                      officiis animi sed nihil, nostrum quia inventore facilis
-                      iste molestiae, tenetur in amet officia error eos.
-                      <br />
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Sed ullam voluptas rerum. Delectus veritatis soluta ad
-                      maxime dolore omnis quas dolorem nemo pariatur! Atque
-                      consectetur tempora neque esse porro quidem!
-                    </p>
+                    <p>{advertDetail.advertDesc}</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="bottom-similar-advert">
+            {/* <div className="bottom-similar-advert">
               <img src={advertDetail.imageUrl} alt="" />
               <img src={advertDetail.imageUrl} alt="" />
               <img src={advertDetail.imageUrl} alt="" />
               <img src={advertDetail.imageUrl} alt="" />
-            </div>
+            </div> */}
           </div>
         );
       });
   }
+
   return <div>{advertDetail}</div>;
 }
 

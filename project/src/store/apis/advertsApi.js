@@ -26,6 +26,8 @@ const advertsApi = createApi({
               imgUrl: advert.images,
               price: advert.price,
               address: advert.address,
+              category: advert.category,
+              date: advert.date,
             },
           };
         },

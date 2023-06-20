@@ -1,7 +1,7 @@
 .advert-list-item {
   display: flex;
   flex-direction: row;
-  align-items: center !important;
+  align-items: start !important;
   justify-content: space-between !important;
   gap: 0em 1em;
   padding: 1em;
@@ -10,13 +10,44 @@
   border: 1px solid var(--bondi-blue);
   color: var(--stratos);
   border-radius: 0.3em !important;
+  max-height: 10em;
+  min-height: 10em;
 }
-.product {
-  background-color: white !important;
-}
+
 .list-image {
   border: 1px solid var(--bondi-blue);
 }
 .list-title {
   font-weight: 600;
+}
+.list-advert-img-div {
+  width: 20%;
+  background-color: white !important;
+  padding: 0em;
+}
+.list-advert-other-div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: start !important;
+  justify-content: start !important;
+}
+.list-advert-other-div span {
+  font-size: 1em;
+}
+.list-advert-other-div .list-title-span {
+  font-weight: 500;
+}
+.list-advert-other-div .list-advert-description-span {
+  font-size: 0.9em;
+}
+.advert-list-img {
+  width: 100%;
+  max-width: 10em;
+  aspect-ratio: 2/2;
+  object-fit: cover;
+}
+.advert-list-price {
+  font-size: 1.1em !important;
+  margin-bottom: 0.5em;
 }
