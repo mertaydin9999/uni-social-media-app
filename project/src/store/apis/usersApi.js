@@ -29,7 +29,23 @@ const usersApi = createApi({
               surname: user.lastName,
               email: user.email,
               password: user.password,
+              age: user.age,
+              address: user.address,
+              profileImage: user.profileImage,
+              university: user.university,
             },
+          };
+        },
+      }),
+      updateUser: builder.mutation({
+        invalidatesTags: () => {
+          return [{ type: "User" }];
+        },
+        query: (updatedUser) => {
+          return {
+            url: `/users/${updatedUser.id}`,
+            method: "PUT",
+            body: updatedUser,
           };
         },
       }),
@@ -48,6 +64,10 @@ const usersApi = createApi({
   },
 });
 
-export const { useFetchUsersQuery, useAddUserMutation, useRemoveUserMutation } =
-  usersApi;
+export const {
+  useFetchUsersQuery,
+  useAddUserMutation,
+  useRemoveUserMutation,
+  useUpdateUserMutation,
+} = usersApi;
 export { usersApi };

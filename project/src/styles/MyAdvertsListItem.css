@@ -14,8 +14,13 @@
 .link-root {
   background-color: white !important;
 }
+
 .list-image {
   border: 1px solid var(--bondi-blue);
+  object-fit: cover;
+  height: 7em;
+  aspect-ratio: 2/2;
+  width: auto;
 }
 
 .list-title {
@@ -24,7 +29,7 @@
 .update-link {
   display: flex;
   flex-direction: row;
-  font-size: 0.8em;
+  font-size: 0.6em;
   padding: 0.3em 0.8em;
   background-color: var(--bondi-blue);
   color: white !important;
@@ -37,7 +42,7 @@
 .delete-my-advert-button {
   display: flex;
   flex-direction: row;
-  font-size: 0.9em !important;
+  font-size: 0.6em !important;
   padding: 0.3em 0.8em !important;
   width: 100% !important;
   background-color: #ff6d60 !important;
@@ -78,4 +83,8 @@
   display: flex;
   flex-direction: row;
   gap: 0em 1em;
+
+  margin-bottom: 1em !important;
+  align-self: flex-end;
+  justify-self: end !important;
 }

@@ -23,8 +23,8 @@
   display: flex;
   flex-direction: row;
   margin: 10em auto;
-  width: 100%;
-  width: 90%;
+  width: 80%;
+
   gap: 0em;
 }
 .delete-my-advert-button {
@@ -45,4 +45,7 @@
   flex-direction: column;
   align-items: center;
   gap: 2em;
+}
+.profile-right {
+  width: 80%;
 }

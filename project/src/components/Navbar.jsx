@@ -55,7 +55,7 @@ function Navbar() {
               <Link to="/login"> Uye Girisi </Link>
               <Link to="/signup">Kayit Ol</Link>
               <Link to="/profile">Profil</Link>
-              <Link to="/my-adverts">Ilanlarim</Link>
+
               <Link>Cikis Yap</Link>
             </div>
           </Link>

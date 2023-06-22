@@ -6,34 +6,38 @@ import DeleteIcon from "@mui/icons-material/Delete";
 function MyAdvertsListItem({ myAdverts }) {
   return (
     <Link
-      className="link-root"
+      className="myadvert-main-root "
       to={`/advert/detail/${myAdverts.id}`}
       style={{ textDecoration: "none", color: "black" }}
     >
-      <div className="my-advert-list-item">
-        <div className="details">
-          <img className="list-image" src={myAdverts.imageUrl} alt="" />
-          <div className="detail-my-adverts">
-            <p className="list-title">{myAdverts.title}</p>
-            <p>{myAdverts.advertDesc}</p>
-            <div className="price-and-address">
-              <div className="label-and-price">
-                <label className="price-label">Fiyat:</label>
-                <p className="list-price">{myAdverts.price}</p>
-              </div>
+      
+      <div className="advert-list-item">
+        <div className="list-advert-img-div">
+          {myAdverts.imgUrl && (
+            <img
+              className="advert-list-img"
+              src={myAdverts.imgUrl[0]}
+              alt="Advert"
+            />
+          )}
+        </div>
 
-              <p className="list-address">{myAdverts.address}</p>
-              <div className="update-and-delete">
-                <Link to="/edit-my-advert" className="update-link">
-                  Duzenle <EditIcon sx={{ fontSize: 20 }} />
-                </Link>
-                <button className="delete-my-advert-button">
-                  Sil
-                  <DeleteIcon />
-                </button>
-              </div>
-            </div>
-          </div>
+        <div className="list-advert-other-div">
+          <span className="list-title-span">{myAdverts.title}</span>
+          <span className="advert-list-price">{myAdverts.price} TL</span>
+          <span className="list-advert-description-span">
+            {myAdverts.advertDesc}
+          </span>
+        </div>
+        <div className="update-and-delete">
+          <Link to="/edit-my-advert" className="update-link">
+            Duzenle
+            <EditIcon sx={{ fontSize: 20 }} />
+          </Link>
+          <Link to="edit-my-advert" className="delete-my-advert-button">
+            Sil
+            <DeleteIcon sx={{ fontSize: 20 }} />
+          </Link>
         </div>
       </div>
     </Link>

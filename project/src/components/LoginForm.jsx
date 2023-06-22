@@ -4,24 +4,37 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { loginSchema } from "../schemas";
 import { TailSpin } from "react-loader-spinner";
-import { useFetchUsersQuery } from "../store";
+import {
+  useAddLoginMutation,
+  useUpdateLoginMutation,
+  useGetLoginQuery,
+} from "../store/apis/loginApi";
+import { useFetchUsersQuery } from "../store/apis/usersApi";
 import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
-  const { data: users } = useFetchUsersQuery();
   let navigate = useNavigate();
+  const [addLogin] = useAddLoginMutation();
+  const { data: users } = useFetchUsersQuery();
+  const [updateLogin] = useUpdateLoginMutation();
+  const { data: loginData } = useGetLoginQuery();
+  const onSubmit = async (values, actions) => {
+    const user = users.find((user) => user.email === values.email);
 
-  const onSubmit = (values, actions) => {
-    const { email, password } = values;
-    const user = users.find(
-      (user) => user.email === email && user.password === password
-    );
-    if (user) {
-      navigate("/");
+    if (user && user.password === values.password) {
+      if (user) {
+        const addLogins = await addLogin(values);
+        console.log(addLogins);
+      } else {
+        console.log("Login data is not available");
+      }
+
       console.log("Success");
+      navigate("/user-profile");
     } else {
-      console.log("User not found");
+      console.log("Invalid email or password");
     }
+
     actions.resetForm();
   };
 

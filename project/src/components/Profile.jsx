@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useGetLoginQuery } from "../store";
+import { useFetchUsersQuery } from "../store";
+import { useEffect } from "react";
 import "../styles/Profile.css";
 function Profile() {
+  const { data: loginData } = useGetLoginQuery();
+  const { data: users } = useFetchUsersQuery();
+  const [profileData, setProfileData] = useState(null);
+  // loginData, API'den dönen tüm verileri içerir
+  // Son eklenen veriye erişmek için:
+  useEffect(() => {
+    // loginData ve users değiştiğinde tetiklenecek
+    if (loginData && users) {
+      const lastLogin = loginData[loginData.length - 1];
+      const foundProfileData = users.find(
+        (user) => user.email === lastLogin.email
+      );
+      setProfileData(foundProfileData);
+    }
+  }, [loginData, users]);
+
+  console.log(profileData);
   return (
     <div className="profile-root">
       <div className="profile-main-div">
@@ -18,12 +38,18 @@ function Profile() {
 
           <div className="right-side-profile-div">
             <div className="profile-customer-name-div">
-              <p className="profile-customer-name">Mert Aydin</p>
+              <p className="profile-customer-name">
+                {profileData?.name + " " + profileData?.surname}
+              </p>
             </div>
-            <p className="profile-p">Yalova Universitesi</p>
+            <p className="profile-p">
+              {profileData?.university ? profileData.university : ""}
+            </p>
             <p className="profile-p">Istanbul</p>
             <p className="profile-p">23</p>
-            <p className="profile-p">Ogrenci</p>
+            <p className="profile-p">
+              {profileData?.job ? profileData.job : ""}
+            </p>
           </div>
         </div>
         <hr />

@@ -65,3 +65,7 @@ export const updateAdvertSchema = yup.object().shape({
 
   date: yup.date(),
 });
+
+export const createPostSchema = yup.object().shape({
+  postText: yup.string().required("Metin bos birakilamaz"),
+});

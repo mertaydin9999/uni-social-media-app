@@ -1,22 +1,29 @@
 import React from "react";
 import { useFetchUsersQuery } from "../store";
+import { useGetLoginQuery } from "../store";
 
 function UserProfile() {
-  const { data: users } = useFetchUsersQuery();
+  const { data: user, isLoading, isError } = useFetchUsersQuery();
+  const { data: loginData } = useGetLoginQuery();
 
-  // Kullanıcının verilerini al
-  const user = users && users.length > 0 ? users[0] : null;
+  // loginData, API'den dönen tüm verileri içerir
+  // Son eklenen veriye erişmek için:
+  const lastLogin = loginData && loginData[loginData.length - 1];
 
-  if (!user) {
-    return <div>Kullanıcı bulunamadı.</div>;
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Failed to fetch user data</div>;
   }
 
   return (
     <div>
-      <h2>Kullanıcı Profili</h2>
-      <p>Ad: {user.firstName}</p>
-      <p>Soyad: {user.lastName}</p>
-      <p>E-posta: {user.email}</p>
+      <h1>Profil Sayfası</h1>
+      <p>Ad: {user.name}</p>
+      <p>Soyad: {user.surname}</p>
+      <p>E-posta: {lastLogin.email}</p>
     </div>
   );
 }

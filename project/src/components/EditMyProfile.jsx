@@ -2,27 +2,46 @@ import React from "react";
 import "../styles/EditMyProfile.css";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
-import { createAdvertSchema } from "../schemas";
+
 import { TailSpin } from "react-loader-spinner";
-const onSubmit = async (values, actions) => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
-  });
-  actions.resetForm();
-};
+import { useFetchUsersQuery } from "../store/apis/usersApi";
+
 function EditMyProfile() {
+  const { data: usersData, isLoading: isUsersLoading } = useFetchUsersQuery();
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
-        title: "",
-        description: "",
-        images: "",
-        address: "",
-        price: "",
-        date: "",
+        name: usersData?.name || "",
+        surname: usersData?.surname || "",
+        email: usersData?.email || "",
+        university: usersData?.university || "",
+        address: usersData?.address || "",
+        birthdate: usersData?.birthdate || "",
       },
-      validationSchema: createAdvertSchema,
-      onSubmit,
+      onSubmit: async (values, actions) => {
+        try {
+          const updatedData = {
+            id: values.id, // Kullanıcının benzersiz kimliği
+            name: values.name,
+            surname: values.surname,
+            email: values.email,
+            university: values.university,
+            profilePicture: values.profilePicture,
+            address: values.address,
+            birthDate: values.birthDate,
+          };
+
+          const response = await updateUser(updatedData).unwrap();
+          // Başarılı yanıtı ele al
+
+          console.log(response); // İsteğin başarılı bir şekilde tamamlanması durumunda alınan yanıtı kontrol edebilirsiniz
+
+          actions.resetForm();
+        } catch (error) {
+          // Hata durumunu ele al
+          console.error(error);
+        }
+      },
     });
   return (
     <div className="root-create-advert">

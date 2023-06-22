@@ -1,16 +1,101 @@
-.main-box {
-  display: flex;
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
-.left-box {
-  width: 20%;
-}
-.mid-box {
+.solidatiry-share-form {
   width: 50%;
+  margin: 7em auto 1em auto;
+  border-radius: 1em;
+  border: 1px solid lightgray;
+  padding: 2em;
+}
+.root-solidatiry {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20em;
 }
-.left-box {
-  width: 20%;
+.solidatiry-file-input {
+  border: none !important;
+  width: 10em;
+}
+.solidatiry-top-form {
+  display: flex;
+  flex-direction: row;
+  gap: 0em 2em;
+}
+.solidatiry-profile-img {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 5em;
+  height: 5em;
+}
+.solidatiry-file-share {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-between;
+  margin-top: -1em;
+}
+.solidatiry-share-button {
+  border: none !important;
+  border-radius: 0.3em !important;
+  align-self: end !important;
+  width: 20% !important;
+  height: 5% !important;
+  font-size: 1em !important;
+  margin-top: 1em !important;
+}
+.solidatiry-basic-info {
+  margin-top: -0em;
+}
+hr {
+  color: lightgray;
+  width: 50%;
+}
+.solidatiry-posts-title {
+  color: black !important;
+  margin: 1em;
+}
+
+.solidatiry-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 1em;
+  padding: 2em;
+  gap: 1em 0em;
+  margin: 1em 0em;
+}
+.solidatiry-posts {
+  width: 50%;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0em !important;
+}
+.solidatiry-post-user-image-and-user {
+  display: flex;
+  flex-direction: row;
+  gap: 0em 2em;
+}
+.solidatiry-post-username {
+  font-size: 1.4em;
+}
+.solidatiry-date {
+  color: rgb(138, 136, 136);
+  font-size: 0.8em;
+}
+.solidatiry-name-and-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.solidatiry-post-images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

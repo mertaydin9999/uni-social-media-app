@@ -9,17 +9,21 @@ import { useNavigate } from "react-router-dom";
 
 function SignupForm() {
   const navigate = useNavigate();
+  const [addUser, addUserResults] = useAddUserMutation();
+
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1000);
-    });
-    addUser(values);
-    navigate("/login");
+    try {
+      const addUserResult = await addUser(values);
+      // Kullanıcıyı kaydetme işlemi başarılı oldu
+      console.log("User added:", addUserResult);
 
-    actions.resetForm();
+      navigate("/login");
+
+      actions.resetForm();
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-  const [addUser, results] = useAddUserMutation();
 
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({
