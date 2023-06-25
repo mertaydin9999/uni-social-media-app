@@ -8,6 +8,7 @@ const eventsApi = createApi({
   endpoints(builder) {
     return {
       fetchEvents: builder.query({
+        providesTags: ["Events"],
         query: () => {
           return {
             url: "/events",
@@ -16,6 +17,9 @@ const eventsApi = createApi({
         },
       }),
       addEvents: builder.mutation({
+        invalidatesTags: () => {
+          return [{ type: "Events" }];
+        },
         query: () => {
           return {
             url: "/events",
@@ -27,6 +31,9 @@ const eventsApi = createApi({
         },
       }),
       removeEvent: builder.mutation({
+        invalidatesTags: () => {
+          return [{ type: "Events" }];
+        },
         query: (events) => {
           return {
             url: `/events/${events.id}`,

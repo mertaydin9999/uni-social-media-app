@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.editor-root {
+  margin: 0;
+  height: 100vh;
+}
+.editor-header {
+  padding: 1em;
+  background-color: var(--stratos);
+  color: white;
+  font-size: 1.5em;
+}
+.editor-aside {
+  width: 15%;
+  border-right: 1px lightgray solid;
+  height: 90vh;
+  background-color: var(--regal-blue);
+}
+.editor-main {
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  padding: 2em;
+  gap: 0em 2em;
+}
+.editor-article-left {
+  width: 40% !important;
+  display: flex;
+  flex-direction: column;
+}
+.editor-article-right {
+  width: 60% !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 1px lightgray solid;
+}
+.editor-main-and-aside {
+  display: flex;
+  flex-direction: row;
+}
+.editor-aside-button {
+  font-size: 1em !important;
+  border: none;
+  background-color: var(--regal-blue) !important;
+  color: white !important;
+  border-top: white solid !important;
+  border-bottom: white solid !important;
+  padding: 1em 0.7em !important;
+}
+.editor-aside-button:hover {
+  background-color: var(--stratos) !important;
+}
+.editor-searchbar {
+  width: 100% !important;
+  font-size: 1em !important;
+  padding: 0.5em;
+  border-radius: 0.3em !important;
+  margin-bottom: 2em !important;
+}
+.editor-create-button {
+  width: 40% !important;
+  font-size: 1em !important;
+  border: none !important;
+  align-self: end;
+  border-radius: 0.3em !important;
+}
+.editor-left-article-inside {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center !important;
+  gap: 1em 0em !important;
+}
+.editor-left-article-inside div {
+  border: 1px solid lightgray !important;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+  font-size: 1.3em !important;
+  width: 100%;
+  border-radius: 0.3em !important;
+  padding: 0.5em 1em;
+}
+.editor-left-article-inside div:hover {
+  background-color: lightgray !important;
+}
+.editor-list-items {
+  background-color: aqua !important;
+}
+.editor-left-article-inside div button {
+  font-size: 0.8em !important;
+  width: 20% !important;
+  padding: 0.3em 0.6em !important;
+  border: none;
+  border-radius: 0.3em !important;
+  background-color: rgb(235, 110, 110) !important;
+}

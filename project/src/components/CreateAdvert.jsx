@@ -120,7 +120,7 @@ function CreateAdvert() {
                 >
                   <option value="">Kategori Seçin</option>
                   <option value="house">Ev</option>
-                  <option value="house-staff">Ev Eşyaları</option>
+                  <option value="housestaff">Ev Eşyaları</option>
                   <option value="clothes">Giyim</option>
                   <option value="other">Diger</option>
                 </select>

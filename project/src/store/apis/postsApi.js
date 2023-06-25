@@ -8,6 +8,7 @@ const postsApi = createApi({
   endpoints(builder) {
     return {
       fetchPosts: builder.query({
+        providesTags: ["Post"],
         query: () => {
           return {
             url: "/posts",
@@ -16,6 +17,9 @@ const postsApi = createApi({
         },
       }),
       addPost: builder.mutation({
+        invalidatesTags: () => {
+          return [{ type: "Post" }];
+        },
         query: (post) => {
           return {
             url: "/posts",
@@ -45,7 +49,7 @@ const postsApi = createApi({
         query: (postId) => {
           return {
             url: `/posts/${postId}`,
-            method: "DELETE",
+            method: "POST",
           };
         },
       }),
@@ -53,7 +57,7 @@ const postsApi = createApi({
         query: (postId) => {
           return {
             url: `/posts/${postId}`,
-            method: "DELETE",
+            method: "POST",
           };
         },
       }),

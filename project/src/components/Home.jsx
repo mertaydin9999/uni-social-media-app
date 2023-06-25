@@ -57,7 +57,7 @@ function Home() {
         </Link>
         <Link to="solidatiry" className="links">
           <HandshakeIcon sx={{ fontSize: 50 }} />
-          <p className="links-text">Yardim</p>
+          <p className="links-text">Sosyal</p>
         </Link>
       </div>
       <div className="last-news-announce-events">

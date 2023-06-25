@@ -7,6 +7,7 @@ import { announcementsApi } from "./apis/announcementsApi";
 import { eventsApi } from "./apis/eventsApi";
 import { loginApi } from "./apis/loginApi";
 import { postsApi } from "./apis/postsApi";
+import { contactApi } from "./apis/contactApi";
 
 export const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ export const store = configureStore({
     [newsApi.reducerPath]: newsApi.reducer,
     [loginApi.reducerPath]: loginApi.reducer,
     [postsApi.reducerPath]: postsApi.reducer,
+    [contactApi.reducerPath]: contactApi.reducer,
   },
   middleware: getDefaultMiddleware()
     .concat(usersApi.middleware)
@@ -25,7 +27,8 @@ export const store = configureStore({
     .concat(eventsApi.middleware)
     .concat(newsApi.middleware)
     .concat(loginApi.middleware)
-    .concat(postsApi.middleware),
+    .concat(postsApi.middleware)
+    .concat(contactApi.middleware),
 });
 
 setupListeners(store.dispatch);
@@ -73,3 +76,5 @@ export {
   useAddCommentMutation,
   useAddLikeMutation,
 } from "./apis/postsApi";
+
+export { useAddContactMutation } from "./apis/contactApi";

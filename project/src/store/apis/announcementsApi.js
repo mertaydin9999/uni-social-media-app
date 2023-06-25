@@ -8,6 +8,7 @@ const announcementsApi = createApi({
   endpoints(builder) {
     return {
       fetchAnnouncements: builder.query({
+        providesTags: ["Announcements"],
         query: () => {
           return {
             url: "/announcements",
@@ -16,6 +17,9 @@ const announcementsApi = createApi({
         },
       }),
       addAnnouncements: builder.mutation({
+        invalidatesTags: () => {
+          return [{ type: "Announcements" }];
+        },
         query: () => {
           return {
             url: "/announcements",
@@ -27,6 +31,9 @@ const announcementsApi = createApi({
         },
       }),
       removeAnnouncement: builder.mutation({
+        invalidatesTags: () => {
+          return [{ type: "Announcements" }];
+        },
         query: (announcement) => {
           return {
             url: `/announcements/${announcement.id}`,

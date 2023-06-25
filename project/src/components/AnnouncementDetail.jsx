@@ -23,18 +23,7 @@ function AnnouncementDetail() {
               <p>{announcement.date}</p>
             </div>
             <div>
-              <p className="announce-detail-desc">
-                {announcement.advertDesc}
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-                debitis repudiandae blanditiis tenetur laborum. Corrupti modi
-                dolore itaque illum nobis accusamus? Magnam officiis tenetur id
-                veritatis numquam iusto quam repellat.lorem Lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Nesciunt vel doloremque
-                quam architecto vero error illo ut, earum nemo suscipit hic
-                eveniet blanditiis perferendis quasi eaque similique nobis
-                repudiandae praesentium.
-              </p>
+              <p className="announce-detail-desc">{announcement.advertDesc}</p>
             </div>
             <div className="announce-detail-img-div">
               <img src={announcement.imageUrl} alt="" />

@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
@@ -23,12 +23,17 @@ import AdvertDetail from "./components/AdvertDetail";
 import EventDetail from "./components/EventDetail";
 import NewsDetail from "./components/NewsDetail";
 import EditMyProfile from "./components/EditMyProfile";
-import UsersList from "./components/UsersList";
 import UserProfile from "./components/UserProfile";
+import Editor from "./components/Editor";
 function App() {
+  const location = useLocation();
+  const hideNavbarLinks = ["/editor"]; // Navbar linklerinin gizlenmesini istediğiniz sayfa yollarını buraya ekleyin
+
+  const shouldShowNavbarLinks = !hideNavbarLinks.includes(location.pathname);
+
   return (
     <>
-      <Navbar />
+      {shouldShowNavbarLinks && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -62,9 +67,11 @@ function App() {
 
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/solidatiry" element={<Solidatiry />} />
+
+        <Route path="/editor" element={<Editor />} />
       </Routes>
 
-      <Footer />
+      {shouldShowNavbarLinks && <Footer />}
     </>
   );
 }

@@ -4,8 +4,9 @@
 }
 .root {
   width: 80% !important;
-  margin: 10em auto 10em auto !important;
+  margin: 10em auto 20em auto !important;
   display: flex;
+
   flex-direction: column;
 
   align-items: center !important;
@@ -56,7 +57,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-
+  margin-bottom: 10em;
   gap: 0em 2em;
 }
 .filter-div {
@@ -64,6 +65,9 @@
   display: flex;
   flex-direction: column;
   gap: 2em 0em;
+  position: sticky;
+  top: 10em;
+  height: 200px;
   padding-right: 3em !important;
   border-right: 1px solid var(--botticelli);
 }
