@@ -4,12 +4,36 @@
   padding: 0.5em 1em;
   color: white !important;
   border-radius: 0.3em;
+  font-size: 1em !important;
+  width: 25% !important;
 }
 .to-announce:hover {
   background-color: var(--regal-blue);
   color: white !important;
 }
-
 .announcement {
   border-radius: 0.3em !important;
+  border: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  gap: 1em 0em;
+}
+.announcement p {
+  width: 800px !important;
+  word-wrap: break-word;
+}
+.date-and-link {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center !important;
+}
+.date-and-link p {
+  font-size: 1.2em !important;
+  text-align: center !important;
+  width: 20% !important;
+  border: 1px solid lightgray !important;
+  border-radius: 0.3em;
+  padding: 0.3em 0.6em;
 }

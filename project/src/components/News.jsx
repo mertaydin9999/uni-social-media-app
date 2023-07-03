@@ -31,7 +31,7 @@ function News() {
   }
   return (
     <div className="root">
-      <header>
+      <header className="announcement-header">
         <h3>Haberler</h3>
       </header>
       <div className="contents">

@@ -34,6 +34,9 @@
 .editor-article-right {
   width: 60% !important;
   display: flex;
+  flex-wrap: wrap;
+  padding: 2em;
+  max-width: 50em;
   flex-direction: column;
   align-items: center;
   border-left: 1px lightgray solid;
@@ -88,6 +91,7 @@
 }
 .editor-left-article-inside div:hover {
   background-color: lightgray !important;
+  cursor: pointer;
 }
 .editor-list-items {
   background-color: aqua !important;
@@ -99,4 +103,7 @@
   border: none;
   border-radius: 0.3em !important;
   background-color: rgb(235, 110, 110) !important;
+}
+.editor-left-article-inside div button:hover {
+  background-color: rgb(234, 36, 36) !important;
 }

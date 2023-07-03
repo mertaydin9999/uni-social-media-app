@@ -12,10 +12,12 @@
 .left-div-advert-create {
   margin-top: 5em;
   width: 20% !important;
-  background-color: var(--botticelli);
+  background-color: var(--stratos);
+  color: white !important;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center !important;
+
   gap: 1em 0em;
   border-radius: 1em;
   position: sticky;
@@ -68,7 +70,13 @@
 .create-advert-links-div a {
   width: 100% !important;
   display: block;
-  border-radius: 1em !important;
+  padding: 0.5em 2em;
+  border-radius: 0.3em !important;
+  background-color: white !important;
+  color: var(--stratos) !important;
+}
+.create-advert-links-div a:hover {
+  transform: scale(1.1);
 }
 .create-advert-title {
   text-align: center !important;

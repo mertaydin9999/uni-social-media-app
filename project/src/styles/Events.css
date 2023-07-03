@@ -3,7 +3,7 @@
   margin: 0;
 }
 .event-root {
-  width: 80% !important;
+  width: 90% !important;
   margin: 10em auto 10em auto !important;
   display: flex;
   flex-direction: row;
@@ -11,10 +11,11 @@
 }
 
 .events {
-  width: 80% !important;
+  width: 100% !important;
   margin: 1em 2em;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap !important;
   gap: 1em 1em !important;
   background-color: white !important;
 }
@@ -41,10 +42,43 @@ img {
 .event-categories button {
   text-align: center;
   border: 1px solid var(--stratos);
-  
+
   border-radius: 0.3em !important;
 }
+.event-events-list {
+  width: 90% !important;
+  justify-content: start;
 
+  margin: 2em auto;
+  display: flex;
+  flex-direction: row !important;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.event-links-my-events {
+  margin-top: 6em;
+}
+.my-events-list-my-events {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: start;
+  width: 70%;
+}
+.event-and-header-my-events {
+  display: flex;
+  flex-direction: column;
+  gap: 2em 0em;
+}
+.my-event-list {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 2em;
+}
+.create-event-form-my-event {
+  width: 50%;
+}
 @media screen and (max-width: 992px) {
   .event {
     width: 100%;

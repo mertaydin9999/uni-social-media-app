@@ -21,9 +21,11 @@ h3 {
   flex-direction: row;
   gap: 0em 2em;
 }
-
+.announcement-header {
+  margin-bottom: 5em !important;
+}
 .announcements-div {
-  width: 100% !important;
+  width: 80% !important;
   margin: 0;
   gap: 1em 0em;
   display: flex;

@@ -44,12 +44,12 @@ function AdvertDetail() {
                         <div className="big-image-div">
                           <img
                             className="advert-detail-big-img"
-                            src={selectedImage || advertDetail.imgUrl[0]}
+                            src={selectedImage || advertDetail.images[0]}
                             alt=""
                           />
                         </div>
                         <div className="small-images-div">
-                          {advertDetail.imgUrl.map((image, index) => (
+                          {advertDetail.images.map((image, index) => (
                             <img
                               key={index}
                               className={`small-image ${
@@ -92,7 +92,7 @@ function AdvertDetail() {
                     <div>
                       <h4 className="details">Detayli Aciklama</h4>
                     </div>
-                    <p>{advertDetail.advertDesc}</p>
+                    <p>{advertDetail.description}</p>
                   </div>
                 </div>
               </div>

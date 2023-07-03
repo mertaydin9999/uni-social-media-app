@@ -1,30 +1,100 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { useGetLoginQuery } from "../store";
 import "../styles/CreateAdvert.css";
 import { useFormik } from "formik";
 import { updateAdvertSchema } from "../schemas";
 import { TailSpin } from "react-loader-spinner";
-import { Link } from "react-router-dom";
-const onSubmit = async (values, actions) => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
-  });
-  actions.resetForm();
-};
+import { Link, useNavigate } from "react-router-dom";
+import { useFetchAdvertsQuery, useUpdateAdvertMutation } from "../store";
+import { useParams } from "react-router-dom";
+
 function EditMyAdvert() {
-  const { values, errors, isSubmitting, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: {
-        title: "",
-        description: "",
-        images: "",
-        address: "",
-        price: "",
-        date: "",
-      },
-      validationSchema: updateAdvertSchema,
-      onSubmit,
+  const { id } = useParams();
+  const { data: advertsData } = useFetchAdvertsQuery();
+  const { data: loginData } = useGetLoginQuery();
+  const [updateAdvert] = useUpdateAdvertMutation();
+  const [profileLoginData, setProfileLoginData] = useState(null);
+  const [images, setImages] = useState([]);
+  let navigate = useNavigate();
+  useEffect(() => {
+    // loginData ve users değiştiğinde tetiklenecek
+    if (loginData && advertsData && id) {
+      const lastLogin = loginData[loginData.length - 1];
+      const foundProfileData = advertsData.find(
+        (advert) => advert.email === lastLogin.email && advert.id == id
+      );
+      setProfileLoginData(foundProfileData);
+
+      console.log(foundProfileData);
+      console.log(id);
+    }
+  }, [loginData, advertsData, id]);
+
+  const {
+    values,
+    errors,
+    isSubmitting,
+    handleChange,
+    handleSubmit,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      email: profileLoginData?.email || "",
+      title: profileLoginData?.title || "",
+      description: profileLoginData?.description || "",
+      images: profileLoginData?.images || [],
+      address: profileLoginData?.address || "",
+      price: profileLoginData?.price || "",
+      date: profileLoginData?.date || "",
+      category: profileLoginData?.category || "",
+    },
+    validationSchema: updateAdvertSchema,
+    onSubmit: async (values, actions) => {
+      const currentDate = new Date();
+      const formattedDate = currentDate.toISOString();
+
+      try {
+        const updatedData = {
+          id: profileLoginData?.id,
+          title: values.title,
+          email: profileLoginData?.email,
+          description: values.description,
+          images: values.images,
+          address: values.address,
+          price: values.price,
+          date: formattedDate,
+          category: values.category,
+        };
+        console.log(updatedData);
+        const response = await updateAdvert(updatedData);
+        console.log(response); // Yanıtı kontrol et
+
+        actions.resetForm();
+        navigate("/my-adverts");
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  });
+
+  const handleImageChange = (event) => {
+    const files = Array.from(event.target.files);
+    const imagePromises = files.map((file) => {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          resolve(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      });
     });
+
+    Promise.all(imagePromises).then((imageUrls) => {
+      const newImages = [...images, ...imageUrls];
+      setFieldValue("images", newImages);
+      setImages(newImages);
+    });
+  };
   return (
     <div className="root-create-advert">
       <div className="left-div-advert-create">
@@ -72,6 +142,28 @@ function EditMyAdvert() {
               </label>
             </div>
             <div className="basic-info">
+              <label htmlFor="category">Kategori</label>
+              <div className="advert-title-and-label">
+                <select
+                  id="category"
+                  name="category"
+                  value={values.category}
+                  onChange={handleChange}
+                  className={errors.category ? "input-error" : ""}
+                >
+                  <option value="">Kategori Seçin</option>
+                  <option value="house">Ev</option>
+                  <option value="housestaff">Ev Eşyaları</option>
+                  <option value="clothes">Giyim</option>
+                  <option value="other">Diger</option>
+                </select>
+              </div>
+              {errors.category && <p className="error">{errors.category}</p>}
+              <label className="advert-title-label">
+                İlanınızın kategorisini seçiniz.
+              </label>
+            </div>
+            <div className="basic-info">
               <label>Ilan Aciklamasi</label>
               <div className="advert-title-and-label">
                 <textarea
@@ -98,11 +190,35 @@ function EditMyAdvert() {
               <div className="advert-title-and-label">
                 <input
                   type="file"
-                  name=""
+                  name="images"
                   id="images"
-                  value={values.images}
-                  onChange={handleChange}
+                  accept="image/*" // Sadece resim dosyalarını kabul et
+                  onChange={handleImageChange}
                 />
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    backgroundColor: "var(--botticelli)",
+                    borderRadius: ".3em",
+                    padding: ".5em",
+                    marginTop: "1em",
+                  }}
+                >
+                  {images.map((imageUrl, index) => (
+                    <img
+                      key={index}
+                      src={imageUrl}
+                      alt={`Image ${index + 1}`}
+                      style={{
+                        width: "100px",
+                        objectFit: "cover",
+                        margin: "10px",
+                        aspectRatio: 2 / 2,
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
               <label className="advert-title-label">
                 Ilaniniza dair fotograflari yukleyiniz
@@ -147,7 +263,7 @@ function EditMyAdvert() {
             </div>
             <div className="create-advert-button-div">
               <button>Vazgec</button>
-              <button>Degisiklikleri Kaydet</button>
+              <button type="submit">Degisiklikleri Kaydet</button>
             </div>
           </form>
         </div>

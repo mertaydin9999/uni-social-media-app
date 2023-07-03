@@ -77,21 +77,24 @@
   background-color: var(--bondi-blue);
 }
 .last-news-announce-events {
-  padding: 5em 7em 10em 7em;
   display: flex;
-
+  margin: 5em auto;
   background-color: white;
-
+  justify-content: center;
+  width: 90%;
   gap: 0 3em;
 }
 
 .inner-div {
   display: flex;
+  margin-bottom: 10em;
+
   flex-direction: column;
   justify-content: flex-start;
-  border-radius: 0.2em;
-  background-color: var(--regal-blue);
-  padding: 1em 2em;
+
+  min-height: 20em;
+  gap: 1em 0em;
+  padding: 1em 1em;
   color: beige;
 }
 .title-div {
@@ -101,39 +104,3 @@
   font-size: 2em !important;
   color: var(--stratos) !important;
 }
-/* .home-card {
-  border: 0px solid black;
-  border-radius: 1em;
-  padding: 2.3em 4em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 5em 0;
-  background-color: antiquewhite;
-  box-shadow: 0 10px 8px 2px rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  cursor: pointer;
-}
-.home-card:hover {
-  transition: 10%;
-  transform: scale(1.1);
-}
-img {
-  object-fit: cover;
-  border-radius: 2em;
-}
-.basliklar {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border: 1px solid purple;
-  border-radius: 1em;
-}
-.baslik-div {
-  background-color: aqua;
-  width: 100%;
-  border-radius: 1em 1em 0 0;
-} */

@@ -20,13 +20,11 @@ const eventsApi = createApi({
         invalidatesTags: () => {
           return [{ type: "Events" }];
         },
-        query: () => {
+        query: (event) => {
           return {
             url: "/events",
             method: "POST",
-            body: {
-              name: "Can",
-            },
+            body: event,
           };
         },
       }),

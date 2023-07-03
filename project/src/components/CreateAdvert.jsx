@@ -3,12 +3,34 @@ import "../styles/CreateAdvert.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { createAdvertSchema } from "../schemas";
+import { useGetLoginQuery } from "../store";
+import { useFetchUsersQuery } from "../store";
+import { useEffect } from "react";
 import { TailSpin } from "react-loader-spinner";
 import { useState } from "react";
 import { useAddAdvertsMutation } from "../store";
 
 function CreateAdvert() {
+  const { data: loginData } = useGetLoginQuery();
+  const { data: users } = useFetchUsersQuery();
+
+  const [addAdvert, results] = useAddAdvertsMutation();
+  const [images, setImages] = useState([]);
+  const [profileData, setProfileData] = useState(null);
   let navigate = useNavigate();
+  useEffect(() => {
+    // loginData ve users değiştiğinde tetiklenecek
+    if (loginData && users) {
+      const lastLogin = loginData[loginData.length - 1];
+      const foundProfileData = users.find(
+        (user) => user.email === lastLogin.email
+      );
+      setProfileData(foundProfileData);
+    }
+  }, [loginData, users]);
+
+  console.log(profileData);
+
   const handleImageChange = (event) => {
     const files = Array.from(event.target.files);
     const imagePromises = files.map((file) => {
@@ -27,8 +49,7 @@ function CreateAdvert() {
       setImages(newImages);
     });
   };
-  const [images, setImages] = useState([]);
-  const [addAdvert, results] = useAddAdvertsMutation();
+
   const {
     values,
     errors,
@@ -38,6 +59,7 @@ function CreateAdvert() {
     setFieldValue,
   } = useFormik({
     initialValues: {
+      email: "",
       title: "",
       description: "",
       images: [],
@@ -51,7 +73,7 @@ function CreateAdvert() {
       const currentDate = new Date();
       const formattedDate = currentDate.toISOString();
       values.date = formattedDate;
-
+      values.email = profileData.email;
       await addAdvert(values);
       console.log(values);
       await new Promise((resolve) => {
@@ -67,10 +89,12 @@ function CreateAdvert() {
       <div className="left-div-advert-create">
         <img
           className="advert-create-image"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz86WkB3GhlJaFAfYpRAogTerlrxHMWivNWQ&usqp=CAU"
+          src={profileData?.profilePicture}
         />
         <div>
-          <label htmlFor="">Mert Aydin</label>
+          <label htmlFor="">
+            {profileData?.name + " " + profileData?.surname}
+          </label>
           <br />
           <label htmlFor="">Yalova</label>
           <br />

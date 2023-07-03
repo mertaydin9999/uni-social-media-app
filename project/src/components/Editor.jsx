@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Editor.css";
 import {
   useFetchAnnouncementsQuery,
@@ -65,19 +65,26 @@ function Editor() {
   };
 
   const filterData = (input) => {
-    const filteredEvents = eventData.filter((event) =>
-      event.title.toLowerCase().includes(input.toLowerCase())
-    );
+    let filteredEvents = eventData;
+    let filteredAnnouncements = announcementData;
+    let filteredNews = newsData;
+
+    if (input) {
+      filteredEvents = eventData.filter((event) =>
+        event.title.toLowerCase().includes(input.toLowerCase())
+      );
+
+      filteredAnnouncements = announcementData.filter((announcement) =>
+        announcement.title.toLowerCase().includes(input.toLowerCase())
+      );
+
+      filteredNews = newsData.filter((news) =>
+        news.title.toLowerCase().includes(input.toLowerCase())
+      );
+    }
+
     setFilteredEvents(filteredEvents);
-
-    const filteredAnnouncements = announcementData.filter((announcement) =>
-      announcement.title.toLowerCase().includes(input.toLowerCase())
-    );
     setFilteredAnnouncements(filteredAnnouncements);
-
-    const filteredNews = newsData.filter((news) =>
-      news.title.toLowerCase().includes(input.toLowerCase())
-    );
     setFilteredNews(filteredNews);
   };
 
@@ -287,7 +294,7 @@ function Editor() {
       if (searchQuery === "event") {
         return <EditorEventForm />;
       } else if (searchQuery === "announcement") {
-        return <EditorAnnoForm />;
+        return <EditorAnnoForm className="editor-announce-details" />;
       } else if (searchQuery === "news") {
         return <EditorNewsForm />;
       }

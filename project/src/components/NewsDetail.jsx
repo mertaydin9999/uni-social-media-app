@@ -15,28 +15,23 @@ function NewsDetail() {
     news = data
       ?.filter((news) => news.id == id)
       .map((news) => {
+        const date = new Date(news.date);
+        const options = {
+          month: "long",
+          day: "numeric",
+        };
+        const formattedDate = date.toLocaleString("tr-TR", options);
         return (
           <div className="announce-detail-div" key={news.id}>
-            <h3>{news.title}</h3>
+            <h3 className="detail-title">{news.title}</h3>
             <div className="announce-date">
-              <p>{news.date}</p>
+              <p>{formattedDate}</p>
             </div>
             <div>
-              <p className="announce-detail-desc">
-                {news.description}
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-                debitis repudiandae blanditiis tenetur laborum. Corrupti modi
-                dolore itaque illum nobis accusamus? Magnam officiis tenetur id
-                veritatis numquam iusto quam repellat.lorem Lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Nesciunt vel doloremque
-                quam architecto vero error illo ut, earum nemo suscipit hic
-                eveniet blanditiis perferendis quasi eaque similique nobis
-                repudiandae praesentium.
-              </p>
+              <p className="announce-detail-desc">{news.description}</p>
             </div>
             <div className="announce-detail-img-div">
-              <img src={news.imageUrl} alt="" />
+              <img src={news.images} alt="" />
             </div>
           </div>
         );

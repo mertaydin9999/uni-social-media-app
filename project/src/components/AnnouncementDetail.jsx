@@ -7,6 +7,7 @@ import { useFetchAnnouncementsQuery } from "../store";
 function AnnouncementDetail() {
   const { id } = useParams();
   const { data, isError, isFetching } = useFetchAnnouncementsQuery();
+
   let announcement;
   if (isFetching) {
     announcement = <div>yukleniyor</div>;
@@ -16,17 +17,23 @@ function AnnouncementDetail() {
     announcement = data
       ?.filter((announcement) => announcement.id == id)
       .map((announcement) => {
+        const date = new Date(announcement.date);
+        const options = {
+          month: "long",
+          day: "numeric",
+        };
+        const formattedDate = date.toLocaleString("tr-TR", options);
         return (
           <div className="announce-detail-div" key={announcement.id}>
             <h3>{announcement.title}</h3>
             <div className="announce-date">
-              <p>{announcement.date}</p>
+              <p>{formattedDate}</p>
             </div>
             <div>
-              <p className="announce-detail-desc">{announcement.advertDesc}</p>
+              <p className="announce-detail-desc">{announcement.description}</p>
             </div>
             <div className="announce-detail-img-div">
-              <img src={announcement.imageUrl} alt="" />
+              <img src={announcement.images} alt="" />
             </div>
           </div>
         );

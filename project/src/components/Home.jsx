@@ -1,16 +1,69 @@
 import React from "react";
-
 import "../styles/Home.css";
 import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
 import HandshakeIcon from "@mui/icons-material/Handshake";
 import CampaignIcon from "@mui/icons-material/Campaign";
-
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import { Link } from "react-router-dom";
 import MyJumbotron from "./MyJumbotron";
+import HomeAnnouncement from "./HomeAnnouncement";
+import HomeEvents from "./HomeEvents";
+import HomeNews from "./HomeNews";
+import Skeleton from "@mui/material/Skeleton";
 
+import { useFetchAnnouncementsQuery } from "../store";
+import { useFetchNewsQuery } from "../store";
+import { useFetchEventsQuery } from "../store";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 function Home() {
+  const {
+    data: eventsData,
+    isError: eventsError,
+    isFetching: eventsFetching,
+  } = useFetchEventsQuery();
+  const {
+    data: announceData,
+    isError: announceError,
+    isFetching: announceFetching,
+  } = useFetchAnnouncementsQuery();
+  const {
+    data: newsData,
+    isError: newsError,
+    isFetching: newsFetching,
+  } = useFetchNewsQuery();
+  let event;
+  if (eventsFetching) {
+    event = <Skeleton variant="rectangular" sx={{ width: "100%" }} />;
+  } else if (eventsError) {
+    event = <div>Hata Var</div>;
+  } else {
+    event = eventsData.map((event) => {
+      return <HomeEvents key={event.id} event={event} />;
+    });
+  }
+  let announcement;
+  if (announceFetching) {
+    announcement = <Skeleton variant="rectangular" sx={{ width: "100%" }} />;
+  } else if (announceError) {
+    announcement = <div>Hata Var</div>;
+  } else {
+    announcement = announceData.map((announcement) => {
+      return (
+        <HomeAnnouncement key={announcement.id} announcement={announcement} />
+      );
+    });
+  }
+  let news;
+  if (newsFetching) {
+    news = <Skeleton variant="rectangular" sx={{ width: "100%" }} />;
+  } else if (newsError) {
+    news = <div>Hata Var</div>;
+  } else {
+    news = newsData.map((news) => {
+      return <HomeNews key={news.id} news={news} />;
+    });
+  }
+
   return (
     <div>
       <MyJumbotron />
@@ -62,43 +115,19 @@ function Home() {
       </div>
       <div className="last-news-announce-events">
         <div className="title-div">
-          <h4 className="title">Duyurular</h4>
-
-          <div className="news-div inner-div">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil
-            consequuntur vero aliquid nisi dolores, et hic dolor similique
-            officiis error sed iste a earum ipsa beatae laudantium, nam quaerat
-            atque. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Laudantium adipisci nesciunt repellendus, odit optio dignissimos
-            voluptatum inventore veniam quo expedita eum eaque soluta quos enim,
-            quidem quasi harum rerum temporibus?
-          </div>
-        </div>
-        <div className=" title-div">
           <h4 className="title">Etkinlikler</h4>
 
-          <div className="announce-div inner-div">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, vel
-            qui velit quasi alias quos ex, repudiandae doloremque aspernatur
-            adipisci perferendis eveniet impedit cupiditate consequuntur iste
-            obcaecati? Quae, aut a! Lorem, ipsum dolor sit amet consectetur
-            adipisicing elit. Nostrum soluta magnam illo nihil nulla veniam
-            dolores voluptates ea, ad et facere quibusdam aperiam excepturi
-            provident quisquam corporis, accusantium voluptate obcaecati?
-          </div>
+          <div className="news-div inner-div">{event}</div>
+        </div>
+        <div className=" title-div">
+          <h4 className="title">Duyurular</h4>
+
+          <div className="announce-div inner-div">{announcement}</div>
         </div>
         <div className="title-div">
           <h4 className="title">Haberler</h4>
 
-          <div className="events-div inner-div">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-            aperiam esse, vel error enim id porro in. Dignissimos, explicabo
-            numquam. Fugit quasi repellat aut ad accusamus quam, cupiditate in
-            aliquam. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Iusto et consectetur ut nam hic. Eveniet dignissimos perspiciatis
-            ratione nulla, aliquam, aspernatur deleniti reiciendis ut molestias
-            laboriosam, consequuntur vitae mollitia impedit.
-          </div>
+          <div className="events-div inner-div">{news}</div>
         </div>
       </div>
     </div>

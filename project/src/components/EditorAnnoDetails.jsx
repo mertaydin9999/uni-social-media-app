@@ -1,19 +1,27 @@
 import React from "react";
+import "../styles/EditorDetails.css";
 
 function EditorAnnoDetails({ announcement }) {
-  // Duyuru detaylarını gösteren bileşen
   return (
-    <div>
-      <h3>{announcement.title}</h3>
-      <p>{announcement.content}</p>
-      {/* Düzenlemeyi sağlayan form */}
-      <form>
-        {/* Form alanları */}
-        <input type="text" value={announcement.title} />
-        <textarea value={announcement.advertDesc}></textarea>
-        {/* Düzenlemeyi kaydetmek için düğme */}
-        <button>Kaydet</button>
-      </form>
+    <div className="editor-form-details">
+      <h3 style={{ textAlign: "center" }}>Duzenleme Sayfasi</h3>
+      <div>
+        <label>Baslik:</label>
+        <p>{announcement.title}</p>
+      </div>
+      <div>
+        <label>Aciklama:</label>
+        <p>{announcement.description}</p>
+      </div>
+      <div>
+        <label>Universite:</label>
+        Yalova
+      </div>
+      <label>Fotograflar:</label>
+
+      <div className="editor-form-image-div">
+        <img src={announcement.imageUrl} alt="" />
+      </div>
     </div>
   );
 }

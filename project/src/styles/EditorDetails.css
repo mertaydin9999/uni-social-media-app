@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+.editor-form-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1em 0em;
+  margin-bottom: 10em;
+}
+.editor-form-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+.editor-form-details div input {
+  padding: 0.3em;
+}
+.editor-form-details div label,
+.editor-form-details label {
+  font-size: 1em !important;
+}
+.editor-form-details div img {
+  width: 12em;
+  aspect-ratio: 3/2;
+  border-radius: 0.3em;
+}
+.editor-form-image-div {
+  width: 26em;
+  display: flex;
+  flex-wrap: wrap !important;
+  flex-direction: row !important;
+}
+.editor-form-details button {
+  border-radius: 0.3em !important;
+  border: none !important;
+}
+.editor-detail-delete {
+  background-color: rgb(217, 95, 95) !important;
+  width: 50% !important;
+  align-self: end;
+}
+.editor-detail-delete:hover {
+  background-color: rgb(241, 51, 51) !important;
+}
+.editor-form-details div p {
+  width: 500px;
+  word-wrap: break-word !important;
+}

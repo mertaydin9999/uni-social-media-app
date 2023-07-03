@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useFetchAdvertsQuery } from "../store";
 import { useSearchParams } from "react-router-dom";
 import MyAdvertsListItem from "./MyAdvertsListItem";
@@ -7,31 +7,31 @@ import "../styles/MyAdverts.css";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
+import { useGetLoginQuery } from "../store";
 function MyAdverts() {
-  const [searchParams, setSearchParams] = useSearchParams();
   const { data, isError, isFetching } = useFetchAdvertsQuery();
-  let params = searchParams.get("filter");
-
-  const filteredAdverts = (params) => {
-    myAdverts = data
-      .filter((myAdverts) => myAdverts.category == params)
-      .map((myAdverts) => {
-        return <MyAdvertsListItem key={myAdverts.id} myAdverts={myAdverts} />;
-      });
-  };
+  const { data: loginData } = useGetLoginQuery();
+  const [profileData, setProfileData] = useState(null);
   let myAdverts;
+  useEffect(() => {
+    // loginData ve users değiştiğinde tetiklenecek
+    if (loginData) {
+      const foundProfileData = loginData[loginData.length - 1];
+      setProfileData(foundProfileData);
+    }
+  }, [loginData]);
+
   if (isFetching) {
     myAdverts = <Skeleton variant="rectangular" sx={{ width: "100%" }} />;
   } else if (isError) {
     myAdverts = <div>Hata Var</div>;
   } else {
-    if (params) {
-      filteredAdverts(params);
-    } else {
-      myAdverts = data.map((myAdverts) => {
-        return <MyAdvertsListItem key={myAdverts.id} myAdverts={myAdverts} />;
-      });
-    }
+    myAdverts = data
+      .filter((advert) => advert.email == profileData?.email)
+      .map((advert) => (
+        <MyAdvertsListItem key={advert.id} myAdverts={advert} />
+      ));
+    console.log(myAdverts);
   }
   return (
     <div className="my-advert-root">

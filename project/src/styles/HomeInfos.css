@@ -1,0 +1,31 @@
+.links-home-info {
+  display: flex;
+  flex-direction: row;
+
+  gap: 0em 1em;
+  font-size: 0.9em;
+  background-color: white !important;
+  color: black !important;
+}
+.links-home-info:hover {
+  color: black !important;
+  transform: scale(1.1);
+}
+.links-home-date-span {
+  background-color: var(--stratos) !important;
+  width: 7em;
+  border-radius: 0.3em;
+  text-align: start;
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  color: white !important;
+}
+.links-home-date-title {
+  display: flex;
+  align-self: center !important;
+  text-align: start;
+  font-size: 1.3em;
+  font-weight: 300;
+  width: 10em;
+}

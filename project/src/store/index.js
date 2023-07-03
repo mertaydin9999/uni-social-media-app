@@ -44,6 +44,7 @@ export {
   useAddAdvertsMutation,
   useFetchAdvertsQuery,
   useRemoveAdvertMutation,
+  useUpdateAdvertMutation,
 } from "./apis/advertsApi";
 
 export {

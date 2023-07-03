@@ -41,7 +41,7 @@ function Announcements() {
   }
   return (
     <div className="root">
-      <header>
+      <header className="announcement-header">
         <h3>Duyurular</h3>
       </header>
       <div className="contents">

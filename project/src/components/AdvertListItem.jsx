@@ -10,10 +10,10 @@ function AdvertListItem({ advert }) {
     >
       <div className="advert-list-item">
         <div className="list-advert-img-div">
-          {advert.imgUrl && (
+          {advert.images && (
             <img
               className="advert-list-img"
-              src={advert.imgUrl[0]}
+              src={advert.images[0]}
               alt="Advert"
             />
           )}
@@ -23,7 +23,7 @@ function AdvertListItem({ advert }) {
           <span className="list-title-span">{advert.title}</span>
           <span className="advert-list-price">{advert.price} TL</span>
           <span className="list-advert-description-span">
-            {advert.advertDesc}
+            {advert.description}
           </span>
         </div>
       </div>

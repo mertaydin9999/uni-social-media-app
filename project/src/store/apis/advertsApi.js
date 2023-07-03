@@ -8,6 +8,7 @@ const advertsApi = createApi({
   endpoints(builder) {
     return {
       fetchAdverts: builder.query({
+        providesTags: ["Advert"],
         query: () => {
           return {
             url: "/adverts",
@@ -16,27 +17,37 @@ const advertsApi = createApi({
         },
       }),
       addAdverts: builder.mutation({
+        invalidatesTags: () => {
+          return [{ type: "Advert" }];
+        },
         query: (advert) => {
           return {
             url: "/adverts",
             method: "POST",
-            body: {
-              title: advert.title,
-              advertDesc: advert.description,
-              imgUrl: advert.images,
-              price: advert.price,
-              address: advert.address,
-              category: advert.category,
-              date: advert.date,
-            },
+            body: advert,
           };
         },
       }),
       removeAdvert: builder.mutation({
+        invalidatesTags: () => {
+          return [{ type: "Advert" }];
+        },
         query: (advert) => {
           return {
             url: `/adverts/${advert.id}`,
             method: "DELETE",
+          };
+        },
+      }),
+      updateAdvert: builder.mutation({
+        invalidatesTags: () => {
+          return [{ type: "Advert" }];
+        },
+        query: (advert) => {
+          return {
+            url: `/adverts/${advert.id}`,
+            method: "PUT",
+            body: advert,
           };
         },
       }),
@@ -48,5 +59,6 @@ export const {
   useFetchAdvertsQuery,
   useAddAdvertsMutation,
   useRemoveAdvertMutation,
+  useUpdateAdvertMutation,
 } = advertsApi;
 export { advertsApi };

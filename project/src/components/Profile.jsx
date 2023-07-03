@@ -29,7 +29,7 @@ function Profile() {
           <div className="left-side-profile-div">
             <img
               className="middle-side-profile-img"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz86WkB3GhlJaFAfYpRAogTerlrxHMWivNWQ&usqp=CAU"
+              src={profileData?.profilePicture}
             />
             <Link className="go-to-edit-profile" to="/edit-my-profile">
               Profili Duzenle
@@ -52,44 +52,22 @@ function Profile() {
             </p>
           </div>
         </div>
-        <hr />
-        <div className="profile-events-join">
-          <h6 className="event-i-will-go-title">Katilacagim Etkinlikler</h6>
-          <div className="profile-events-div">
-            <Link className="profile-events">
-              <span>23.03.2023</span>
-              <span>ColorFest Yalova</span>
-              <span>Ciftlikkoy</span>
-              <button className="cancel-profile-span">Iptal Et</button>
-            </Link>
-            <Link className="profile-events">
-              <span>23.03.2023</span>
-              <span>ColorFest Yalova</span>
-              <span>Ciftlikkoy</span>
-              <button className="cancel-profile-span">Iptal Et</button>
-            </Link>
-            <Link className="profile-events">
-              <span>23.03.2023</span>
-              <span>ColorFest Yalova</span>
-              <span>Ciftlikkoy</span>
-              <button className="cancel-profile-span">Iptal Et</button>
-            </Link>
-            <Link className="profile-events">
-              <span>23.03.2023</span>
-              <span>ColorFest Yalova</span>
-              <span>Ciftlikkoy</span>
-              <button className="cancel-profile-span">Iptal Et</button>
-            </Link>
-          </div>
-          <hr />
-        </div>
 
         <div className="middle-profile-advert-area">
           <div className="proflle-advert-titles">
-            <button className="profile-advert-button">Ilanlarim</button>
-            <button className="profile-advert-button">Haberler</button>
-            <button className="profile-advert-button">Ilanlar'a Git</button>
-            <button className="profile-advert-button"> Etkinlikler</button>
+            <Link to="/my-adverts" className="profile-advert-button">
+              Ilanlarim
+            </Link>
+            <Link to="/my-events" className="profile-advert-button">
+              Etkinliklerim
+            </Link>
+            <Link to="/my-messages" className="profile-advert-button">
+              Mesajlarim
+            </Link>
+
+            <Link to="/my-posts" className="profile-advert-button">
+              Gonderilerim
+            </Link>
           </div>
           <div></div>
         </div>

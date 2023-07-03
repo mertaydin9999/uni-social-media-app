@@ -3,18 +3,20 @@
   margin: 0;
 }
 .solidatiry-share-form {
-  width: 50%;
-  margin: 7em auto 1em auto;
+  width: 80%;
+  margin: 5em 0em;
   border-radius: 1em;
   border: 1px solid lightgray;
   padding: 2em;
 }
 .root-solidatiry {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20em;
+  width: 90%;
+
+  margin: 10em auto 20em auto;
+  flex-direction: row;
+  align-items: start;
+  gap: 0em 5em;
 }
 .solidatiry-file-input {
   border: none !important;
@@ -71,7 +73,7 @@ hr {
   margin: 1em 0em;
 }
 .solidatiry-posts {
-  width: 50%;
+  width: 80%;
   margin: 2em auto;
   display: flex;
   flex-direction: column;
@@ -98,4 +100,22 @@ hr {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+.solidatiry-profile-root-div {
+  position: sticky;
+  top: 10em;
+
+  margin-top: 5em;
+}
+.solidatiry-profile-root {
+  width: 100% !important;
+  background-color: var(--stratos);
+  color: white !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  gap: 1em 0em;
+  border-radius: 1em;
+  border: 1px solid var(--regal-blue);
+  height: 500px;
 }

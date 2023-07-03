@@ -19,7 +19,6 @@ function Events() {
         return <EventListItem key={event.id} event={event} />;
       });
   };
-  
 
   if (isFetching) {
     event = <Skeleton variant="rectangular" sx={{ width: "100%" }} />;
@@ -55,43 +54,12 @@ function Events() {
           <p>Mekanlar</p>
         </button>
       </div>
-
       <div className="events">
         <h3 className="event-header-title">Etkinlikler</h3>
-        {event}
+        <div className="event-events-list">{event}</div>
       </div>
     </div>
   );
 }
 
 export default Events;
-// else {
-//   event = data.map((event) => {
-//     return <EventListItem key={event.id} event={event} />;
-//   });
-//   eventConcert = data
-//     .filter((event) => event.category == "concert")
-//     .map((concert) => {
-//       return <EventConcert key={concert.id} concert={concert} />;
-//     });
-//   eventUniversity = data
-//     .filter((event) => event.category == "university")
-//     .map((eventUniversity) => {
-//       return (
-//         <EventUni
-//           key={eventUniversity.id}
-//           eventUniversity={eventUniversity}
-//         />
-//       );
-//     });
-//   eventCommunity = data
-//     .filter((event) => event.category == "community")
-//     .map((eventCommunity) => {
-//       return (
-//         <EventCommunity
-//           key={eventCommunity.id}
-//           eventCommunity={eventCommunity}
-//         />
-//       );
-//     });
-// }

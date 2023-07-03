@@ -1,10 +1,8 @@
 import "./App.css";
-
 import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
-
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
 import AboutUs from "./components/AboutUs";
@@ -15,6 +13,7 @@ import MyAdverts from "./components/MyAdverts";
 import EditMyAdvert from "./components/EditMyAdvert";
 import News from "./components/News";
 import Events from "./components/Events";
+import MyEvents from "./components/MyEvents";
 import Contact from "./components/Contact";
 import Announcements from "./components/Announcements";
 import AnnouncementDetail from "./components/AnnouncementDetail";
@@ -25,6 +24,8 @@ import NewsDetail from "./components/NewsDetail";
 import EditMyProfile from "./components/EditMyProfile";
 import UserProfile from "./components/UserProfile";
 import Editor from "./components/Editor";
+import MyPosts from "./components/MyPosts";
+import CreateEvent from "./components/CreateEvent";
 function App() {
   const location = useLocation();
   const hideNavbarLinks = ["/editor"]; // Navbar linklerinin gizlenmesini istediğiniz sayfa yollarını buraya ekleyin
@@ -46,12 +47,14 @@ function App() {
 
         <Route path="/events" element={<Events />} />
         <Route path="/events/detail/:id" element={<EventDetail />}></Route>
+        <Route path="/my-events" element={<MyEvents />} />
+        <Route path="/create-event" element={<CreateEvent />} />
 
         <Route path="/advert" element={<Advert />} />
         <Route path="/advert/detail/:id" element={<AdvertDetail />} />
         <Route path="/my-adverts" element={<MyAdverts />} />
         <Route path="/create-advert" element={<CreateAdvert />} />
-        <Route path="/edit-my-advert" element={<EditMyAdvert />} />
+        <Route path="/edit-my-advert/detail/:id" element={<EditMyAdvert />} />
 
         <Route path="/announcements" element={<Announcements />} />
         <Route
@@ -66,7 +69,9 @@ function App() {
         <Route path="/edit-my-profile" element={<EditMyProfile />} />
 
         <Route path="/signup" element={<SignupForm />} />
+
         <Route path="/solidatiry" element={<Solidatiry />} />
+        <Route path="/my-posts" element={<MyPosts />} />
 
         <Route path="/editor" element={<Editor />} />
       </Routes>

@@ -20,13 +20,11 @@ const newsApi = createApi({
         invalidatesTags: () => {
           return [{ type: "News" }];
         },
-        query: () => {
+        query: (news) => {
           return {
             url: "/news",
             method: "POST",
-            body: {
-              name: "Can",
-            },
+            body: news,
           };
         },
       }),
@@ -41,7 +39,6 @@ const newsApi = createApi({
           };
         },
       }),
-      
     };
   },
 });

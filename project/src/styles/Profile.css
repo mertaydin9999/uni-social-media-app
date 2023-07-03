@@ -46,7 +46,7 @@
   font-size: 4em !important;
 }
 .profile-customer-name {
-  font-size: 2em !important;
+  font-size: 1.5em !important;
   font-weight: 300;
 }
 .profile-customer-name-div {
@@ -61,7 +61,10 @@
 }
 
 .profile-p {
-  font-size: 1.3em;
+  font-size: 1em;
+}
+.profile-p::first-letter {
+  text-transform: uppercase;
 }
 .middle-profile-advert-area {
   margin-top: 2em;
@@ -72,12 +75,21 @@
   flex-wrap: wrap;
   display: flex;
   flex-direction: row !important;
-  gap: 1em 5em;
+  gap: 1em 0.5em;
+  width: 100%;
 }
 .profile-advert-button {
+  text-align: left !important;
+  width: 23%;
   border: none !important;
-  width: 40% !important;
+  padding: 1em;
+  color: white !important;
   border-radius: 0.3em !important;
+  background-color: var(--stratos);
+}
+.profile-advert-button:hover {
+  color: white !important;
+  background-color: var(--regal-blue);
 }
 .event-i-will-go-title {
   font-size: 1.5em;

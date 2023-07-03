@@ -20,13 +20,11 @@ const announcementsApi = createApi({
         invalidatesTags: () => {
           return [{ type: "Announcements" }];
         },
-        query: () => {
+        query: (announcement) => {
           return {
             url: "/announcements",
             method: "POST",
-            body: {
-              name: "Can",
-            },
+            body: announcement,
           };
         },
       }),
