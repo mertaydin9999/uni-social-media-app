@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useFetchAdvertsQuery } from "../store";
 import "../styles/AdvertDetail.css";
@@ -8,7 +8,7 @@ import { useState } from "react";
 
 function AdvertDetail() {
   const { id } = useParams();
-
+  let navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState("");
 
   const handleSmallImageClick = (image) => {
@@ -80,10 +80,10 @@ function AdvertDetail() {
                       <span className="address">{advertDetail.address}</span>
                     </div>
                     <div>
-                      <button>
+                      <Link to={`/my-messages/${advertDetail.id}`}>
                         Mesaj At
                         <EmailIcon sx={{ paddingLeft: 1, fontSize: 30 }} />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

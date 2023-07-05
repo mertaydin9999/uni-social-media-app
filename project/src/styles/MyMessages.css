@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+.my-messages-container {
+  margin: 10em auto;
+  width: 80% !important;
+  display: flex;
+  flex-direction: row !important;
+}
+.chat-users-left-side {
+  width: 20%;
+  background-color: purple;
+}
+.messages-right-side {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background-color: green;
+}
+.chat-user-info {
+  background-color: yellow;
+}
+.chat-area-messages {
+  background-color: aqua;
+}
+.chat-send-message {
+  background-color: brown;
+}
+.chat-send-message-form {
+  display: flex;
+  flex-direction: row;
+  padding: 2em;
+  justify-content: center;
+  gap: 2em;
+}
+.chat-send-message-form textarea {
+  width: 85% !important;
+}
+.chat-send-message-form button {
+  width: 15% !important;
+  border: none;
+  border-radius: 0.3em !important;
+  padding: 0.2em 0.4em !important;
+}
+.chat-area-reciever-side {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2em;
+  gap: 1em;
+}
+.chat-infos-and-prof-pic {
+  display: flex;
+  flex-direction: row;
+  gap: 0em 1em;
+  justify-content: start;
+}
+.reciever-profile-pic,
+.reciever-advert-pic {
+  height: 5em !important;
+}
+.reciever-advert-pic {
+  align-self: end !important;
+}
+.reciever-profile-pic img {
+  width: auto;
+  height: 5em !important;
+  object-fit: cover;
+  aspect-ratio: 2/2;
+  border-radius: 50%;
+}
+.reciever-advert-pic img {
+  width: auto;
+  height: 5em !important;
+  object-fit: cover;
+  aspect-ratio: 2/2;
+  border-radius: 0%;
+}
+.reciever-infos {
+  display: flex;
+  flex-direction: column;
+}
+.message-right-side {
+  justify-self: flex-end !important;
+  align-self: flex-end;
+}
+
+.message-left-side {
+  justify-self: flex-start !important;
+  align-self: flex-start;
+}
+
+.chat-are-message-show {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}

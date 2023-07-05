@@ -26,6 +26,7 @@ import UserProfile from "./components/UserProfile";
 import Editor from "./components/Editor";
 import MyPosts from "./components/MyPosts";
 import CreateEvent from "./components/CreateEvent";
+import MyMessages from "./components/MyMessages";
 function App() {
   const location = useLocation();
   const hideNavbarLinks = ["/editor"]; // Navbar linklerinin gizlenmesini istediğiniz sayfa yollarını buraya ekleyin
@@ -67,6 +68,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/edit-my-profile" element={<EditMyProfile />} />
+        <Route path="/my-messages" element={<MyMessages />} />
+        <Route path="/my-messages/:id" element={<MyMessages />} />
 
         <Route path="/signup" element={<SignupForm />} />
 

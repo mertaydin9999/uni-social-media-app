@@ -8,6 +8,7 @@ import { eventsApi } from "./apis/eventsApi";
 import { loginApi } from "./apis/loginApi";
 import { postsApi } from "./apis/postsApi";
 import { contactApi } from "./apis/contactApi";
+import { messageApi } from "./apis/messageApi";
 
 export const store = configureStore({
   reducer: {
@@ -19,6 +20,7 @@ export const store = configureStore({
     [loginApi.reducerPath]: loginApi.reducer,
     [postsApi.reducerPath]: postsApi.reducer,
     [contactApi.reducerPath]: contactApi.reducer,
+    [messageApi.reducerPath]: messageApi.reducer,
   },
   middleware: getDefaultMiddleware()
     .concat(usersApi.middleware)
@@ -28,7 +30,8 @@ export const store = configureStore({
     .concat(newsApi.middleware)
     .concat(loginApi.middleware)
     .concat(postsApi.middleware)
-    .concat(contactApi.middleware),
+    .concat(contactApi.middleware)
+    .concat(messageApi.middleware),
 });
 
 setupListeners(store.dispatch);
@@ -79,3 +82,4 @@ export {
 } from "./apis/postsApi";
 
 export { useAddContactMutation } from "./apis/contactApi";
+export { useAddMessageMutation, useGetMessageQuery } from "./apis/messageApi";
