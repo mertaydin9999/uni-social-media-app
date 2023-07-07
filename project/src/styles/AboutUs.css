@@ -11,6 +11,7 @@
   align-items: center;
   background-color: var(--regal-blue);
   margin: 4.5em 7em 0em 7em;
+  border-radius: 0.3em;
 }
 .about-us-image {
   object-fit: cover;
@@ -23,6 +24,7 @@
   background-color: var(--bondi-blue);
   padding: 5em 5em;
   margin: 3em 7em;
+  border-radius: 0.3em;
 }
 h2 {
   text-align: center;
@@ -34,7 +36,7 @@ h2 {
 }
 .about-us-div p {
   line-height: 2em;
-  color: var(--botticelli);
+  color: white !important;
 }
 .who-we-are p,
 h2 {

@@ -3,29 +3,45 @@
   margin: 0;
 }
 .my-messages-container {
-  margin: 10em auto;
-  width: 80% !important;
+  margin: 8em auto;
+  width: 90% !important;
   display: flex;
   flex-direction: row !important;
+  justify-content: center;
+  gap: 0em 2em;
+  height: 80vh;
 }
 .chat-users-left-side {
-  width: 20%;
-  background-color: purple;
+  width: 30%;
+  border: 1px solid lightgray;
+  padding-top: 1em;
+  border-radius: 1em;
 }
 .messages-right-side {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  background-color: green;
+  justify-content: space-between;
+  width: 60%;
+  border: 1px solid lightgray;
+  border-radius: 1.1em;
 }
 .chat-user-info {
+  width: 100%;
   background-color: yellow;
 }
 .chat-area-messages {
-  background-color: aqua;
+  height: 80% !important;
+  padding: 0em 2em;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 1em auto;
+  justify-content: start;
+  overflow: auto;
 }
 .chat-send-message {
-  background-color: brown;
+  border-radius: 1em;
+  height: 25%;
 }
 .chat-send-message-form {
   display: flex;
@@ -44,17 +60,22 @@
   padding: 0.2em 0.4em !important;
 }
 .chat-area-reciever-side {
+  height: 25%;
   display: flex;
+  padding: 0em;
   flex-direction: row;
   justify-content: space-between;
-  padding: 2em;
-  gap: 1em;
 }
 .chat-infos-and-prof-pic {
   display: flex;
   flex-direction: row;
   gap: 0em 1em;
+  width: 100%;
+  background-color: var(--stratos);
+  border-radius: 1em;
+  padding: 1em;
   justify-content: start;
+  color: white !important;
 }
 .reciever-profile-pic,
 .reciever-advert-pic {
@@ -79,20 +100,68 @@
 }
 .reciever-infos {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 .message-right-side {
   justify-self: flex-end !important;
   align-self: flex-end;
 }
-
+.message-right-side,
+.message-left-side {
+  border: 1px solid lightgray;
+  border-radius: 0.5em;
+  padding: 0.4em;
+  margin: 0.3em 0em;
+}
 .message-left-side {
   justify-self: flex-start !important;
   align-self: flex-start;
 }
 
-.chat-are-message-show {
-  width: 80%;
+.chat-area-message-show {
+  width: 100%;
+  display: flex;
+  margin-left: -1em !important;
+  flex-direction: column;
+}
+.chat-users-left-side-infos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 0em 1em;
+  width: 100%;
+}
+.chat-users-left-side-infos-img-div {
+  background-color: white !important;
+  width: 3em;
+
+  height: 3em;
+  border-radius: 50%;
+}
+.chat-users-left-side-infos-img-div img {
+  width: 100%;
+  border-radius: 50%;
+  aspect-ratio: 2/2;
+  background-color: black;
+}
+.chat-users-left-side-infos-list {
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.chat-users-left-side-infos-list hr {
+  width: 100%;
+  margin-left: -1em;
+}
+.chat-users-left-side-infos-name-span {
+  font-size: 1.3em;
+}
+.top-send-message-hr {
+  width: 100%;
+  margin-bottom: 0em;
+}
+.send-massage-text-area {
+  border: 1px solid lightgray;
 }

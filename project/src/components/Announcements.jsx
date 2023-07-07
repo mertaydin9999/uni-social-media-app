@@ -11,6 +11,7 @@ function Announcements() {
   const filteredAnnounces = (params) => {
     announcement = data
       .filter((announcement) => announcement.category == params)
+      .sort((a, b) => new Date(a.date) - new Date(b.date))
       .map((announcement) => {
         return (
           <AnnouncementLisItem

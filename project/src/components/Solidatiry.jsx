@@ -161,7 +161,7 @@ function Solidatiry() {
           </div>
         </div>
       </div>
-      <div>
+      <div className="solidatiry-profile-right-side">
         <form className="solidatiry-share-form" onSubmit={handleSubmit}>
           <div className="solidatiry-top-form">
             <div className="solidatiry-profile-img-div ">

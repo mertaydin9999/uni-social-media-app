@@ -79,6 +79,27 @@ img {
 .create-event-form-my-event {
   width: 50%;
 }
+.event-header-title {
+  width: 86%;
+  background-color: var(--stratos);
+  color: white;
+  margin-left: 1em;
+  border-radius: 0.3em;
+  padding: 1em 2em;
+  font-size: 2em !important;
+}
+.my-event-title {
+  justify-self: center !important;
+  border-radius: 0.3em;
+  padding: 0.3em 1em !important;
+  width: 100%;
+  font-size: 2em !important;
+  background-color: var(--stratos) !important;
+  color: white;
+}
+.create-event-profile-side-infos label {
+  font-size: 1.1em !important;
+}
 @media screen and (max-width: 992px) {
   .event {
     width: 100%;

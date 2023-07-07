@@ -22,7 +22,13 @@ h3 {
   gap: 0em 2em;
 }
 .announcement-header {
-  margin-bottom: 5em !important;
+  width: 102%;
+  background-color: var(--stratos);
+  color: white;
+  border-radius: 0.3em;
+  padding: 1em 2em;
+  font-size: 0.8em !important;
+  margin-bottom: 2em;
 }
 .announcements-div {
   width: 80% !important;

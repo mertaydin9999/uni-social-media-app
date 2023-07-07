@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useFetchAdvertsQuery } from "../store";
+import { useFetchAdvertsQuery, useFetchUsersQuery } from "../store";
 import { useSearchParams } from "react-router-dom";
 import MyAdvertsListItem from "./MyAdvertsListItem";
 import Skeleton from "@mui/material/Skeleton";
@@ -11,15 +11,19 @@ import { useGetLoginQuery } from "../store";
 function MyAdverts() {
   const { data, isError, isFetching } = useFetchAdvertsQuery();
   const { data: loginData } = useGetLoginQuery();
+  const { data: users } = useFetchUsersQuery();
   const [profileData, setProfileData] = useState(null);
   let myAdverts;
   useEffect(() => {
     // loginData ve users değiştiğinde tetiklenecek
-    if (loginData) {
-      const foundProfileData = loginData[loginData.length - 1];
+    if (loginData && users) {
+      const lastLogin = loginData[loginData.length - 1];
+      const foundProfileData = users.find(
+        (user) => user.email === lastLogin.email
+      );
       setProfileData(foundProfileData);
     }
-  }, [loginData]);
+  }, [loginData, users]);
 
   if (isFetching) {
     myAdverts = <Skeleton variant="rectangular" sx={{ width: "100%" }} />;
@@ -36,20 +40,37 @@ function MyAdverts() {
   return (
     <div className="my-advert-root">
       <div className="profile-left-my-adverts">
-        <div className="profile-pic-my-advert-div">
+        <div className="solidatiry-profile-root my-adverts-profile">
           <img
-            className="profile-pic-my-adverts"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz86WkB3GhlJaFAfYpRAogTerlrxHMWivNWQ&usqp=CAU"
+            className="advert-create-image"
+            src={profileData?.profilePicture || ""}
           />
-        </div>
+          <div className="left-profile-infos">
+            <label htmlFor="">
+              {profileData?.name + " " + profileData?.surname}
+            </label>
+            <br />
+            <label htmlFor="">Yalova</label>
+            <br />
+            <label htmlFor="">{profileData?.university}</label> <br />
+            <label htmlFor="">23</label>
+          </div>
 
-        <div className="photo-buttons">
-          <Link to="/profile">Profile Git</Link>
-          <Link to="/create-advert">Ilan Olustur</Link>
-          <Link to="/advert">Ilanlar</Link>
+          <div className="create-advert-links-div event-links-my-events">
+            <Link to="/adverts" className="">
+              Ilanlar
+            </Link>
+            <Link to="/profile" className="">
+              Profili Gor
+            </Link>
+            <Link to="/create-advert" className="">
+              Ilan Olustur
+            </Link>
+          </div>
         </div>
       </div>
       <div className="profile-right">
+        <div className="my-adverts-banner">ILANLARIM</div>
         <div className="advert-list-div">
           <div className="advert-list-inner-div">{myAdverts}</div>
         </div>

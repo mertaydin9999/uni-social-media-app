@@ -30,7 +30,7 @@ function LoginForm() {
       }
 
       console.log("Success");
-      navigate("/user-profile");
+      navigate("/");
     } else {
       console.log("Invalid email or password");
     }

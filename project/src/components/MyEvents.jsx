@@ -8,6 +8,13 @@ import { Link } from "react-router-dom";
 import { Skeleton } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import MyEventsListItem from "./MyEventsListItem";
+const calculatedAge = (datetime) => {
+  const date = new Date(datetime);
+  const year = date.getFullYear();
+  const currentDate = new Date();
+  let age = currentDate.getFullYear() - year;
+  return age;
+};
 
 function MyEvents() {
   const { data: usersData, isLoading: isUsersLoading } = useFetchUsersQuery();
@@ -52,15 +59,15 @@ function MyEvents() {
           className="advert-create-image"
           src={profileLoginData?.profilePicture || ""}
         />
-        <div className="left-profile-infos">
+        <div className="create-event-profile-side-infos">
           <label htmlFor="">
             {profileLoginData?.name + " " + profileLoginData?.surname}
           </label>
           <br />
-          <label htmlFor="">Yalova</label>
+          <label htmlFor="">{profileLoginData?.address}</label>
           <br />
           <label htmlFor="">{profileLoginData?.university}</label> <br />
-          <label htmlFor="">23</label>
+          <label htmlFor="">{calculatedAge(profileLoginData?.birthdate)}</label>
         </div>
 
         <div className="create-advert-links-div event-links-my-events">
@@ -74,7 +81,7 @@ function MyEvents() {
       </div>
       <div className="my-events-list-my-events">
         <div className="event-and-header-my-events">
-          <h3 className="create-advert-title">Etkinliklerim</h3>
+          <h3 className="my-event-title">Etkinliklerim</h3>
           <div className="my-event-list">{event}</div>
         </div>
       </div>

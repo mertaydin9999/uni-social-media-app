@@ -9,7 +9,7 @@ const MyJumbotron = () => {
         <p className="kampusler">Hosgeldin!</p>
         <p className="campus-connect">CampusConnect ?</p>
         <p className="kampusler">Kampusler arasi connect.</p>
-        <Link>Aramiza Katil</Link>
+        <Link to="/signup">Aramiza Katil</Link>
       </div>
     </div>
   );

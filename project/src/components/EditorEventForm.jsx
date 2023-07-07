@@ -3,7 +3,60 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { useAddEventsMutation } from "../store/apis/eventsApi";
 import { TailSpin } from "react-loader-spinner";
-
+const universities = [
+  "İstanbul Teknik Üniversitesi",
+  "Orta Doğu Teknik Üniversitesi",
+  "Boğaziçi Üniversitesi",
+  "Koç Üniversitesi",
+  "Sabancı Üniversitesi",
+  "Bilkent Üniversitesi",
+  "Hacettepe Üniversitesi",
+  "İstanbul Üniversitesi",
+  "Ankara Üniversitesi",
+  "Ege Üniversitesi",
+  "Dokuz Eylül Üniversitesi",
+  "Yıldız Teknik Üniversitesi",
+  "İzmir Yüksek Teknoloji Enstitüsü",
+  "ODTÜ İleri Teknolojiler Araştırma Enstitüsü",
+  "Marmara Üniversitesi",
+  "Gazi Üniversitesi",
+  "Çukurova Üniversitesi",
+  "İstanbul Bilgi Üniversitesi",
+  "İstanbul Medeniyet Üniversitesi",
+  "Anadolu Üniversitesi",
+  "Erciyes Üniversitesi",
+  "Akdeniz Üniversitesi",
+  "Selçuk Üniversitesi",
+  "Uludağ Üniversitesi",
+  "Pamukkale Üniversitesi",
+  "Kocaeli Üniversitesi",
+  "Adnan Menderes Üniversitesi",
+  "Doğuş Üniversitesi",
+  "Karadeniz Teknik Üniversitesi",
+  "Çanakkale Onsekiz Mart Üniversitesi",
+  "Haliç Üniversitesi",
+  "Kadir Has Üniversitesi",
+  "Eskişehir Teknik Üniversitesi",
+  "Sakarya Üniversitesi",
+  "Atatürk Üniversitesi",
+  "Isparta Uygulamalı Bilimler Üniversitesi",
+  "Abdullah Gül Üniversitesi",
+  "Maltepe Üniversitesi",
+  "Kahramanmaraş Sütçü İmam Üniversitesi",
+  "KTO Karatay Üniversitesi",
+  "Niğde Ömer Halisdemir Üniversitesi",
+  "Eskişehir Osmangazi Üniversitesi",
+  "Balıkesir Üniversitesi",
+  "Nevşehir Hacı Bektaş Veli Üniversitesi",
+  "Süleyman Demirel Üniversitesi",
+  "Batman Üniversitesi",
+  "Kahramanmaraş İstiklal Üniversitesi",
+  "Trakya Üniversitesi",
+  "Kırklareli Üniversitesi",
+  "Düzce Üniversitesi",
+  "Aksaray Üniversitesi",
+  "Yalova Üniversitesi",
+];
 function EditorEventForm() {
   const [addEventsMutation] = useAddEventsMutation();
   const handleImageChange = (event) => {
@@ -83,13 +136,21 @@ function EditorEventForm() {
       </div>
       <div>
         <label htmlFor="university">Üniversite:</label>
-        <input
-          type="text"
+        <select
           id="university"
           name="university"
-          onChange={handleChange}
           value={values.university}
-        />
+          onChange={handleChange}
+        >
+          <option value="">Seçin</option>
+          {universities
+            .sort((a, b) => a.localeCompare(b)) // A'dan Z'ye sıralama
+            .map((university) => (
+              <option key={university} value={university}>
+                {university}
+              </option>
+            ))}
+        </select>
       </div>
       <div>
         <label htmlFor="university">Tarih:</label>

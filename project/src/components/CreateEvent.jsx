@@ -5,6 +5,13 @@ import { useFetchUsersQuery } from "../store";
 import { useAddEventsMutation } from "../store/apis/eventsApi";
 import { TailSpin } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
+const calculatedAge = (datetime) => {
+  const date = new Date(datetime);
+  const year = date.getFullYear();
+  const currentDate = new Date();
+  let age = currentDate.getFullYear() - year;
+  return age;
+};
 
 function CreateEvent() {
   const { data: loginData } = useGetLoginQuery();
@@ -86,13 +93,15 @@ function CreateEvent() {
           className="advert-create-image"
           src={profileData?.profilePicture}
         />
-        <div>
-          <label htmlFor=""></label>
+        <div className="create-event-profile-side-infos">
+          <label htmlFor="">
+            {profileData?.name + " " + profileData?.surname}
+          </label>
           <br />
-          <label htmlFor="">Yalova</label>
+          <label htmlFor="">{profileData?.address}</label>
           <br />
-          <label htmlFor="">Yalova Universitesi</label> <br />
-          <label htmlFor="">23</label>
+          <label htmlFor="">{profileData?.university}</label> <br />
+          <label htmlFor="">{calculatedAge(profileData?.birthdate)}</label>
         </div>
 
         <div className="create-advert-links-div event-links-my-events">

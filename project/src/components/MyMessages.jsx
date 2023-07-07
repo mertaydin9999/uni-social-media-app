@@ -6,7 +6,7 @@ import { useGetMessageQuery, useAddMessageMutation } from "../store";
 import { useFetchAdvertsQuery } from "../store";
 import { useFormik } from "formik";
 import "../styles/MyMessages.css";
-
+import AnonimAvatar from "../assets/non-profile.png";
 function MyMessages() {
   const { id } = useParams();
   const { data: users } = useFetchUsersQuery();
@@ -17,24 +17,30 @@ function MyMessages() {
   const [profileLoginData, setProfileLoginData] = useState(null);
   const [receiver, setReceiver] = useState(null);
   const [receiverUser, setReceiverUser] = useState(null);
+  const [myReceiverMessages, setMyReceiverMessages] = useState(null);
+  const [mySenderMessages, setMySenderMessages] = useState(null);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [currentChat, setCurrentChat] = useState(null);
 
   useEffect(() => {
-    if (loginData && users && adverts && id) {
+    if (loginData && users && messages) {
       const lastLogin = loginData[loginData.length - 1];
       const foundProfileData = users.find(
         (user) => user.email === lastLogin.email
       );
-      const foundReceiver = adverts.find((advert) => advert.id == id);
-      const foundRecieverUser = users.find(
-        (user) => user.email == foundReceiver.email
+      const myReceiverMessages = messages.filter(
+        (message) => message.receiverEmail === foundProfileData?.email
       );
 
+      const mySenderMessages = messages.filter(
+        (message) => message.senderEmail === foundProfileData?.email
+      );
+
+      setMyReceiverMessages(myReceiverMessages);
+      setMySenderMessages(mySenderMessages);
       setProfileLoginData(foundProfileData);
-      setReceiver(foundReceiver);
-      setReceiverUser(foundRecieverUser);
-      console.log(foundReceiver);
     }
-  }, [loginData, users, adverts, id]);
+  }, [loginData, users, messages]);
 
   const { values, errors, isSubmitting, handleChange, handleSubmit } =
     useFormik({
@@ -66,37 +72,100 @@ function MyMessages() {
         // Mesajı gönderdikten sonra formu sıfırla
       },
     });
+  const handleUserClick = (user) => {
+    setReceiver(user);
+    setSelectedUser(user);
+  };
+  console.log(
+    selectedUser,
+    myReceiverMessages
+      ?.filter((message) => message.senderEmail == selectedUser?.email)
+      .map((message) => message),
+    mySenderMessages
+      ?.filter((message) => message.receiverEmail == selectedUser?.email)
+      .map((message) => message)
+  );
+
+  const combinedMessages = [
+    ...(myReceiverMessages || []),
+    ...(mySenderMessages || []),
+  ].filter(
+    (message) =>
+      message.senderEmail === selectedUser?.email ||
+      message.receiverEmail === selectedUser?.email
+  );
+
+  console.log(combinedMessages);
   return (
     <div className="my-messages-container">
-      <div className="chat-users-left-side"> </div>
+      <div className="chat-users-left-side">
+        {users &&
+          users
+            .filter((user) => {
+              return messages?.some(
+                (message) =>
+                  (message.senderEmail === user.email &&
+                    message.receiverEmail === profileLoginData?.email) ||
+                  (message.senderEmail === profileLoginData?.email &&
+                    message.receiverEmail === user.email)
+              );
+            })
+            .map((user) => (
+              <ul key={user.id} className="chat-users-left-side-infos-list">
+                <li
+                  className="chat-users-left-side-infos"
+                  onClick={() => handleUserClick(user)}
+                >
+                  <div className="chat-users-left-side-infos-img-div">
+                    <img src={user.profilePicture} alt="" />
+                  </div>
+                  <span className="chat-users-left-side-infos-name-span">
+                    {user.name + " " + user.surname}
+                  </span>
+                </li>
+                <hr />
+              </ul>
+            ))}
+      </div>
       <div className="messages-right-side">
-        <div className="chat-user-info">
-          <div className="chat-area-reciever-side">
-            <div className="chat-infos-and-prof-pic">
-              <div className="reciever-profile-pic">
-                <img src={receiverUser?.profilePicture} alt="" />
-              </div>
-              <div className="reciever-infos">
-                <span>{receiverUser?.name + " " + receiverUser?.surname}</span>
-                <span>{receiverUser?.address}</span>
-                <span>{receiver?.title}</span>
-              </div>
+        <div className="chat-area-reciever-side">
+          <div className="chat-infos-and-prof-pic">
+            <div className="reciever-profile-pic">
+              <img
+                src={
+                  selectedUser?.profilePicture
+                    ? selectedUser?.profilePicture
+                    : AnonimAvatar
+                }
+                alt=""
+              />
             </div>
-
-            <div className="reciever-advert-pic">
-              <img src={receiver?.images[0]} alt="" />
+            <div className="reciever-infos">
+              <div>
+                <span>
+                  {" "}
+                  {(selectedUser?.name ? selectedUser?.name : "") +
+                    " " +
+                    (selectedUser?.surname ? selectedUser?.surname : "")}
+                </span>
+                <span>
+                  {selectedUser?.address ? "," + selectedUser?.address : ""}
+                </span>
+              </div>
+              <span>{receiver?.title}</span>
             </div>
           </div>
+
+          <div className="reciever-advert-pic">
+            {/* <img src={receiver?.images[0]} alt="" /> */}
+          </div>
         </div>
+
         <div className="chat-area-messages">
-          <ul className="chat-are-message-show">
-            {messages &&
-              messages
-                .filter(
-                  (message) =>
-                    message.receiverEmail === receiver?.email ||
-                    message.senderEmail === profileLoginData?.email
-                )
+          <ul className="chat-area-message-show">
+            {combinedMessages &&
+              combinedMessages
+                .sort((a, b) => new Date(a.date) - new Date(b.date))
                 .map((message) => (
                   <li
                     key={message.id}
@@ -111,9 +180,11 @@ function MyMessages() {
                 ))}
           </ul>
         </div>
+        <hr className="top-send-message-hr" />
         <div className="chat-send-message">
           <form className="chat-send-message-form" onSubmit={handleSubmit}>
             <textarea
+              className="send-massage-text-area"
               rows={2}
               type="text"
               name="message"

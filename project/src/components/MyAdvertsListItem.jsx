@@ -18,7 +18,7 @@ function MyAdvertsListItem({ myAdverts }) {
   };
   return (
     <Link
-      className="myadvert-main-root "
+      className="myadvert-main-root"
       to={`/advert/detail/${myAdverts.id}`}
       style={{ textDecoration: "none", color: "black" }}
     >

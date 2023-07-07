@@ -8,3 +8,7 @@
   align-items: left;
   font-size: 0.7em !important;
 }
+.profile-select {
+  overflow-y: auto !important;
+  line-height: 30px !important;
+}

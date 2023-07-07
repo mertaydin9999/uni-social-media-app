@@ -1,30 +1,62 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useFetchAdvertsQuery } from "../store";
 import "../styles/AdvertDetail.css";
 import EmailIcon from "@mui/icons-material/Email";
-import { useState } from "react";
-
+import { useGetLoginQuery } from "../store";
+import { useFetchUsersQuery } from "../store";
+import { useFormik } from "formik";
 function AdvertDetail() {
   const { id } = useParams();
+  const { data: loginData } = useGetLoginQuery();
+  const { data: users } = useFetchUsersQuery();
+  const [profileData, setProfileData] = useState(null);
   let navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState("");
+  const [advertOwner, setAdvertOwner] = useState(null);
+  const { data: adverts, isError, isFetching } = useFetchAdvertsQuery();
+  useEffect(() => {
+    // loginData ve users değiştiğinde tetiklenecek
+    if (loginData && users && adverts) {
+      const lastLogin = loginData[loginData.length - 1];
+      const foundProfileData = users.find(
+        (user) => user.email === lastLogin.email
+      );
+      const foundAdvertOwner = users.find(
+        (user) => user.email === lastLogin.email
+      );
+      setProfileData(foundProfileData);
+    }
+  }, [loginData, users, adverts]);
+  console.log(profileData);
 
   const handleSmallImageClick = (image) => {
     setSelectedImage(image);
   };
 
-  const { data, isError, isFetching } = useFetchAdvertsQuery();
   let advertDetail;
   if (isFetching) {
     advertDetail = <div>yukleniyor</div>;
   } else if (isError) {
     advertDetail = <div>Hata Var</div>;
   } else {
-    advertDetail = data
+    advertDetail = adverts
       ?.filter((advertDetail) => advertDetail.id == id)
       .map((advertDetail) => {
+        const { values, handleChange, handleSubmit } = useFormik({
+          initialValues: {
+            senderEmail: "", // İlan sahibinin emailini buraya ekleyin
+            receiverEmail: advertDetail.email, // İlan sahibinin emailini buraya ekleyin
+            message: "İlgileniyorum!", // Gönderilecek mesajı burada belirtin
+          },
+          onSubmit: async (values) => {
+            // Mesaj gönderme işlemlerini burada gerçekleştirin
+            console.log(values);
+            // ...
+          },
+        });
+        console.log(advertDetail);
         return (
           <div key={advertDetail.id}>
             <div className="general-div">
@@ -79,8 +111,11 @@ function AdvertDetail() {
                       <label className="address-label">Adres</label>
                       <span className="address">{advertDetail.address}</span>
                     </div>
-                    <div>
-                      <Link to={`/my-messages/${advertDetail.id}`}>
+                    <div className="advert-detail-send-mesage-div">
+                      <Link
+                        className="advert-detail-send-message-link"
+                        to={`/my-messages/${advertDetail.id}`}
+                      >
                         Mesaj At
                         <EmailIcon sx={{ paddingLeft: 1, fontSize: 30 }} />
                       </Link>

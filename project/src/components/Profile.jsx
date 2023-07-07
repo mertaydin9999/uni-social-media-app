@@ -4,6 +4,13 @@ import { useGetLoginQuery } from "../store";
 import { useFetchUsersQuery } from "../store";
 import { useEffect } from "react";
 import "../styles/Profile.css";
+const calculatedAge = (datetime) => {
+  const date = new Date(datetime);
+  const year = date.getFullYear();
+  const currentDate = new Date();
+  let age = currentDate.getFullYear() - year;
+  return age;
+};
 function Profile() {
   const { data: loginData } = useGetLoginQuery();
   const { data: users } = useFetchUsersQuery();
@@ -43,10 +50,10 @@ function Profile() {
               </p>
             </div>
             <p className="profile-p">
-              {profileData?.university ? profileData.university : ""}
+              {profileData?.university ? profileData?.university : ""}
             </p>
-            <p className="profile-p">Istanbul</p>
-            <p className="profile-p">23</p>
+            <p className="profile-p">{profileData?.address}</p>
+            <p className="profile-p">{calculatedAge(profileData?.birthdate)}</p>
             <p className="profile-p">
               {profileData?.job ? profileData.job : ""}
             </p>

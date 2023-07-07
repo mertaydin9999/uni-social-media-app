@@ -9,6 +9,13 @@ import { useEffect } from "react";
 import { TailSpin } from "react-loader-spinner";
 import { useState } from "react";
 import { useAddAdvertsMutation } from "../store";
+const calculatedAge = (datetime) => {
+  const date = new Date(datetime);
+  const year = date.getFullYear();
+  const currentDate = new Date();
+  let age = currentDate.getFullYear() - year;
+  return age;
+};
 
 function CreateAdvert() {
   const { data: loginData } = useGetLoginQuery();
@@ -91,15 +98,15 @@ function CreateAdvert() {
           className="advert-create-image"
           src={profileData?.profilePicture}
         />
-        <div>
+        <div className="create-advert-profile-details-div">
           <label htmlFor="">
             {profileData?.name + " " + profileData?.surname}
           </label>
           <br />
-          <label htmlFor="">Yalova</label>
+          <label htmlFor="">{profileData?.address}</label>
           <br />
-          <label htmlFor="">Yalova Universitesi</label> <br />
-          <label htmlFor="">23</label>
+          <label htmlFor="">{profileData?.university}</label> <br />
+          <label htmlFor="">{calculatedAge(profileData?.birthdate)}</label>
         </div>
 
         <div className="create-advert-links-div">
@@ -277,17 +284,17 @@ function CreateAdvert() {
         </div>
       </div>
       <div className="right-div-advert-create">
-        <Link to="/edit-my-profile" className="">
+        <Link to="/" className="">
+          Anasayfa
+        </Link>
+        <Link to="/advert" className="">
           Ilanlar
         </Link>
-        <Link to="/profile" className="">
+        <Link to="/my-adverts" className="">
           Ilanlarim
         </Link>
         <Link to="/profile" className="">
           Profilim
-        </Link>
-        <Link to="/profile" className="">
-          Anasayfa
         </Link>
       </div>
     </div>

@@ -23,9 +23,9 @@
   display: flex;
   flex-direction: row;
   margin: 10em auto;
-  width: 80%;
+  width: 90%;
 
-  gap: 0em;
+  gap: 5em;
 }
 .delete-my-advert-button {
   border: none !important;
@@ -41,11 +41,25 @@
   aspect-ratio: 2/2;
 }
 .profile-left-my-adverts {
+  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2em;
 }
 .profile-right {
-  width: 80%;
+  width: 70%;
+}
+.my-adverts-profile {
+  height: 35em !important;
+}
+.my-adverts-banner {
+  text-align: center;
+  font-size: 2em;
+  padding: 1em 2em;
+  width: 100%;
+  border-radius: 0.3em;
+  color: white;
+  background-color: var(--stratos);
+  margin-bottom: 1em;
 }

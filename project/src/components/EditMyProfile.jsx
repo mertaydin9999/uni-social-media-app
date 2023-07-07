@@ -8,7 +8,150 @@ import {
   useFetchUsersQuery,
   useUpdateUserMutation,
 } from "../store/apis/usersApi";
-
+const universities = [
+  "İstanbul Teknik Üniversitesi",
+  "Orta Doğu Teknik Üniversitesi",
+  "Boğaziçi Üniversitesi",
+  "Koç Üniversitesi",
+  "Sabancı Üniversitesi",
+  "Bilkent Üniversitesi",
+  "Hacettepe Üniversitesi",
+  "İstanbul Üniversitesi",
+  "Ankara Üniversitesi",
+  "Ege Üniversitesi",
+  "Dokuz Eylül Üniversitesi",
+  "Yıldız Teknik Üniversitesi",
+  "İzmir Yüksek Teknoloji Enstitüsü",
+  "ODTÜ İleri Teknolojiler Araştırma Enstitüsü",
+  "Marmara Üniversitesi",
+  "Gazi Üniversitesi",
+  "Çukurova Üniversitesi",
+  "İstanbul Bilgi Üniversitesi",
+  "İstanbul Medeniyet Üniversitesi",
+  "Anadolu Üniversitesi",
+  "Erciyes Üniversitesi",
+  "Akdeniz Üniversitesi",
+  "Selçuk Üniversitesi",
+  "Uludağ Üniversitesi",
+  "Pamukkale Üniversitesi",
+  "Kocaeli Üniversitesi",
+  "Adnan Menderes Üniversitesi",
+  "Doğuş Üniversitesi",
+  "Karadeniz Teknik Üniversitesi",
+  "Çanakkale Onsekiz Mart Üniversitesi",
+  "Haliç Üniversitesi",
+  "Kadir Has Üniversitesi",
+  "Eskişehir Teknik Üniversitesi",
+  "Sakarya Üniversitesi",
+  "Atatürk Üniversitesi",
+  "Isparta Uygulamalı Bilimler Üniversitesi",
+  "Abdullah Gül Üniversitesi",
+  "Maltepe Üniversitesi",
+  "Kahramanmaraş Sütçü İmam Üniversitesi",
+  "KTO Karatay Üniversitesi",
+  "Niğde Ömer Halisdemir Üniversitesi",
+  "Eskişehir Osmangazi Üniversitesi",
+  "Balıkesir Üniversitesi",
+  "Nevşehir Hacı Bektaş Veli Üniversitesi",
+  "Süleyman Demirel Üniversitesi",
+  "Batman Üniversitesi",
+  "Kahramanmaraş İstiklal Üniversitesi",
+  "Trakya Üniversitesi",
+  "Kırklareli Üniversitesi",
+  "Düzce Üniversitesi",
+  "Aksaray Üniversitesi",
+  "Yalova Üniversitesi",
+];
+const cities = [
+  "Adana",
+  "Adıyaman",
+  "Afyonkarahisar",
+  "Ağrı",
+  "Amasya",
+  "Ankara",
+  "Antalya",
+  "Artvin",
+  "Aydın",
+  "Balıkesir",
+  "Bilecik",
+  "Bingöl",
+  "Bitlis",
+  "Bolu",
+  "Burdur",
+  "Bursa",
+  "Çanakkale",
+  "Çankırı",
+  "Çorum",
+  "Denizli",
+  "Diyarbakır",
+  "Edirne",
+  "Elazığ",
+  "Erzincan",
+  "Erzurum",
+  "Eskişehir",
+  "Gaziantep",
+  "Giresun",
+  "Gümüşhane",
+  "Hakkari",
+  "Hatay",
+  "Isparta",
+  "Mersin",
+  "İstanbul",
+  "İzmir",
+  "Kars",
+  "Kastamonu",
+  "Kayseri",
+  "Kırklareli",
+  "Kırşehir",
+  "Kocaeli",
+  "Konya",
+  "Kütahya",
+  "Malatya",
+  "Manisa",
+  "Kahramanmaraş",
+  "Mardin",
+  "Muğla",
+  "Muş",
+  "Nevşehir",
+  "Niğde",
+  "Ordu",
+  "Rize",
+  "Sakarya",
+  "Samsun",
+  "Siirt",
+  "Sinop",
+  "Sivas",
+  "Tekirdağ",
+  "Tokat",
+  "Trabzon",
+  "Tunceli",
+  "Şanlıurfa",
+  "Uşak",
+  "Van",
+  "Yozgat",
+  "Zonguldak",
+  "Aksaray",
+  "Bayburt",
+  "Karaman",
+  "Kırıkkale",
+  "Batman",
+  "Şırnak",
+  "Bartın",
+  "Ardahan",
+  "Iğdır",
+  "Yalova",
+  "Karabük",
+  "Kilis",
+  "Osmaniye",
+  "Düzce",
+];
+const calculatedAge = (datetime) => {
+  const date = new Date(datetime);
+  const year = date.getFullYear();
+  const currentDate = new Date();
+  let age = currentDate.getFullYear() - year;
+  return age;
+};
 function EditMyProfile() {
   const { data: usersData, isLoading: isUsersLoading } = useFetchUsersQuery();
   const { data: loginData } = useGetLoginQuery();
@@ -44,6 +187,7 @@ function EditMyProfile() {
       address: profileLoginData?.address || "",
       birthdate: profileLoginData?.birthdate || "",
       profilePicture: profileLoginData?.profilePicture || [],
+      password: profileLoginData?.password || "",
     },
     onSubmit: async (values, actions) => {
       try {
@@ -56,6 +200,7 @@ function EditMyProfile() {
           profilePicture: values.profilePicture,
           address: values.address,
           birthdate: values.birthdate,
+          password: profileLoginData?.password,
         };
 
         const response = await updateUser(updatedData);
@@ -100,10 +245,10 @@ function EditMyProfile() {
             {profileLoginData?.name + " " + profileLoginData?.surname}
           </label>
           <br />
-          <label htmlFor="">Yalova</label>
+          <label htmlFor="">{profileLoginData?.address}</label>
           <br />
           <label htmlFor="">{profileLoginData?.university}</label> <br />
-          <label htmlFor="">23</label>
+          <label htmlFor="">{calculatedAge(profileLoginData?.birthdate)}</label>
         </div>
 
         <div className="create-advert-links-div">
@@ -115,7 +260,6 @@ function EditMyProfile() {
       <div className="middle-div-advert-create">
         <h3 className="create-advert-title">Profili Duzenleme </h3>
 
-        <hr />
         <div className="create-advert-inputs">
           <form className="inputs-form" onSubmit={handleSubmit}>
             <div className="basic-info basic-info2">
@@ -165,14 +309,22 @@ function EditMyProfile() {
             <div className="basic-info basic-info2">
               <label>Universite</label>
               <div className="advert-title-and-label">
-                <input
-                  type="text"
-                  placeholder="Ilan icin bir baslik giriniz"
+                <select
                   id="university"
+                  name="university"
+                  className="profile-select"
                   value={values.university}
                   onChange={handleChange}
-                  className={errors.university ? "input-error" : ""}
-                />
+                >
+                  <option value="">Seçin</option>
+                  {universities
+                    .sort((a, b) => a.localeCompare(b))
+                    .map((university) => (
+                      <option key={university} value={university}>
+                        {university}
+                      </option>
+                    ))}
+                </select>
                 {errors.university && (
                   <p className="error">{errors.university}</p>
                 )}
@@ -194,14 +346,21 @@ function EditMyProfile() {
             <div className="basic-info basic-info2">
               <label>Adres </label>
               <div className="advert-title-and-label">
-                <textarea
-                  name=""
-                  cols="30"
-                  rows="3"
+                <select
                   id="address"
+                  name="ciaddressty"
                   value={values.address}
                   onChange={handleChange}
-                ></textarea>
+                >
+                  <option value="" disabled>
+                    Şehir Seçin
+                  </option>
+                  {cities.map((address) => (
+                    <option key={address} value={address}>
+                      {address}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
             <div className="basic-info basic-info2 basic-info-price ">
