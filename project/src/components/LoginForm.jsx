@@ -19,7 +19,7 @@ function LoginForm() {
   const [updateLogin] = useUpdateLoginMutation();
   const { data: loginData } = useGetLoginQuery();
   const onSubmit = async (values, actions) => {
-    const user = users.find((user) => user.email === values.email);
+    const user = users.data.find((user) => user.email === values.email);
 
     if (user && user.password === values.password) {
       if (user) {

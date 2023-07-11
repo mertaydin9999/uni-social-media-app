@@ -9,7 +9,7 @@ function Announcements() {
   const [searchParams, setSearchParams] = useSearchParams();
   let params = searchParams.get("filter");
   const filteredAnnounces = (params) => {
-    announcement = data
+    announcement = data.data
       .filter((announcement) => announcement.category == params)
       .sort((a, b) => new Date(a.date) - new Date(b.date))
       .map((announcement) => {
@@ -30,7 +30,7 @@ function Announcements() {
     if (params) {
       filteredAnnounces(params);
     } else {
-      announcement = data.map((announcement) => {
+      announcement = data.data.map((announcement) => {
         return (
           <AnnouncementLisItem
             key={announcement.id}

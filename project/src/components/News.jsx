@@ -10,7 +10,7 @@ function News() {
   let params = searchParams.get("filter");
   let news;
   const filteredNews = (params) => {
-    news = data
+    news = data.data
       .filter((news) => news.category == params)
       .map((news) => {
         return <NewsListItem key={news.id} news={news} />;
@@ -24,7 +24,7 @@ function News() {
     if (params) {
       filteredNews(params);
     } else {
-      news = data.map((news) => {
+      news = data.data.map((news) => {
         return <NewsListItem key={news.id} news={news} />;
       });
     }

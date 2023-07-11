@@ -76,20 +76,20 @@ function Editor() {
   };
 
   const filterData = (input) => {
-    let filteredEvents = eventData;
-    let filteredAnnouncements = announcementData;
-    let filteredNews = newsData;
+    let filteredEvents = eventData.data;
+    let filteredAnnouncements = announcementData.data
+    let filteredNews = newsData.data;
 
     if (input) {
-      filteredEvents = eventData.filter((event) =>
+      filteredEvents = eventData.data.filter((event) =>
         event.title.toLowerCase().includes(input.toLowerCase())
       );
 
-      filteredAnnouncements = announcementData.filter((announcement) =>
+      filteredAnnouncements = announcementData.data.filter((announcement) =>
         announcement.title.toLowerCase().includes(input.toLowerCase())
       );
 
-      filteredNews = newsData.filter((news) =>
+      filteredNews = newsData.data.filter((news) =>
         news.title.toLowerCase().includes(input.toLowerCase())
       );
     }

@@ -22,12 +22,12 @@ function AdvertDetail() {
   useEffect(() => {
     // loginData ve users değiştiğinde tetiklenecek
     if (loginData && users && adverts && id) {
-      const lastLogin = loginData[loginData.length - 1];
-      const foundProfileData = users.find(
+      const lastLogin = loginData.data[loginData.length - 1];
+      const foundProfileData = users.data.find(
         (user) => user.email === lastLogin.email
       );
-      const foundAdvertOwner = users.filter(
-        (user) => user.email === adverts?.email && adverts.id == id
+      const foundAdvertOwner = users.data.filter(
+        (user) => user.email === adverts?.data.email && adverts?.data.id == id
       );
 
       setProfileData(foundProfileData);
@@ -45,12 +45,12 @@ function AdvertDetail() {
   } else if (isError) {
     advertDetail = <div>Hata Var</div>;
   } else {
-    advertDetail = adverts
+    advertDetail = adverts.data
       ?.filter((advertDetail) => advertDetail.id == id)
       .map((advertDetail) => {
         const handleSendMessage = async () => {
           const values = {
-            senderEmail: profileData?.email,
+            senderEmail: profileData?.data.email,
             receiverEmail: advertDetail?.email,
             message: "İlgileniyorum!",
             date: new Date().toISOString(),

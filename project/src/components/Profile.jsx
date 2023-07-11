@@ -20,8 +20,8 @@ function Profile() {
   useEffect(() => {
     // loginData ve users değiştiğinde tetiklenecek
     if (loginData && users) {
-      const lastLogin = loginData[loginData.length - 1];
-      const foundProfileData = users.find(
+      const lastLogin = loginData.data[loginData.length - 1];
+      const foundProfileData = users.data.find(
         (user) => user.email === lastLogin.email
       );
       setProfileData(foundProfileData);

@@ -19,8 +19,8 @@ function EditMyAdvert() {
   useEffect(() => {
     // loginData ve users değiştiğinde tetiklenecek
     if (loginData && advertsData && id) {
-      const lastLogin = loginData[loginData.length - 1];
-      const foundProfileData = advertsData.find(
+      const lastLogin = loginData.data[loginData.length - 1];
+      const foundProfileData = advertsData.data.find(
         (advert) => advert.email === lastLogin.email && advert.id == id
       );
       setProfileLoginData(foundProfileData);

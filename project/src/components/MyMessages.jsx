@@ -24,15 +24,15 @@ function MyMessages() {
 
   useEffect(() => {
     if (loginData && users && messages) {
-      const lastLogin = loginData[loginData.length - 1];
-      const foundProfileData = users.find(
-        (user) => user.email === lastLogin.email
+      const lastLogin = loginData.data[loginData.length - 1];
+      const foundProfileData = users.data.find(
+        (user) => user.email === lastLogin.data.email
       );
-      const myReceiverMessages = messages.filter(
+      const myReceiverMessages = messages.data.filter(
         (message) => message.receiverEmail === foundProfileData?.email
       );
 
-      const mySenderMessages = messages.filter(
+      const mySenderMessages = messages.data.filter(
         (message) => message.senderEmail === foundProfileData?.email
       );
 

@@ -13,7 +13,7 @@ function NewsDetail() {
     news = <div>Hata Var</div>;
   } else {
     news = data
-      ?.filter((news) => news.id == id)
+      ?.data.filter((news) => news.id == id)
       .map((news) => {
         const date = new Date(news.date);
         const options = {

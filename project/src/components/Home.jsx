@@ -37,7 +37,7 @@ function Home() {
   } else if (eventsError) {
     event = <div>Hata Var</div>;
   } else {
-    event = eventsData.map((event) => {
+    event = eventsData.data.map((event) => {
       return <HomeEvents key={event.id} event={event} />;
     });
   }
@@ -47,7 +47,7 @@ function Home() {
   } else if (announceError) {
     announcement = <div>Hata Var</div>;
   } else {
-    announcement = announceData.map((announcement) => {
+    announcement = announceData.data.map((announcement) => {
       return (
         <HomeAnnouncement key={announcement.id} announcement={announcement} />
       );
@@ -59,7 +59,7 @@ function Home() {
   } else if (newsError) {
     news = <div>Hata Var</div>;
   } else {
-    news = newsData.map((news) => {
+    news = newsData.data.map((news) => {
       return <HomeNews key={news.id} news={news} />;
     });
   }

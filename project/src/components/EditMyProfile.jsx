@@ -162,8 +162,8 @@ function EditMyProfile() {
   useEffect(() => {
     // loginData ve users değiştiğinde tetiklenecek
     if (loginData && usersData) {
-      const lastLogin = loginData[loginData.length - 1];
-      const foundProfileData = usersData.find(
+      const lastLogin = loginData.data[loginData.length - 1];
+      const foundProfileData = usersData.data.find(
         (user) => user.email === lastLogin.email
       );
       setProfileLoginData(foundProfileData);

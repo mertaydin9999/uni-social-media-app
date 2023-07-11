@@ -14,7 +14,7 @@ function EventDetail() {
     event = <div>Hata Var</div>;
   } else {
     event = data
-      ?.filter((event) => event.id == id)
+      ?.data.filter((event) => event.id == id)
       .map((event) => {
         const date = new Date(event.date);
         const options = {

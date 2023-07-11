@@ -16,7 +16,7 @@ function Advert() {
   };
 
   const filteredAdverts = (params) => {
-    return data
+    return data.data
       .filter((advert) => advert.category === params)
       .map((advert) => <AdvertListItem key={advert.id} advert={advert} />);
   };
@@ -29,7 +29,7 @@ function Advert() {
     if (params) {
       advert = filteredAdverts(params);
     } else {
-      advert = data
+      advert = data.data
         .filter((advert) =>
           advert.title.toLowerCase().includes(searchQuery.toLowerCase())
         )

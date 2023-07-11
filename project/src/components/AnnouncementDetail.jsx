@@ -14,7 +14,7 @@ function AnnouncementDetail() {
   } else if (isError) {
     announcement = <div>Hata Var</div>;
   } else {
-    announcement = data
+    announcement = data.data
       ?.filter((announcement) => announcement.id == id)
       .map((announcement) => {
         const date = new Date(announcement.date);

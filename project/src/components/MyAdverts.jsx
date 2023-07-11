@@ -17,9 +17,9 @@ function MyAdverts() {
   useEffect(() => {
     // loginData ve users değiştiğinde tetiklenecek
     if (loginData && users) {
-      const lastLogin = loginData[loginData.length - 1];
-      const foundProfileData = users.find(
-        (user) => user.email === lastLogin.email
+      const lastLogin = loginData.data[loginData.length - 1];
+      const foundProfileData = users.data.find(
+        (user) => user.email === lastLogin.data.email
       );
       setProfileData(foundProfileData);
     }
@@ -30,7 +30,7 @@ function MyAdverts() {
   } else if (isError) {
     myAdverts = <div>Hata Var</div>;
   } else {
-    myAdverts = data
+    myAdverts = data.data
       .filter((advert) => advert.email == profileData?.email)
       .map((advert) => (
         <MyAdvertsListItem key={advert.id} myAdverts={advert} />

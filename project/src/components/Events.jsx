@@ -13,7 +13,7 @@ function Events() {
   let event;
 
   const filteredEvents = (params) => {
-    event = data
+    event = data.data
       .filter((event) => event.category == params)
       .map((event) => {
         return <EventListItem key={event.id} event={event} />;
@@ -28,7 +28,7 @@ function Events() {
     if (params) {
       filteredEvents(params);
     } else {
-      event = data.map((event) => {
+      event = data.data.map((event) => {
         return <EventListItem key={event.id} event={event} />;
       });
     }

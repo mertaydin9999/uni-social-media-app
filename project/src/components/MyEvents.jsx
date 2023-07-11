@@ -25,8 +25,8 @@ function MyEvents() {
   useEffect(() => {
     // loginData ve users değiştiğinde tetiklenecek
     if (loginData && usersData) {
-      const lastLogin = loginData[loginData.length - 1];
-      const foundProfileData = usersData.find(
+      const lastLogin = loginData.data[loginData.length - 1];
+      const foundProfileData = usersData.data.find(
         (user) => user.email === lastLogin.email
       );
       setProfileLoginData(foundProfileData);
@@ -45,7 +45,7 @@ function MyEvents() {
   } else if (isError) {
     event = <div>Hata var</div>;
   } else {
-    event = data
+    event = data.data
       .filter((event) => event.email == profileLoginData?.email)
       .map((event) => {
         return <MyEventsListItem key={event.id} myEvents={event} />;

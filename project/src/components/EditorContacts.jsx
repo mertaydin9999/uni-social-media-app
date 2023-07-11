@@ -16,7 +16,7 @@ function EditorContacts() {
 
   return (
     <div className="contact-list">
-      {contacts.map((contact) => (
+      {contacts.data.map((contact) => (
         <div key={contact.id} className="contact-item">
           <h3>{contact.email}</h3>
           <p>{contact.message}</p>

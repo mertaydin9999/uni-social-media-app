@@ -9,7 +9,7 @@ function MyPosts() {
   const [profileData, setProfileData] = useState(null);
   useEffect(() => {
     if (loginData) {
-      const foundProfileData = loginData[loginData.length - 1];
+      const foundProfileData = loginData.data[loginData.length - 1];
       setProfileData(foundProfileData);
     }
   }, [loginData]);
@@ -20,7 +20,7 @@ function MyPosts() {
         <div>Loading...</div>
       ) : (
         <ul className="solidatiry-posts">
-          {posts
+          {posts.data
             ?.filter((post) => post.email == profileData?.email)
             .map((post) => (
               <li key={post.id} className="solidatiry-post">
