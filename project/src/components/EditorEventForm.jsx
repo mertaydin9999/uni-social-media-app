@@ -93,6 +93,7 @@ function EditorEventForm() {
       images: [],
       university: "",
       date: "",
+      category: "",
     },
 
     onSubmit: async (values, actions) => {
@@ -112,7 +113,7 @@ function EditorEventForm() {
 
   return (
     <form className="editor-form-details" onSubmit={handleSubmit}>
-      <h3 style={{ textAlign: "center" }}> Duyuru Oluşturma </h3>
+      <h3 style={{ textAlign: "center" }}> Etkinlik Oluşturma </h3>
       <div>
         <label htmlFor="title">Başlık:</label>
         <input
@@ -134,6 +135,31 @@ function EditorEventForm() {
           cols="30"
         ></textarea>
       </div>
+      <div>
+        <label htmlFor="advertDesc">Kategori:</label>
+        <select
+          id="category"
+          name="category"
+          value={values.category}
+          onChange={handleChange}
+          className={errors.category ? "input-error" : ""}
+        >
+          <option value="">Kategori Seçin</option>
+          <option value="meeting">Tanisma</option>
+          <option value="school">Okul</option>
+          <option value="clup">Kulup</option>
+          <option value="concert">Konser</option>
+          <option value="opening">Acilis</option>
+          <option value="help">Yardim</option>
+          <option value="challenge">Yarisma</option>
+          <option value="party">Parti</option>
+          <option value="travel">Gezi</option>
+          <option value="game">Oyun</option>
+          <option value="tournament">Turnuva</option>
+          <option value="other">Diger</option>
+        </select>
+      </div>
+
       <div>
         <label htmlFor="university">Üniversite:</label>
         <select

@@ -15,17 +15,17 @@ function Navbar() {
       <ul>
         <li>
           <Link className="link" to="/aboutus">
-            Hakkimizda
+            Hakkımızda
           </Link>
         </li>
         <li>
           <Link to="/contact" className="link">
-            Iletisim
+            İletişim
           </Link>
         </li>
         <li>
           <Link to="/advert" className="link">
-            Ilanlar
+            İlanlar
           </Link>
         </li>
         <li>

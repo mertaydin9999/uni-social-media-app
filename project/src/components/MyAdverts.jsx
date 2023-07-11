@@ -57,7 +57,7 @@ function MyAdverts() {
           </div>
 
           <div className="create-advert-links-div event-links-my-events">
-            <Link to="/adverts" className="">
+            <Link to="/advert" className="">
               Ilanlar
             </Link>
             <Link to="/profile" className="">

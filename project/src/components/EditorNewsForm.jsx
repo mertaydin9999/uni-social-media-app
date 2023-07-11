@@ -3,7 +3,89 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { useAddNewsMutation } from "../store/apis/newsApi";
 import { TailSpin } from "react-loader-spinner";
-
+const cities = [
+  "Adana",
+  "Adıyaman",
+  "Afyonkarahisar",
+  "Ağrı",
+  "Amasya",
+  "Ankara",
+  "Antalya",
+  "Artvin",
+  "Aydın",
+  "Balıkesir",
+  "Bilecik",
+  "Bingöl",
+  "Bitlis",
+  "Bolu",
+  "Burdur",
+  "Bursa",
+  "Çanakkale",
+  "Çankırı",
+  "Çorum",
+  "Denizli",
+  "Diyarbakır",
+  "Edirne",
+  "Elazığ",
+  "Erzincan",
+  "Erzurum",
+  "Eskişehir",
+  "Gaziantep",
+  "Giresun",
+  "Gümüşhane",
+  "Hakkari",
+  "Hatay",
+  "Isparta",
+  "Mersin",
+  "İstanbul",
+  "İzmir",
+  "Kars",
+  "Kastamonu",
+  "Kayseri",
+  "Kırklareli",
+  "Kırşehir",
+  "Kocaeli",
+  "Konya",
+  "Kütahya",
+  "Malatya",
+  "Manisa",
+  "Kahramanmaraş",
+  "Mardin",
+  "Muğla",
+  "Muş",
+  "Nevşehir",
+  "Niğde",
+  "Ordu",
+  "Rize",
+  "Sakarya",
+  "Samsun",
+  "Siirt",
+  "Sinop",
+  "Sivas",
+  "Tekirdağ",
+  "Tokat",
+  "Trabzon",
+  "Tunceli",
+  "Şanlıurfa",
+  "Uşak",
+  "Van",
+  "Yozgat",
+  "Zonguldak",
+  "Aksaray",
+  "Bayburt",
+  "Karaman",
+  "Kırıkkale",
+  "Batman",
+  "Şırnak",
+  "Bartın",
+  "Ardahan",
+  "Iğdır",
+  "Yalova",
+  "Karabük",
+  "Kilis",
+  "Osmaniye",
+  "Düzce",
+];
 function EditorNewsForm() {
   const [addNewsMutation] = useAddNewsMutation();
   const handleImageChange = (event) => {
@@ -41,6 +123,8 @@ function EditorNewsForm() {
       university: "",
       date: "",
       createDate: "",
+      category: "",
+      address:"",
     },
 
     onSubmit: async (values, actions) => {
@@ -60,7 +144,7 @@ function EditorNewsForm() {
 
   return (
     <form className="editor-form-details" onSubmit={handleSubmit}>
-      <h3 style={{ textAlign: "center" }}> Duyuru Oluşturma </h3>
+      <h3 style={{ textAlign: "center" }}> Haber Oluşturma </h3>
       <div>
         <label htmlFor="title">Başlık:</label>
         <input
@@ -82,18 +166,44 @@ function EditorNewsForm() {
           cols="30"
         ></textarea>
       </div>
-      <div>
-        <label htmlFor="university">Üniversite:</label>
-        <input
-          type="text"
-          id="university"
-          name="university"
-          onChange={handleChange}
-          value={values.university}
-        />
+      <div className="basic-info">
+        <label htmlFor="category">Kategori</label>
+        <div className="advert-title-and-label">
+          <select
+            id="category"
+            name="category"
+            value={values.category}
+            onChange={handleChange}
+            className={errors.category ? "input-error" : ""}
+          >
+            <option value="">Kategori Seçin</option>
+            <option value="help">Yardim</option>
+            <option value="city">Sehir</option>
+            <option value="transport">Ulasim</option>
+            <option value="other">Diger</option>
+          </select>
+        </div>
       </div>
       <div>
-        <label htmlFor="university">Tarih:</label>
+        <label htmlFor="address">Sehir:</label>
+        <select
+          id="address"
+          name="address"
+          value={values.address}
+          onChange={handleChange}
+        >
+          <option value="" disabled>
+            Şehir Seçin
+          </option>
+          {cities.map((address) => (
+            <option key={address} value={address}>
+              {address}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label htmlFor="date">Tarih:</label>
         <input
           type="date"
           id="date"

@@ -48,38 +48,27 @@ function Announcements() {
       <div className="contents">
         <div className="filter-div">
           <div>
-            <h4>KATEGORILER</h4>
-          </div>
-          <div>
             <button
               className="category-btn-advert"
               onClick={() => setSearchParams({ filter: "" })}
             >
-              Tum Duyurular
+              Tüm Duyurular
             </button>
           </div>
           <div>
             <button
               className="category-btn-advert"
-              onClick={() => setSearchParams({ filter: "work" })}
+              onClick={() => setSearchParams({ filter: "school" })}
             >
-              Okul Duyurulari
+              Okul
             </button>
           </div>
           <div>
             <button
               className="category-btn-advert"
-              onClick={() => setSearchParams({ filter: "help" })}
+              onClick={() => setSearchParams({ filter: "clup" })}
             >
-              Yardim Duyurulari
-            </button>
-          </div>
-          <div>
-            <button
-              className="category-btn-advert"
-              onClick={() => setSearchParams({ filter: "home" })}
-            >
-              Kulup Duyurulari
+              Kulüp
             </button>
           </div>
         </div>

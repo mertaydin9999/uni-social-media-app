@@ -6,6 +6,7 @@ import "../styles/AdvertDetail.css";
 import EmailIcon from "@mui/icons-material/Email";
 import { useGetLoginQuery } from "../store";
 import { useFetchUsersQuery } from "../store";
+import { useAddMessageMutation } from "../store";
 import { useFormik } from "formik";
 function AdvertDetail() {
   const { id } = useParams();
@@ -15,21 +16,24 @@ function AdvertDetail() {
   let navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState("");
   const [advertOwner, setAdvertOwner] = useState(null);
+
   const { data: adverts, isError, isFetching } = useFetchAdvertsQuery();
+  const [sendMessage] = useAddMessageMutation();
   useEffect(() => {
     // loginData ve users değiştiğinde tetiklenecek
-    if (loginData && users && adverts) {
+    if (loginData && users && adverts && id) {
       const lastLogin = loginData[loginData.length - 1];
       const foundProfileData = users.find(
         (user) => user.email === lastLogin.email
       );
-      const foundAdvertOwner = users.find(
-        (user) => user.email === lastLogin.email
+      const foundAdvertOwner = users.filter(
+        (user) => user.email === adverts?.email && adverts.id == id
       );
+
       setProfileData(foundProfileData);
+      setAdvertOwner(foundAdvertOwner);
     }
-  }, [loginData, users, adverts]);
-  console.log(profileData);
+  }, [loginData, users, adverts, id]);
 
   const handleSmallImageClick = (image) => {
     setSelectedImage(image);
@@ -44,19 +48,25 @@ function AdvertDetail() {
     advertDetail = adverts
       ?.filter((advertDetail) => advertDetail.id == id)
       .map((advertDetail) => {
-        const { values, handleChange, handleSubmit } = useFormik({
-          initialValues: {
-            senderEmail: "", // İlan sahibinin emailini buraya ekleyin
-            receiverEmail: advertDetail.email, // İlan sahibinin emailini buraya ekleyin
-            message: "İlgileniyorum!", // Gönderilecek mesajı burada belirtin
-          },
-          onSubmit: async (values) => {
-            // Mesaj gönderme işlemlerini burada gerçekleştirin
-            console.log(values);
-            // ...
-          },
-        });
-        console.log(advertDetail);
+        const handleSendMessage = async () => {
+          const values = {
+            senderEmail: profileData?.email,
+            receiverEmail: advertDetail?.email,
+            message: "İlgileniyorum!",
+            date: new Date().toISOString(),
+            advertId: id,
+          };
+
+          await sendMessage(values);
+          console.log(values);
+
+          await new Promise((resolve) => {
+            setTimeout(resolve, 1000);
+          });
+
+          navigate(`/my-messages`);
+        };
+
         return (
           <div key={advertDetail.id}>
             <div className="general-div">
@@ -98,27 +108,27 @@ function AdvertDetail() {
                   </div>
                   <div className="right-div">
                     <div>
-                      <label>Fiyat</label>
+                      <label className="price-label">Fiyat</label>
                       <span className="price">
                         {advertDetail.price} {"  TL"}
                       </span>
                     </div>
                     <div>
                       <label className="customer-label">Ilan Sahibi</label>
-                      <span className="price">Mert Aydin</span>
+                      <span className="price">{advertDetail.name}</span>
                     </div>
                     <div>
                       <label className="address-label">Adres</label>
                       <span className="address">{advertDetail.address}</span>
                     </div>
                     <div className="advert-detail-send-mesage-div">
-                      <Link
+                      <span
                         className="advert-detail-send-message-link"
-                        to={`/my-messages/${advertDetail.id}`}
+                        onClick={handleSendMessage}
                       >
-                        Mesaj At
+                        Ilgileniyorum!
                         <EmailIcon sx={{ paddingLeft: 1, fontSize: 30 }} />
-                      </Link>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -132,12 +142,6 @@ function AdvertDetail() {
                 </div>
               </div>
             </div>
-            {/* <div className="bottom-similar-advert">
-              <img src={advertDetail.imageUrl} alt="" />
-              <img src={advertDetail.imageUrl} alt="" />
-              <img src={advertDetail.imageUrl} alt="" />
-              <img src={advertDetail.imageUrl} alt="" />
-            </div> */}
           </div>
         );
       });
@@ -147,9 +151,3 @@ function AdvertDetail() {
 }
 
 export default AdvertDetail;
-// <div key={advertDetail.id}>
-//   {advertDetail.address}
-//   <p>{advertDetail.advertDesc}</p>
-//   <p>{advertDetail.category}</p>
-//   <p>{advertDetail.price}</p>
-// </div>

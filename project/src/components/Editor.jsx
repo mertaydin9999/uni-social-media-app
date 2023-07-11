@@ -13,6 +13,7 @@ import EditorNewsDetails from "./EditorNewsDetails";
 import EditorAnnoForm from "./EditorAnnoForm";
 import EditorEventForm from "./EditorEventForm";
 import EditorNewsForm from "./EditorNewsForm";
+import EditorContacts from "./EditorContacts";
 
 function Editor() {
   const [removeAnnouncement, { isLoading: isRemovingAnnouncement }] =
@@ -34,6 +35,16 @@ function Editor() {
   const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
   const [selectedNews, setSelectedNews] = useState(null);
   const [showCreateForm, setShowCreateForm] = useState(false);
+
+  const [activeSection, setActiveSection] = useState(null);
+
+  const handleSectionClick = (section) => {
+    if (activeSection === section) {
+      setActiveSection(null);
+    } else {
+      setActiveSection(section);
+    }
+  };
 
   const {
     data: announcementData,
@@ -330,14 +341,27 @@ function Editor() {
             >
               Haber Sayfası
             </button>
+            <button
+              className={`editor-aside-button ${
+                activeSection === "contacts" ? "active" : ""
+              }`}
+              onClick={() => handleSectionClick("contacts")}
+            >
+              İletişim
+            </button>
           </aside>
           <main className="editor-main">
-            <article className="editor-article-left">
-              {renderMainContent()}
-            </article>
-            <article className="editor-article-right">
-              {renderRightArticle()}
-            </article>
+            {activeSection === "contacts" && <EditorContacts />}
+            {activeSection !== "contacts" && (
+              <>
+                <article className="editor-article-left">
+                  {renderMainContent()}
+                </article>
+                <article className="editor-article-right">
+                  {renderRightArticle()}
+                </article>
+              </>
+            )}
           </main>
         </div>
       </div>

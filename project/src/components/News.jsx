@@ -37,22 +37,11 @@ function News() {
       <div className="contents">
         <div className="filter-div">
           <div>
-            <h4>KATEGORILER</h4>
-          </div>
-          <div>
             <button
               className="category-btn-advert "
               onClick={() => setSearchParams({ filter: "" })}
             >
-              Tum Duyurular
-            </button>
-          </div>
-          <div>
-            <button
-              className="category-btn-advert "
-              onClick={() => setSearchParams({ filter: "work" })}
-            >
-              Okul Duyurulari
+              Tüm Haberler
             </button>
           </div>
           <div>
@@ -60,15 +49,31 @@ function News() {
               className="category-btn-advert "
               onClick={() => setSearchParams({ filter: "help" })}
             >
-              Yardim Duyurulari
+              Yardım
             </button>
           </div>
           <div>
             <button
               className="category-btn-advert "
-              onClick={() => setSearchParams({ filter: "home" })}
+              onClick={() => setSearchParams({ filter: "city" })}
             >
-              Kulup Duyurulari
+              Şehir
+            </button>
+          </div>
+          <div>
+            <button
+              className="category-btn-advert "
+              onClick={() => setSearchParams({ filter: "transport" })}
+            >
+              Ulaşim
+            </button>
+          </div>
+          <div>
+            <button
+              className="category-btn-advert "
+              onClick={() => setSearchParams({ filter: "other" })}
+            >
+              Diğer
             </button>
           </div>
         </div>

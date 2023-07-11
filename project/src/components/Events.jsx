@@ -37,21 +37,41 @@ function Events() {
   return (
     <div className="event-root">
       <div className="event-categories">
-        <h4>Etkinlik turu</h4>
         <button onClick={() => setSearchParams({ filter: "" })}>
-          <p>Tum Etkinlikler</p>
+          <p>Tüm Etkinlikler</p>
         </button>
         <button onClick={() => setSearchParams({ filter: "concert" })}>
           <p>Konserler</p>
         </button>
-        <button onClick={() => setSearchParams({ filter: "community" })}>
-          <p>Topluluklar</p>
+        <button onClick={() => setSearchParams({ filter: "school" })}>
+          <p>Okul</p>
         </button>
-        <button onClick={() => setSearchParams({ filter: "university" })}>
-          <p>Universite</p>
+        <button onClick={() => setSearchParams({ filter: "meeting" })}>
+          <p>Tanışma</p>
         </button>
-        <button onClick={() => setSearchParams({ filter: "places" })}>
-          <p>Mekanlar</p>
+        <button onClick={() => setSearchParams({ filter: "clup" })}>
+          <p>Kulüp</p>
+        </button>
+        <button onClick={() => setSearchParams({ filter: "opening" })}>
+          <p>Açılış</p>
+        </button>
+        <button onClick={() => setSearchParams({ filter: "help" })}>
+          <p>Yardım</p>
+        </button>
+        <button onClick={() => setSearchParams({ filter: "challenge" })}>
+          <p>Yarişma</p>
+        </button>
+        <button onClick={() => setSearchParams({ filter: "party" })}>
+          <p>Parti</p>
+        </button>
+        <button onClick={() => setSearchParams({ filter: "game" })}>
+          <p>Oyun</p>
+        </button>
+        <button onClick={() => setSearchParams({ filter: "travel" })}>
+          <p>Gezi</p>
+        </button>
+        <button onClick={() => setSearchParams({ filter: "tournament" })}>
+          <p>Turnuva</p>
         </button>
       </div>
       <div className="events">

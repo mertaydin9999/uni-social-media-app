@@ -68,6 +68,7 @@ function CreateEvent() {
       images: [],
       university: "",
       date: "",
+      category: "",
     },
 
     onSubmit: async (values, actions) => {
@@ -75,6 +76,7 @@ function CreateEvent() {
       const formattedDate = currentDate.toISOString();
       values.date = formattedDate;
       values.email = profileData?.email;
+      values.university = profileData?.university;
 
       await addEventsMutation(values);
       console.log(values);
@@ -140,14 +142,28 @@ function CreateEvent() {
           ></textarea>
         </div>
         <div>
-          <label htmlFor="university">Üniversite:</label>
-          <input
-            type="text"
-            id="university"
-            name="university"
+          <label htmlFor="university">Kategori:</label>
+          <select
+            id="category"
+            name="category"
+            value={values.category}
             onChange={handleChange}
-            value={values.university}
-          />
+            className={errors.category ? "input-error" : ""}
+          >
+            <option value="">Kategori Seçin</option>
+            <option value="meeting">Tanisma</option>
+            <option value="school">Okul</option>
+            <option value="clup">Kulup</option>
+            <option value="concert">Konser</option>
+            <option value="opening">Acilis</option>
+            <option value="help">Yardim</option>
+            <option value="challenge">Yarisma</option>
+            <option value="party">Parti</option>
+            <option value="travel">Gezi</option>
+            <option value="game">Oyun</option>
+            <option value="tournament">Turnuva</option>
+            <option value="other">Diger</option>
+          </select>
         </div>
         <div>
           <label htmlFor="university">Tarih:</label>

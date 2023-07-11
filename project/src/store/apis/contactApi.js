@@ -7,6 +7,14 @@ const contactApi = createApi({
   }),
   endpoints(builder) {
     return {
+      getContact: builder.query({
+        query: () => {
+          return {
+            url: "/contacts",
+            method: "GET",
+          };
+        },
+      }),
       addContact: builder.mutation({
         query: (message) => {
           return {
@@ -20,6 +28,6 @@ const contactApi = createApi({
   },
 });
 
-export const { useAddContactMutation } = contactApi;
+export const { useAddContactMutation ,useGetContactQuery} = contactApi;
 
 export { contactApi };

@@ -41,7 +41,7 @@ function Advert() {
 
   return (
     <section className="root">
-      <h3>Ilanlar</h3>
+      <h3>İlanlar</h3>
       <div className="search-div">
         <div className="input-div">
           <input
@@ -53,22 +53,20 @@ function Advert() {
           />
         </div>
         <div className="search-buttons-div">
-          <Link to="/create-advert">Ilan Olustur</Link>
-          <Link to="/my-adverts">Ilanlarim</Link>
+          <Link to="/create-advert">İlan Oluştur</Link>
+          <Link to="/my-adverts">İlanlarim</Link>
         </div>
       </div>
 
       <div className="adverts-div">
         <div className="filter-div">
-          <div>
-            <h4>KATEGORILER</h4>
-          </div>
+          
           <div>
             <button
               className="advert-category-button"
               onClick={() => setSearchParams({ filter: "" })}
             >
-              Tum Ilanlari
+              Tüm İlanlari
             </button>
           </div>
           <div>
@@ -82,25 +80,25 @@ function Advert() {
           <div>
             <button
               className="advert-category-button"
-              onClick={() => setSearchParams({ filter: "clothes" })}
+              onClick={() => setSearchParams({ filter: "item" })}
             >
-              Giyim
+              Eşya
             </button>
           </div>
           <div>
             <button
               className="advert-category-button"
-              onClick={() => setSearchParams({ filter: "housestaff" })}
+              onClick={() => setSearchParams({ filter: "work" })}
             >
-              Esya,Ev
+              İş
             </button>
           </div>
           <div>
             <button
               className="advert-category-button"
-              onClick={() => setSearchParams({ filter: "others" })}
+              onClick={() => setSearchParams({ filter: "other" })}
             >
-              Diger
+              Diğer
             </button>
           </div>
         </div>

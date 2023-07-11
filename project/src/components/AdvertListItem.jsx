@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/AdvertListItem.css";
+import { FaImage } from "react-icons/fa";
 function AdvertListItem({ advert }) {
   return (
     <Link
@@ -10,12 +11,10 @@ function AdvertListItem({ advert }) {
     >
       <div className="advert-list-item">
         <div className="list-advert-img-div">
-          {advert.images && (
-            <img
-              className="advert-list-img"
-              src={advert.images[0]}
-              alt="Advert"
-            />
+          {advert.images && advert.images[0] ? (
+            <img className="advert-list-img" src={advert.images[0]} />
+          ) : (
+            <FaImage className="no-image-icon" />
           )}
         </div>
 

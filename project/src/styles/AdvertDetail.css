@@ -80,6 +80,11 @@ label {
   font-size: 1.5em;
   font-weight: 400;
 }
+.customer-label,
+.address-label,
+.price-label {
+  font-size: 1.1em !important;
+}
 
 span {
   font-size: 1.7em;
@@ -149,14 +154,16 @@ button:hover {
 .advert-detail-send-message-link {
   background-color: var(--stratos) !important;
   color: white !important;
-  font-size: 1.5em !important;
-  padding: 0.3em 3em;
+  font-size: 1.3em !important;
+  padding: 1em 2em;
   font-weight: 300;
   border-radius: 0.3em;
+  border: none !important;
 }
 .advert-detail-send-message-link:hover {
   background-color: var(--regal-blue) !important;
   color: white !important;
+  cursor: pointer;
 }
 .advert-detail-send-mesage-div {
   margin-top: 3em;

@@ -14,7 +14,7 @@ function NewsListItem({ news }) {
       <div className="date-and-link">
         <p>{formattedDate}</p>
         <Link className="to-announce" to={`/news/detail/${news.id}`}>
-          Haber detayina git
+          Haber detayına git
         </Link>
       </div>
     </div>

@@ -3,7 +3,60 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { useAddAnnouncementsMutation } from "../store/apis/announcementsApi";
 import { TailSpin } from "react-loader-spinner";
-
+const universities = [
+  "İstanbul Teknik Üniversitesi",
+  "Orta Doğu Teknik Üniversitesi",
+  "Boğaziçi Üniversitesi",
+  "Koç Üniversitesi",
+  "Sabancı Üniversitesi",
+  "Bilkent Üniversitesi",
+  "Hacettepe Üniversitesi",
+  "İstanbul Üniversitesi",
+  "Ankara Üniversitesi",
+  "Ege Üniversitesi",
+  "Dokuz Eylül Üniversitesi",
+  "Yıldız Teknik Üniversitesi",
+  "İzmir Yüksek Teknoloji Enstitüsü",
+  "ODTÜ İleri Teknolojiler Araştırma Enstitüsü",
+  "Marmara Üniversitesi",
+  "Gazi Üniversitesi",
+  "Çukurova Üniversitesi",
+  "İstanbul Bilgi Üniversitesi",
+  "İstanbul Medeniyet Üniversitesi",
+  "Anadolu Üniversitesi",
+  "Erciyes Üniversitesi",
+  "Akdeniz Üniversitesi",
+  "Selçuk Üniversitesi",
+  "Uludağ Üniversitesi",
+  "Pamukkale Üniversitesi",
+  "Kocaeli Üniversitesi",
+  "Adnan Menderes Üniversitesi",
+  "Doğuş Üniversitesi",
+  "Karadeniz Teknik Üniversitesi",
+  "Çanakkale Onsekiz Mart Üniversitesi",
+  "Haliç Üniversitesi",
+  "Kadir Has Üniversitesi",
+  "Eskişehir Teknik Üniversitesi",
+  "Sakarya Üniversitesi",
+  "Atatürk Üniversitesi",
+  "Isparta Uygulamalı Bilimler Üniversitesi",
+  "Abdullah Gül Üniversitesi",
+  "Maltepe Üniversitesi",
+  "Kahramanmaraş Sütçü İmam Üniversitesi",
+  "KTO Karatay Üniversitesi",
+  "Niğde Ömer Halisdemir Üniversitesi",
+  "Eskişehir Osmangazi Üniversitesi",
+  "Balıkesir Üniversitesi",
+  "Nevşehir Hacı Bektaş Veli Üniversitesi",
+  "Süleyman Demirel Üniversitesi",
+  "Batman Üniversitesi",
+  "Kahramanmaraş İstiklal Üniversitesi",
+  "Trakya Üniversitesi",
+  "Kırklareli Üniversitesi",
+  "Düzce Üniversitesi",
+  "Aksaray Üniversitesi",
+  "Yalova Üniversitesi",
+];
 function EditorAnnoForm() {
   const [addAnnouncementsMutation] = useAddAnnouncementsMutation();
   const handleImageChange = (event) => {
@@ -40,6 +93,7 @@ function EditorAnnoForm() {
       images: [],
       university: "",
       date: "",
+      category: "",
     },
 
     onSubmit: async (values, actions) => {
@@ -82,14 +136,38 @@ function EditorAnnoForm() {
         ></textarea>
       </div>
       <div>
+        <label htmlFor="category">Kategori:</label>
+        <select
+          id="category"
+          name="category"
+          value={values.category}
+          onChange={handleChange}
+          className={errors.category ? "input-error" : ""}
+        >
+          <option value="">Kategori Seçin</option>
+          <option value="school">Okul</option>
+          <option value="clup">Kulup</option>
+        </select>
+      </div>
+
+      <div>
         <label htmlFor="university">Üniversite:</label>
-        <input
-          type="text"
+        <select
           id="university"
           name="university"
-          onChange={handleChange}
+          className="profile-select"
           value={values.university}
-        />
+          onChange={handleChange}
+        >
+          <option value="">Seçin</option>
+          {universities
+            .sort((a, b) => a.localeCompare(b))
+            .map((university) => (
+              <option key={university} value={university}>
+                {university}
+              </option>
+            ))}
+        </select>
       </div>
       <div>
         <label htmlFor="university">Tarih:</label>

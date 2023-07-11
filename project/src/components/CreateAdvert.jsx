@@ -74,6 +74,8 @@ function CreateAdvert() {
       price: "",
       date: "",
       category: "",
+      university: "",
+      name: "",
     },
     validationSchema: createAdvertSchema,
     onSubmit: async (values, actions) => {
@@ -81,7 +83,9 @@ function CreateAdvert() {
       const formattedDate = currentDate.toISOString();
       values.date = formattedDate;
       values.email = profileData.email;
-      await addAdvert(values);
+      values.university = profileData.university;
+      values.address = profileData.address;
+      (values.name = profileData.name), await addAdvert(values);
       console.log(values);
       await new Promise((resolve) => {
         setTimeout(resolve, 1000);
@@ -151,8 +155,8 @@ function CreateAdvert() {
                 >
                   <option value="">Kategori Seçin</option>
                   <option value="house">Ev</option>
-                  <option value="housestaff">Ev Eşyaları</option>
-                  <option value="clothes">Giyim</option>
+                  <option value="item">Esya </option>
+                  <option value="work">Is</option>
                   <option value="other">Diger</option>
                 </select>
               </div>
@@ -224,23 +228,7 @@ function CreateAdvert() {
                 Ilaniniza dair fotograflari yukleyiniz
               </label>
             </div>
-            <div className="basic-info">
-              <label>Adres Bilgileri</label>
-              <div className="advert-title-and-label">
-                <textarea
-                  name=""
-                  cols="30"
-                  rows="3"
-                  id="address"
-                  value={values.address}
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-              <label className="advert-title-label">
-                Adresinizi acik bir sekilde belirtmek zorunda degilsiniz.
-                Yalnizca acik bir adres vermeniz yeterli olacaktir.
-              </label>
-            </div>
+
             <div className="basic-info basic-info-price ">
               <label>Fiyat</label>
               <div className="advert-title-and-label">

@@ -81,5 +81,5 @@ export {
   useAddLikeMutation,
 } from "./apis/postsApi";
 
-export { useAddContactMutation } from "./apis/contactApi";
+export { useGetContactQuery, useAddContactMutation } from "./apis/contactApi";
 export { useAddMessageMutation, useGetMessageQuery } from "./apis/messageApi";

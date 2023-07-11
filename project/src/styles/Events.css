@@ -34,7 +34,7 @@ img {
   flex-direction: column;
   gap: 2em 0em;
   position: sticky;
-  height: 600px;
+  height: 1200px;
   top: 10em;
   padding-right: 3em !important;
   border-right: 1px solid var(--botticelli);

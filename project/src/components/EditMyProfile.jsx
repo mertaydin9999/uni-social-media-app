@@ -287,9 +287,7 @@ function EditMyProfile() {
                   onChange={handleChange}
                   className={errors.surname ? "input-error" : ""}
                 />
-                {errors.titsurnamele && (
-                  <p className="error">{errors.surname}</p>
-                )}
+                {errors.surname && <p className="error">{errors.surname}</p>}
               </div>
             </div>
             <div className="basic-info basic-info2">
@@ -348,7 +346,7 @@ function EditMyProfile() {
               <div className="advert-title-and-label">
                 <select
                   id="address"
-                  name="ciaddressty"
+                  name="address"
                   value={values.address}
                   onChange={handleChange}
                 >
@@ -400,16 +398,16 @@ function EditMyProfile() {
         </div>
       </div>
       <div className="right-div-advert-create">
-        <Link to="/edit-my-profile" className="">
+        <Link to="/advert" className="">
           Ilanlar
         </Link>
-        <Link to="/profile" className="">
+        <Link to="/my-adverts" className="">
           Ilanlarim
         </Link>
         <Link to="/profile" className="">
           Profilim
         </Link>
-        <Link to="/profile" className="">
+        <Link to="/" className="">
           Anasayfa
         </Link>
       </div>
